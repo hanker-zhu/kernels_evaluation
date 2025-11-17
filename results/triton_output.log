@@ -1,0 +1,14 @@
+=== Running Triton GEMM ===
+Triton kernel output matches PyTorch reference.
+Triton GEMM: 1.15 ms (avg of 10 runs), 119721.86 TFLOPS
+
+=== Triton Kernel Analysis ===
+- Programming Model: Python-based JIT compilation
+- Memory Hierarchy: Programmed shared memory via tl.load/tl.store
+- Parallelism: Block-level parallelism with thread cooperation
+- Tiling Strategy: Fixed 128x128x32 block sizes
+- Pipeline Stages: Manual loop unrolling for K dimension
+
+=== Analyzing Generated Code ===
+Triton JIT compiles Python code to optimized CUDA kernels
+Check the kernel compilation output above for details

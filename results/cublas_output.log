@@ -1,0 +1,23 @@
+=== Building cuBLAS GEMM ===
+CMake Warning (dev) at CMakeLists.txt:5 (find_package):
+  Policy CMP0146 is not set: The FindCUDA module is removed.  Run "cmake
+  --help-policy CMP0146" for policy details.  Use the cmake_policy command to
+  set the policy and suppress this warning.
+
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- Configuring done (0.0s)
+-- Generating done (0.0s)
+-- Build files have been written to: /data/hanker/kernels/cublas/build
+[100%] Built target cublas_gemm
+=== Running cuBLAS GEMM ===
+cuBLAS GEMM: 0.930714 ms (avg of 10 runs), 147671 TFLOPS
+Result checksum: 0
+
+=== cuBLAS Analysis ===
+- Programming Model: Library-based BLAS interface
+- Implementation: Highly optimized vendor library
+- Memory Management: Automatic memory hierarchy optimization
+- Parallelism: Hardware-accelerated tensor operations
+- Algorithm: Proprietary optimized GEMM implementation
+- Precision: Mixed precision (FP16 input, FP32 accumulation)

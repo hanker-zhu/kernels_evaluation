@@ -1,0 +1,1 @@
+  -L/data/hanker/cutlass/lib  -Wl,-rpath,/data/hanker/cutlass/lib -lcudart -lcudadevrt -lcudart_static -lrt -lpthread -ldl 

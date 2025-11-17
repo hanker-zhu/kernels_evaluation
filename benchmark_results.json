@@ -1,0 +1,45 @@
+{
+  "cublas": {
+    "framework": "cuBLAS",
+    "success": false
+  },
+  "cutlass": {
+    "framework": "CUTLASS",
+    "success": false
+  },
+  "tilelang": {
+    "framework": "TileLang",
+    "success": true,
+    "stdout": "TileLang kernel output matches PyTorch reference.\nGenerated CUDA kernel:\n #include <tl_templates/cuda/gemm.h>\n#include <tl_templates/cuda/copy.h>\n#include <tl_templates/cuda/reduce.h>\n#include <tl_templates/cuda/ldsm.h>\n#include <tl_templates/cuda/threadblock_swizzle.h>\n#include <tl_templates/cuda/debug.h>\n#ifdef ENABLE_BF16\n#include <tl_templates/cuda/cuda_bf16_fallbacks.cuh>\n#endif\n\nextern \"C\" __global__ void main_kernel(half_t* __restrict__ A, half_t* __restrict__ B, half_t* __restrict__ C);\nextern \"C\" __global__ void __launch_bounds__(128, 1) main_kernel(half_t* _...\nTileLang GEMM: 1.15 ms, 119517.12 TFLOPS\n\n=== TileLang Kernel Analysis ===\n- Programming Model: TensorIR-based functional programming\n- Memory Hierarchy: Explicit shared/fragment memory allocation\n- Parallelism: Kernel-level thread orchestration\n- Tiling Strategy: Fixed block sizes (128x128x32)\n- Pipeline Stages: 3-stage pipelining for K dimension\n- Optimization: Automatic memory coalescing and instruction scheduling\n",
+    "stderr": "",
+    "returncode": 0,
+    "time_ms": 1.15,
+    "tflops": 119517.12,
+    "checksum": null,
+    "analysis": {
+      "Programming Model": "TensorIR-based functional programming",
+      "Memory Hierarchy": "Explicit shared/fragment memory allocation",
+      "Parallelism": "Kernel-level thread orchestration",
+      "Tiling Strategy": "Fixed block sizes (128x128x32)",
+      "Pipeline Stages": "3-stage pipelining for K dimension",
+      "Optimization": "Automatic memory coalescing and instruction scheduling"
+    }
+  },
+  "triton": {
+    "framework": "Triton",
+    "success": true,
+    "stdout": "Triton kernel output matches PyTorch reference.\nTriton GEMM: 1.16 ms (avg of 10 runs), 118946.18 TFLOPS\n\n=== Triton Kernel Analysis ===\n- Programming Model: Python-based JIT compilation\n- Memory Hierarchy: Programmed shared memory via tl.load/tl.store\n- Parallelism: Block-level parallelism with thread cooperation\n- Tiling Strategy: Fixed 128x128x32 block sizes\n- Pipeline Stages: Manual loop unrolling for K dimension\n",
+    "stderr": "",
+    "returncode": 0,
+    "time_ms": 1.16,
+    "tflops": 118946.18,
+    "checksum": null,
+    "analysis": {
+      "Programming Model": "Python-based JIT compilation",
+      "Memory Hierarchy": "Programmed shared memory via tl.load/tl.store",
+      "Parallelism": "Block-level parallelism with thread cooperation",
+      "Tiling Strategy": "Fixed 128x128x32 block sizes",
+      "Pipeline Stages": "Manual loop unrolling for K dimension"
+    }
+  }
+}

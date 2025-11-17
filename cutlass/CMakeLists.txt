@@ -4,11 +4,12 @@ project(cutlass_gemm LANGUAGES CXX CUDA)
 set(CMAKE_CXX_STANDARD 17)
 find_package(CUDA REQUIRED)
 
-# 修改下面的 CUTLASS_DIR 指向你本地的 cutlass 源码路径
-set(CUTLASS_DIR "/path/to/cutlass")  # <-- 请改成你的 cutlass 路径
+# CUTLASS 源码路径
+set(CUTLASS_DIR "/data/hanker/cutlass")
 
 include_directories(${CUTLASS_DIR})
 include_directories(${CUTLASS_DIR}/include)
+include_directories(${CUTLASS_DIR}/tools/util/include)
 link_directories(${CUTLASS_DIR}/lib)
 
 add_executable(cutlass_gemm main_cutlass_gemm.cu)

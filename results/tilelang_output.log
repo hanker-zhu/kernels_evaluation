@@ -1,0 +1,28 @@
+=== Running TileLang GEMM ===
+TileLang kernel output matches PyTorch reference.
+Generated CUDA kernel:
+ #include <tl_templates/cuda/gemm.h>
+#include <tl_templates/cuda/copy.h>
+#include <tl_templates/cuda/reduce.h>
+#include <tl_templates/cuda/ldsm.h>
+#include <tl_templates/cuda/threadblock_swizzle.h>
+#include <tl_templates/cuda/debug.h>
+#ifdef ENABLE_BF16
+#include <tl_templates/cuda/cuda_bf16_fallbacks.cuh>
+#endif
+
+extern "C" __global__ void main_kernel(half_t* __restrict__ A, half_t* __restrict__ B, half_t* __restrict__ C);
+extern "C" __global__ void __launch_bounds__(128, 1) main_kernel(half_t* _...
+TileLang GEMM: 1.15 ms, 119517.12 TFLOPS
+
+=== TileLang Kernel Analysis ===
+- Programming Model: TensorIR-based functional programming
+- Memory Hierarchy: Explicit shared/fragment memory allocation
+- Parallelism: Kernel-level thread orchestration
+- Tiling Strategy: Fixed block sizes (128x128x32)
+- Pipeline Stages: 3-stage pipelining for K dimension
+- Optimization: Automatic memory coalescing and instruction scheduling
+
+=== Analyzing Generated Code ===
+TileLang generates optimized CUDA code at runtime
+Check the kernel compilation output above for details

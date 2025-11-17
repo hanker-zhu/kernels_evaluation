@@ -1,0 +1,28 @@
+=== Building CUTLASS GEMM ===
+CMake Warning (dev) at CMakeLists.txt:5 (find_package):
+  Policy CMP0146 is not set: The FindCUDA module is removed.  Run "cmake
+  --help-policy CMP0146" for policy details.  Use the cmake_policy command to
+  set the policy and suppress this warning.
+
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- Configuring done (0.0s)
+-- Generating done (0.0s)
+-- Build files have been written to: /data/hanker/kernels/cutlass/build
+[100%] Built target cutlass_gemm
+=== Running CUTLASS GEMM ===
+CUTLASS GEMM: 0.93993 ms (avg of 10 runs), 146223 TFLOPS
+Result checksum: 2702.48
+
+=== CUTLASS Analysis ===
+- Programming Model: Template metaprogramming with C++ templates
+- Implementation: Highly configurable GEMM template library
+- Memory Hierarchy: Explicit layout and tiling specification
+- Parallelism: Architecture-specific warp/thread orchestration
+- Tiling Strategy: 128x128x32 threadblock, 64x64x32 warp, 16x8x16 instruction
+- Algorithm: Optimized for Ampere architecture (SM80)
+- Precision: Mixed precision (FP16 input, FP32 accumulation)
+
+=== Analyzing Generated Code ===
+Extracting SASS code for analysis...
+SASS code saved to cutlass_sass.txt
