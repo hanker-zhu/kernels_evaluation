@@ -1,9 +1,9 @@
 #!/bin/bash
 
-# GEMM算子生成框架对比测试 - 主运行脚本
+# GEMM算子生成框架多尺寸对比测试 - 主运行脚本
 
 echo "======================================================"
-echo "  GEMM算子生成框架深度对比分析"
+echo "  GEMM算子生成框架多尺寸深度对比分析"
 echo "======================================================"
 echo ""
 
@@ -103,7 +103,8 @@ main() {
 
     cd "$BASE_DIR"
     if [ -f "compare_frameworks.py" ]; then
-        python compare_frameworks.py
+        echo "解析测试日志并生成报告..."
+        python compare_frameworks.py --parse-logs
     else
         echo "警告: 未找到 compare_frameworks.py"
     fi
@@ -111,28 +112,33 @@ main() {
     # 显示总结
     echo ""
     echo "======================================================"
-    echo "测试总结"
+    echo "多尺寸测试总结"
     echo "======================================================"
 
     for framework in "${frameworks[@]}"; do
         status=${results[$framework]}
         if [ "$status" = "success" ]; then
-            echo "✓ $framework: 测试成功"
+            echo "✓ $framework: 多尺寸测试成功"
         else
-            echo "✗ $framework: 测试失败"
+            echo "✗ $framework: 多尺寸测试失败"
         fi
     done
 
     echo ""
+    echo "测试配置:"
+    echo "- 矩阵尺寸: 128³ 到 4096³ (包括非方形矩阵)"
+    echo "- 框架数量: ${#frameworks[@]}"
+    echo "- 总测试点: 约30+个尺寸配置"
+    echo ""
     echo "生成的文件:"
     echo "- 详细日志: $RESULTS_DIR/"
-    echo "- 对比报告: $BASE_DIR/comparison_report.md"
+    echo "- 多尺寸对比报告: $BASE_DIR/comparison_report.md"
     echo "- 技术分析: $BASE_DIR/technical_analysis.md"
-    echo "- 性能可视化: $BASE_DIR/performance_comparison.png (如果matplotlib可用)"
+    echo "- 性能趋势可视化: $BASE_DIR/performance_comparison.png (如果matplotlib可用)"
     echo "- 基准结果: $BASE_DIR/benchmark_results.json"
 
     echo ""
-    echo "测试完成！请查看上述文件获取详细分析结果。"
+    echo "测试完成！请查看上述文件获取详细的多尺寸性能分析结果。"
 }
 
 # 执行主函数

@@ -1,19 +1,34 @@
 === Running TileLang GEMM ===
-TileLang kernel output matches PyTorch reference.
-Generated CUDA kernel:
- #include <tl_templates/cuda/gemm.h>
-#include <tl_templates/cuda/copy.h>
-#include <tl_templates/cuda/reduce.h>
-#include <tl_templates/cuda/ldsm.h>
-#include <tl_templates/cuda/threadblock_swizzle.h>
-#include <tl_templates/cuda/debug.h>
-#ifdef ENABLE_BF16
-#include <tl_templates/cuda/cuda_bf16_fallbacks.cuh>
-#endif
+TileLang GEMM Multi-Size Benchmark
+==================================================
+TileLang kernel (128x128x128) output matches PyTorch reference.
+TileLang GEMM (128x128x128): 0.02 ms, 256.00 TFLOPS
+TileLang kernel (256x256x256) output matches PyTorch reference.
+TileLang GEMM (256x256x256): 0.02 ms, 1724.63 TFLOPS
+TileLang kernel (512x512x512) output matches PyTorch reference.
+TileLang GEMM (512x512x512): 0.03 ms, 9709.04 TFLOPS
+TileLang GEMM (512x256x512): 0.03 ms, 5041.23 TFLOPS
+TileLang GEMM (256x512x512): 0.03 ms, 4854.52 TFLOPS
+TileLang GEMM (512x512x256): 0.02 ms, 6898.53 TFLOPS
+TileLang kernel (1024x1024x1024) output matches PyTorch reference.
+TileLang GEMM (1024x1024x1024): 0.05 ms, 43690.67 TFLOPS
+TileLang GEMM (1024x512x1024): 0.05 ms, 22310.13 TFLOPS
+TileLang GEMM (512x1024x1024): 0.05 ms, 22310.13 TFLOPS
+TileLang GEMM (1024x1024x512): 0.03 ms, 34952.53 TFLOPS
+TileLang kernel (2048x2048x2048) output matches PyTorch reference.
+TileLang GEMM (2048x2048x2048): 0.20 ms, 86037.00 TFLOPS
+TileLang GEMM (2048x1024x2048) failed: Tensor-likes are not close!
 
-extern "C" __global__ void main_kernel(half_t* __restrict__ A, half_t* __restrict__ B, half_t* __restrict__ C);
-extern "C" __global__ void __launch_bounds__(128, 1) main_kernel(half_t* _...
-TileLang GEMM: 1.15 ms, 119517.12 TFLOPS
+Mismatched elements: 698 / 2097152 (0.0%)
+Greatest absolute difference: 0.031005859375 at index (637, 698) (up to 0.01 allowed)
+Greatest relative difference: 736.5 at index (641, 144) (up to 0.01 allowed)
+TileLang GEMM (1024x2048x2048): 0.13 ms, 64527.75 TFLOPS
+TileLang GEMM (2048x2048x1024): 0.11 ms, 75573.04 TFLOPS
+TileLang kernel (4096x4096x4096) output matches PyTorch reference.
+TileLang GEMM (4096x4096x4096): 1.15 ms, 119623.64 TFLOPS
+TileLang GEMM (4096x2048x4096): 0.59 ms, 115505.79 TFLOPS
+TileLang GEMM (2048x4096x4096): 0.59 ms, 115505.79 TFLOPS
+TileLang GEMM (4096x4096x2048): 0.61 ms, 112410.16 TFLOPS
 
 === TileLang Kernel Analysis ===
 - Programming Model: TensorIR-based functional programming

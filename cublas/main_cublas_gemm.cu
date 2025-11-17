@@ -29,50 +29,41 @@ void initialize_matrix(half* matrix, int rows, int cols, unsigned long long seed
     curandDestroyGenerator(gen);
 }
 
-int main() {
-    int M = 4096, N = 4096, K = 4096;
-    size_t szA = (size_t)M * K;
-    size_t szB = (size_t)K * N;
-    size_t szC = (size_t)M * N;
+struct BenchmarkResult {
+    int M, N, K;
+    float latency_ms;
+    double tflops;
+    double checksum;
+    bool success;
+};
 
-    half *d_A, *d_B, *d_C;
-    cudaMalloc(&d_A, szA * sizeof(half));
-    cudaMalloc(&d_B, szB * sizeof(half));
-    cudaMalloc(&d_C, szC * sizeof(half));
+void run_cublas_benchmark_single(int M, int N, int K, BenchmarkResult& result) {
+    result.M = M;
+    result.N = N;
+    result.K = K;
 
-    // 初始化随机数据
-    initialize_matrix(d_A, M, K, 0ULL);
-    initialize_matrix(d_B, K, N, 1ULL);
-    cudaMemset(d_C, 0, szC * sizeof(half));
+    try {
+        size_t szA = (size_t)M * K;
+        size_t szB = (size_t)K * N;
+        size_t szC = (size_t)M * N;
 
-    // 创建cuBLAS句柄
-    cublasHandle_t handle;
-    cublasCreate(&handle);
+        half *d_A, *d_B, *d_C;
+        cudaMalloc(&d_A, szA * sizeof(half));
+        cudaMalloc(&d_B, szB * sizeof(half));
+        cudaMalloc(&d_C, szC * sizeof(half));
 
-    const float alpha = 1.0f, beta = 0.0f;
+        // 初始化随机数据
+        initialize_matrix(d_A, M, K, 0ULL);
+        initialize_matrix(d_B, K, N, 1ULL);
+        cudaMemset(d_C, 0, szC * sizeof(half));
 
-    // 热身
-    cublasGemmEx(handle,
-                 CUBLAS_OP_N, CUBLAS_OP_N,
-                 N, M, K,
-                 &alpha,
-                 d_B, CUDA_R_16F, N,
-                 d_A, CUDA_R_16F, K,
-                 &beta,
-                 d_C, CUDA_R_16F, N,
-                 CUDA_R_32F, CUBLAS_GEMM_DEFAULT_TENSOR_OP);
-    cudaDeviceSynchronize();
+        // 创建cuBLAS句柄
+        cublasHandle_t handle;
+        cublasCreate(&handle);
 
-    // 性能测试
-    int num_runs = 10;
-    std::vector<float> times;
+        const float alpha = 1.0f, beta = 0.0f;
 
-    cudaEvent_t start, stop;
-    cudaEventCreate(&start);
-    cudaEventCreate(&stop);
-
-    for (int i = 0; i < num_runs; ++i) {
-        cudaEventRecord(start);
+        // 热身
         cublasGemmEx(handle,
                      CUBLAS_OP_N, CUBLAS_OP_N,
                      N, M, K,
@@ -82,30 +73,138 @@ int main() {
                      &beta,
                      d_C, CUDA_R_16F, N,
                      CUDA_R_32F, CUBLAS_GEMM_DEFAULT_TENSOR_OP);
-        cudaEventRecord(stop);
-        cudaEventSynchronize(stop);
-        times.push_back(elapsed_ms(start, stop));
+        cudaDeviceSynchronize();
+
+        // 性能测试
+        int num_runs = 10;
+        std::vector<float> times;
+
+        cudaEvent_t start, stop;
+        cudaEventCreate(&start);
+        cudaEventCreate(&stop);
+
+        for (int i = 0; i < num_runs; ++i) {
+            cudaEventRecord(start);
+            cublasGemmEx(handle,
+                         CUBLAS_OP_N, CUBLAS_OP_N,
+                         N, M, K,
+                         &alpha,
+                         d_B, CUDA_R_16F, N,
+                         d_A, CUDA_R_16F, K,
+                         &beta,
+                         d_C, CUDA_R_16F, N,
+                         CUDA_R_32F, CUBLAS_GEMM_DEFAULT_TENSOR_OP);
+            cudaEventRecord(stop);
+            cudaEventSynchronize(stop);
+            times.push_back(elapsed_ms(start, stop));
+        }
+
+        // 计算平均时间
+        float total_time = 0.0f;
+        for (float t : times) total_time += t;
+        float avg_time = total_time / num_runs;
+
+        double tflops = (2.0 * (double)M * (double)N * (double)K) / (avg_time * 1e6);
+
+        // 计算校验和
+        half* h_C = new half[szC];
+        cudaMemcpy(h_C, d_C, szC * sizeof(half), cudaMemcpyDeviceToHost);
+        double checksum = 0.0;
+        for (size_t i = 0; i < szC; ++i) {
+            checksum += static_cast<double>(h_C[i]);
+        }
+        delete[] h_C;
+
+        result.latency_ms = avg_time;
+        result.tflops = tflops;
+        result.checksum = checksum;
+        result.success = true;
+
+        cublasDestroy(handle);
+        cudaFree(d_A);
+        cudaFree(d_B);
+        cudaFree(d_C);
+        cudaEventDestroy(start);
+        cudaEventDestroy(stop);
+
+    } catch (...) {
+        result.success = false;
+        result.latency_ms = 0.0f;
+        result.tflops = 0.0;
+        result.checksum = 0.0;
+    }
+}
+
+int main() {
+    std::cout << "cuBLAS GEMM Multi-Size Benchmark" << std::endl;
+    std::cout << std::string(50, '=') << std::endl;
+
+    // 测试尺寸范围：从128到4096
+    std::vector<int> sizes = {128, 256, 512, 1024, 2048, 4096};
+    std::vector<BenchmarkResult> results;
+
+    for (int size : sizes) {
+        // 测试方形矩阵
+        BenchmarkResult result;
+        run_cublas_benchmark_single(size, size, size, result);
+        results.push_back(result);
+
+        if (result.success) {
+            std::cout << "cuBLAS GEMM (" << result.M << "x" << result.N << "x" << result.K << "): "
+                      << result.latency_ms << " ms (avg of 10 runs), "
+                      << result.tflops << " TFLOPS" << std::endl;
+            std::cout << "Result checksum: " << result.checksum << std::endl;
+        } else {
+            std::cout << "cuBLAS GEMM (" << size << "x" << size << "x" << size << ") failed" << std::endl;
+        }
+
+        // 测试非方形矩阵（如果不是太小）
+        if (size >= 512) {
+            // 手动定义矩形尺寸组合
+            int rect_configs[3][3] = {
+                {size, size/2, size},
+                {size/2, size, size},
+                {size, size, size/2}
+            };
+
+            for (int i = 0; i < 3; ++i) {
+                int M = rect_configs[i][0];
+                int N = rect_configs[i][1];
+                int K = rect_configs[i][2];
+
+                BenchmarkResult rect_result;
+                run_cublas_benchmark_single(M, N, K, rect_result);
+                results.push_back(rect_result);
+
+                if (rect_result.success) {
+                    std::cout << "cuBLAS GEMM (" << M << "x" << N << "x" << K << "): "
+                              << rect_result.latency_ms << " ms (avg of 10 runs), "
+                              << rect_result.tflops << " TFLOPS" << std::endl;
+                } else {
+                    std::cout << "cuBLAS GEMM (" << M << "x" << N << "x" << K << ") failed" << std::endl;
+                }
+            }
+        }
     }
 
-    // 计算平均时间
-    float total_time = 0.0f;
-    for (float t : times) total_time += t;
-    float avg_time = total_time / num_runs;
-
-    double tflops = (2.0 * (double)M * (double)N * (double)K) / (avg_time * 1e6);
-
-    std::cout << "cuBLAS GEMM: " << avg_time << " ms (avg of " << num_runs << " runs), "
-              << tflops << " TFLOPS" << std::endl;
-
-    // 计算校验和
-    half* h_C = new half[szC];
-    cudaMemcpy(h_C, d_C, szC * sizeof(half), cudaMemcpyDeviceToHost);
-    double checksum = 0.0;
-    for (size_t i = 0; i < szC; ++i) {
-        checksum += static_cast<double>(h_C[i]);
+    // 输出JSON格式的结果供Python脚本解析
+    std::cout << "\n=== BENCHMARK RESULTS JSON ===" << std::endl;
+    std::cout << "[" << std::endl;
+    for (size_t i = 0; i < results.size(); ++i) {
+        const auto& r = results[i];
+        std::cout << "  {" << std::endl;
+        std::cout << "    \"M\": " << r.M << "," << std::endl;
+        std::cout << "    \"N\": " << r.N << "," << std::endl;
+        std::cout << "    \"K\": " << r.K << "," << std::endl;
+        std::cout << "    \"latency_ms\": " << r.latency_ms << "," << std::endl;
+        std::cout << "    \"tflops\": " << r.tflops << "," << std::endl;
+        std::cout << "    \"checksum\": " << r.checksum << "," << std::endl;
+        std::cout << "    \"success\": " << (r.success ? "true" : "false") << std::endl;
+        std::cout << "  }";
+        if (i < results.size() - 1) std::cout << ",";
+        std::cout << std::endl;
     }
-    std::cout << "Result checksum: " << checksum << std::endl;
-    delete[] h_C;
+    std::cout << "]" << std::endl;
 
     // 代码结构分析
     std::cout << "\n=== cuBLAS Analysis ===" << std::endl;
@@ -115,13 +214,6 @@ int main() {
     std::cout << "- Parallelism: Hardware-accelerated tensor operations" << std::endl;
     std::cout << "- Algorithm: Proprietary optimized GEMM implementation" << std::endl;
     std::cout << "- Precision: Mixed precision (FP16 input, FP32 accumulation)" << std::endl;
-
-    cublasDestroy(handle);
-    cudaFree(d_A);
-    cudaFree(d_B);
-    cudaFree(d_C);
-    cudaEventDestroy(start);
-    cudaEventDestroy(stop);
 
     return 0;
 }

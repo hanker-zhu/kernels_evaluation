@@ -1,6 +1,34 @@
 === Running Triton GEMM ===
-Triton kernel output matches PyTorch reference.
-Triton GEMM: 1.15 ms (avg of 10 runs), 119721.86 TFLOPS
+Triton GEMM Multi-Size Benchmark
+==================================================
+Triton kernel (128x128x128) output matches PyTorch reference.
+Triton GEMM (128x128x128): 0.07 ms (avg of 10 runs), 59.82 TFLOPS
+Triton kernel (256x256x256) output matches PyTorch reference.
+Triton GEMM (256x256x256): 0.05 ms (avg of 10 runs), 611.37 TFLOPS
+Triton kernel (512x512x512) output matches PyTorch reference.
+Triton GEMM (512x512x512): 0.06 ms (avg of 10 runs), 4188.62 TFLOPS
+Triton GEMM (512x256x512): 0.06 ms (avg of 10 runs), 2152.77 TFLOPS
+Triton GEMM (256x512x512): 0.06 ms (avg of 10 runs), 2109.22 TFLOPS
+Triton GEMM (512x512x256): 0.05 ms (avg of 10 runs), 2487.63 TFLOPS
+Triton kernel (1024x1024x1024) output matches PyTorch reference.
+Triton GEMM (1024x1024x1024): 0.08 ms (avg of 10 runs), 26260.06 TFLOPS
+Triton GEMM (1024x512x1024): 0.08 ms (avg of 10 runs), 13524.32 TFLOPS
+Triton GEMM (512x1024x1024): 0.08 ms (avg of 10 runs), 13320.32 TFLOPS
+Triton GEMM (1024x1024x512): 0.08 ms (avg of 10 runs), 13427.55 TFLOPS
+Triton kernel (2048x2048x2048) output matches PyTorch reference.
+Triton GEMM (2048x2048x2048): 0.23 ms (avg of 10 runs), 75122.60 TFLOPS
+Triton GEMM (2048x1024x2048) failed: Tensor-likes are not close!
+
+Mismatched elements: 698 / 2097152 (0.0%)
+Greatest absolute difference: 0.031005859375 at index (637, 698) (up to 0.01 allowed)
+Greatest relative difference: 736.5 at index (641, 144) (up to 0.01 allowed)
+Triton GEMM (1024x2048x2048): 0.15 ms (avg of 10 runs), 55634.34 TFLOPS
+Triton GEMM (2048x2048x1024): 0.14 ms (avg of 10 runs), 61724.85 TFLOPS
+Triton kernel (4096x4096x4096) output matches PyTorch reference.
+Triton GEMM (4096x4096x4096): 1.12 ms (avg of 10 runs), 122172.93 TFLOPS
+Triton GEMM (4096x2048x4096): 0.62 ms (avg of 10 runs), 110806.70 TFLOPS
+Triton GEMM (2048x4096x4096): 0.62 ms (avg of 10 runs), 110764.11 TFLOPS
+Triton GEMM (4096x4096x2048): 0.60 ms (avg of 10 runs), 114951.89 TFLOPS
 
 === Triton Kernel Analysis ===
 - Programming Model: Python-based JIT compilation

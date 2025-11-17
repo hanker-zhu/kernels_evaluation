@@ -11,8 +11,198 @@ This warning is for project developers.  Use -Wno-dev to suppress it.
 -- Build files have been written to: /data/hanker/kernels/cutlass/build
 [100%] Built target cutlass_gemm
 === Running CUTLASS GEMM ===
-CUTLASS GEMM: 0.93993 ms (avg of 10 runs), 146223 TFLOPS
+CUTLASS GEMM Multi-Size Benchmark
+==================================================
+CUTLASS GEMM (128x128x128): 0.016896 ms (avg of 10 runs), 248.242 TFLOPS
+Result checksum: -36.3076
+CUTLASS GEMM (256x256x256): 0.0206848 ms (avg of 10 runs), 1622.18 TFLOPS
+Result checksum: -33.3085
+CUTLASS GEMM (512x512x512): 0.026112 ms (avg of 10 runs), 10280.2 TFLOPS
+Result checksum: 1039.18
+CUTLASS GEMM (512x256x512): 0.0262144 ms (avg of 10 runs), 5120 TFLOPS
+CUTLASS GEMM (256x512x512): 0.026112 ms (avg of 10 runs), 5140.08 TFLOPS
+CUTLASS GEMM (512x512x256): 0.020992 ms (avg of 10 runs), 6393.76 TFLOPS
+CUTLASS GEMM (1024x1024x1024): 0.0380928 ms (avg of 10 runs), 56375.1 TFLOPS
+Result checksum: -1587.03
+CUTLASS GEMM (1024x512x1024): 0.037376 ms (avg of 10 runs), 28728.1 TFLOPS
+CUTLASS GEMM (512x1024x1024): 0.0375808 ms (avg of 10 runs), 28571.6 TFLOPS
+CUTLASS GEMM (1024x1024x512): 0.026624 ms (avg of 10 runs), 40329.8 TFLOPS
+CUTLASS GEMM (2048x2048x2048): 0.155341 ms (avg of 10 runs), 110595 TFLOPS
+Result checksum: 7891.23
+CUTLASS GEMM (2048x1024x2048): 0.119603 ms (avg of 10 runs), 71820.3 TFLOPS
+CUTLASS GEMM (1024x2048x2048): 0.107213 ms (avg of 10 runs), 80120.4 TFLOPS
+CUTLASS GEMM (2048x2048x1024): 0.0884736 ms (avg of 10 runs), 97090.4 TFLOPS
+CUTLASS GEMM (4096x4096x4096): 0.940646 ms (avg of 10 runs), 146111 TFLOPS
 Result checksum: 2702.48
+CUTLASS GEMM (4096x2048x4096): 0.484352 ms (avg of 10 runs), 141879 TFLOPS
+CUTLASS GEMM (2048x4096x4096): 0.477696 ms (avg of 10 runs), 143856 TFLOPS
+CUTLASS GEMM (4096x4096x2048): 0.488141 ms (avg of 10 runs), 140778 TFLOPS
+
+=== BENCHMARK RESULTS JSON ===
+[
+  {
+    "M": 128,
+    "N": 128,
+    "K": 128,
+    "latency_ms": 0.016896,
+    "tflops": 248.242,
+    "checksum": -36.3076,
+    "success": true
+  },
+  {
+    "M": 256,
+    "N": 256,
+    "K": 256,
+    "latency_ms": 0.0206848,
+    "tflops": 1622.18,
+    "checksum": -33.3085,
+    "success": true
+  },
+  {
+    "M": 512,
+    "N": 512,
+    "K": 512,
+    "latency_ms": 0.026112,
+    "tflops": 10280.2,
+    "checksum": 1039.18,
+    "success": true
+  },
+  {
+    "M": 512,
+    "N": 256,
+    "K": 512,
+    "latency_ms": 0.0262144,
+    "tflops": 5120,
+    "checksum": -526.486,
+    "success": true
+  },
+  {
+    "M": 256,
+    "N": 512,
+    "K": 512,
+    "latency_ms": 0.026112,
+    "tflops": 5140.08,
+    "checksum": 421.775,
+    "success": true
+  },
+  {
+    "M": 512,
+    "N": 512,
+    "K": 256,
+    "latency_ms": 0.020992,
+    "tflops": 6393.76,
+    "checksum": 289.536,
+    "success": true
+  },
+  {
+    "M": 1024,
+    "N": 1024,
+    "K": 1024,
+    "latency_ms": 0.0380928,
+    "tflops": 56375.1,
+    "checksum": -1587.03,
+    "success": true
+  },
+  {
+    "M": 1024,
+    "N": 512,
+    "K": 1024,
+    "latency_ms": 0.037376,
+    "tflops": 28728.1,
+    "checksum": -496.19,
+    "success": true
+  },
+  {
+    "M": 512,
+    "N": 1024,
+    "K": 1024,
+    "latency_ms": 0.0375808,
+    "tflops": 28571.6,
+    "checksum": -1768.38,
+    "success": true
+  },
+  {
+    "M": 1024,
+    "N": 1024,
+    "K": 512,
+    "latency_ms": 0.026624,
+    "tflops": 40329.8,
+    "checksum": 775.405,
+    "success": true
+  },
+  {
+    "M": 2048,
+    "N": 2048,
+    "K": 2048,
+    "latency_ms": 0.155341,
+    "tflops": 110595,
+    "checksum": 7891.23,
+    "success": true
+  },
+  {
+    "M": 2048,
+    "N": 1024,
+    "K": 2048,
+    "latency_ms": 0.119603,
+    "tflops": 71820.3,
+    "checksum": -3998.75,
+    "success": true
+  },
+  {
+    "M": 1024,
+    "N": 2048,
+    "K": 2048,
+    "latency_ms": 0.107213,
+    "tflops": 80120.4,
+    "checksum": -8669.41,
+    "success": true
+  },
+  {
+    "M": 2048,
+    "N": 2048,
+    "K": 1024,
+    "latency_ms": 0.0884736,
+    "tflops": 97090.4,
+    "checksum": -7069.95,
+    "success": true
+  },
+  {
+    "M": 4096,
+    "N": 4096,
+    "K": 4096,
+    "latency_ms": 0.940646,
+    "tflops": 146111,
+    "checksum": 2702.48,
+    "success": true
+  },
+  {
+    "M": 4096,
+    "N": 2048,
+    "K": 4096,
+    "latency_ms": 0.484352,
+    "tflops": 141879,
+    "checksum": -12481.5,
+    "success": true
+  },
+  {
+    "M": 2048,
+    "N": 4096,
+    "K": 4096,
+    "latency_ms": 0.477696,
+    "tflops": 143856,
+    "checksum": -5270.98,
+    "success": true
+  },
+  {
+    "M": 4096,
+    "N": 4096,
+    "K": 2048,
+    "latency_ms": 0.488141,
+    "tflops": 140778,
+    "checksum": -10001.8,
+    "success": true
+  }
+]
 
 === CUTLASS Analysis ===
 - Programming Model: Template metaprogramming with C++ templates
