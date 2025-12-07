@@ -38,28 +38,28 @@ class FrameworkComparator:
         self.frameworks = {
             'cublas': {
                 'name': 'cuBLAS',
-                'dir': self.base_dir / 'cublas',
+                'dir': self.base_dir / 'frameworks' / 'cublas',
                 'build_cmd': 'make',
                 'run_cmd': './cublas_gemm',
                 'source': 'main_cublas_gemm.cu'
             },
             'cutlass': {
                 'name': 'CUTLASS',
-                'dir': self.base_dir / 'cutlass',
+                'dir': self.base_dir / 'frameworks' / 'cutlass',
                 'build_cmd': 'make',
                 'run_cmd': './cutlass_gemm',
                 'source': 'main_cutlass_gemm.cu'
             },
             'tilelang': {
                 'name': 'TileLang',
-                'dir': self.base_dir / 'tilelang',
+                'dir': self.base_dir / 'frameworks' / 'tilelang',
                 'build_cmd': None,  # Python脚本，无需编译
                 'run_cmd': 'python tilelang_gemm.py',
                 'source': 'tilelang_gemm.py'
             },
             'triton': {
                 'name': 'Triton',
-                'dir': self.base_dir / 'triton',
+                'dir': self.base_dir / 'frameworks' / 'triton',
                 'build_cmd': None,  # Python脚本，无需编译
                 'run_cmd': 'python triton_gemm.py',
                 'source': 'triton_gemm.py'
@@ -547,9 +547,11 @@ class FrameworkComparator:
 
     def save_results(self, filename: str = "benchmark_results.json"):
         """保存测试结果"""
-        with open(self.base_dir / filename, 'w', encoding='utf-8') as f:
+        results_dir = self.base_dir / 'results'
+        results_dir.mkdir(exist_ok=True)
+        with open(results_dir / filename, 'w', encoding='utf-8') as f:
             json.dump(self.results, f, indent=2, ensure_ascii=False)
-        print(f"Results saved to {filename}")
+        print(f"Results saved to results/{filename}")
 
     def create_visualization(self):
         """创建多尺寸性能对比可视化"""
@@ -700,8 +702,10 @@ class FrameworkComparator:
         ax4.grid(True, alpha=0.3)
 
         plt.tight_layout()
-        plt.savefig(self.base_dir / 'performance_comparison.png', dpi=300, bbox_inches='tight')
-        print("Multi-size visualization saved to performance_comparison.png")
+        results_dir = self.base_dir / 'results'
+        results_dir.mkdir(exist_ok=True)
+        plt.savefig(results_dir / 'performance_comparison.png', dpi=300, bbox_inches='tight')
+        print("Multi-size visualization saved to results/performance_comparison.png")
 
 def main():
     """主函数"""
@@ -729,9 +733,11 @@ def main():
     comparator.create_visualization()
 
     # 保存详细报告
-    with open(comparator.base_dir / 'comparison_report.md', 'w', encoding='utf-8') as f:
+    docs_dir = comparator.base_dir / 'docs'
+    docs_dir.mkdir(exist_ok=True)
+    with open(docs_dir / 'comparison_report.md', 'w', encoding='utf-8') as f:
         f.write(report)
-    print("Detailed report saved to comparison_report.md")
+    print("Detailed report saved to docs/comparison_report.md")
 
 if __name__ == "__main__":
     main()

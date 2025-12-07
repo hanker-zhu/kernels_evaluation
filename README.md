@@ -6,23 +6,50 @@
 
 ```
 kernels/
-├── cublas/           # NVIDIA cuBLAS实现
-│   ├── main_cublas_gemm.cu
-│   ├── CMakeLists.txt
-│   └── run.sh
-├── cutlass/          # NVIDIA CUTLASS实现
-│   ├── main_cutlass_gemm.cu
-│   ├── CMakeLists.txt
-│   └── run.sh
-├── tilelang/         # TileLang实现
-│   ├── tilelang_gemm.py
-│   └── run.sh
-├── triton/           # Triton实现
-│   ├── triton_gemm.py
-│   └── run.sh
-├── compare_frameworks.py     # 统一对比分析脚本
-├── run_all_benchmarks.sh     # 主运行脚本
-├── technical_analysis.md     # 详细技术分析报告
+├── frameworks/              # 框架实现
+│   ├── cublas/              # NVIDIA cuBLAS实现
+│   │   ├── main_cublas_gemm.cu
+│   │   ├── CMakeLists.txt
+│   │   └── run.sh
+│   ├── cutlass/             # NVIDIA CUTLASS实现
+│   │   ├── main_cutlass_gemm.cu
+│   │   ├── CMakeLists.txt
+│   │   └── run.sh
+│   ├── tilelang/            # TileLang实现
+│   │   ├── tilelang_gemm.py
+│   │   └── run.sh
+│   └── triton/              # Triton实现
+│       ├── triton_gemm.py
+│       └── run.sh
+├── scripts/                 # 脚本文件
+│   ├── compare_frameworks.py    # 统一对比分析脚本
+│   ├── run_all_benchmarks.sh    # 主运行脚本
+│   └── validate_setup.py        # 环境验证脚本
+├── docs/                    # 文档
+│   ├── technical_analysis.md                    # 详细技术分析报告
+│   ├── PROJECT_SUMMARY.md                       # 项目总结
+│   ├── comparison_report.md                     # 对比分析报告
+│   ├── detailed_performance_analysis.md         # 详细性能分析
+│   ├── detailed_assembly_performance_analysis.md # 汇编性能分析
+│   ├── compilation_performance_analysis.md      # 编译性能分析
+│   ├── compile_code_performance_analysis.md     # 编译代码性能分析
+│   └── main.tex                                  # LaTeX文档
+├── results/                  # 测试结果
+│   ├── benchmark_results.json       # 基准测试结果
+│   ├── compile_analysis_report.json # 编译分析报告
+│   ├── performance_comparison.png   # 性能对比图
+│   └── logs/                          # 日志文件
+│       ├── cublas_output.log
+│       ├── cutlass_output.log
+│       ├── tilelang_output.log
+│       └── triton_output.log
+├── artifacts/               # 编译产物
+│   ├── binaries/            # 可执行文件
+│   └── assembly/            # 汇编代码
+│       ├── cublas_gemm.s
+│       ├── cutlass_gemm.sass
+│       ├── tilelang_gemm_*.tl
+│       └── triton_gemm_*.ptx
 └── README.md
 ```
 
@@ -77,33 +104,33 @@ pip install tilelang
 
 ```bash
 # 给主脚本执行权限
-chmod +x run_all_benchmarks.sh
+chmod +x scripts/run_all_benchmarks.sh
 
 # 运行所有框架的对比测试
-./run_all_benchmarks.sh
+./scripts/run_all_benchmarks.sh
 ```
 
 ### 单独运行某个框架
 
 ```bash
 # cuBLAS
-cd cublas && ./run.sh
+cd frameworks/cublas && ./run.sh
 
 # CUTLASS
-cd cutlass && ./run.sh
+cd frameworks/cutlass && ./run.sh
 
 # TileLang
-cd tilelang && ./run.sh
+cd frameworks/tilelang && ./run.sh
 
 # Triton
-cd triton && ./run.sh
+cd frameworks/triton && ./run.sh
 ```
 
 ### 生成对比报告
 
 ```bash
 # 运行对比分析脚本
-python compare_frameworks.py
+python scripts/compare_frameworks.py
 ```
 
 ## 测试配置
@@ -117,25 +144,29 @@ python compare_frameworks.py
 
 运行测试后会生成以下文件：
 
-1. **对比报告**: `comparison_report.md`
+1. **对比报告**: `docs/comparison_report.md`
    - 性能数据表格
    - 框架特性对比
    - 适用场景建议
 
-2. **技术分析**: `technical_analysis.md`
+2. **技术分析**: `docs/technical_analysis.md`
    - 深入的技术对比
    - 算法详解
    - 性能分析
 
-3. **性能可视化**: `performance_comparison.png`
+3. **性能可视化**: `results/performance_comparison.png`
    - TFLOPS对比柱状图
    - 执行时间对比
 
-4. **详细日志**: `results/` 目录
+4. **详细日志**: `results/logs/` 目录
    - 每个框架的完整输出日志
 
-5. **基准结果**: `benchmark_results.json`
+5. **基准结果**: `results/benchmark_results.json`
    - 结构化测试数据
+
+6. **编译产物**: `artifacts/` 目录
+   - 可执行文件 (`artifacts/binaries/`)
+   - 汇编代码 (`artifacts/assembly/`)
 
 ## 核心发现
 
@@ -171,13 +202,20 @@ python compare_frameworks.py
 
 ## 深入分析
 
-详细的技术分析请参考 `technical_analysis.md`，内容包括：
+详细的技术分析请参考 `docs/technical_analysis.md`，内容包括：
 
 - 各框架的设计出发点和哲学
 - 面向的具体问题和解决方案
 - GEMM算法的详细实现
 - 性能优化策略分析
 - 代码结构和可维护性对比
+
+更多文档请查看 `docs/` 目录：
+- `PROJECT_SUMMARY.md` - 项目总结
+- `comparison_report.md` - 对比分析报告
+- `detailed_performance_analysis.md` - 详细性能分析
+- `detailed_assembly_performance_analysis.md` - 汇编性能分析
+- `compilation_performance_analysis.md` - 编译性能分析
 
 ## 故障排除
 
@@ -193,6 +231,7 @@ python compare_frameworks.py
 2. **编译失败**
    ```bash
    # 清理构建目录重新编译
+   cd frameworks/cublas  # 或 cutlass
    rm -rf build/
    ./run.sh
    ```
@@ -208,9 +247,10 @@ python compare_frameworks.py
 
 ### 调试建议
 
-- 查看详细日志：`results/framework_output.log`
+- 查看详细日志：`results/logs/` 目录下的各框架日志
 - 检查GPU状态：`nvidia-smi -l 1`
 - 验证CUDA安装：`cuda-gdb --version`
+- 验证环境：`python scripts/validate_setup.py`
 
 ## 贡献指南
 

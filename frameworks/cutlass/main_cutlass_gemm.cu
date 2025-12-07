@@ -139,48 +139,42 @@ int main() {
     std::cout << "CUTLASS GEMM Multi-Size Benchmark" << std::endl;
     std::cout << std::string(50, '=') << std::endl;
 
-    // 测试尺寸范围：从128到4096
-    std::vector<int> sizes = {128, 256, 512, 1024, 2048, 4096};
+    // 测试指定的尺寸：1024*512*1024 和 4096*2048*4096
     std::vector<BenchmarkResult> results;
 
-    for (int size : sizes) {
-        // 测试方形矩阵
+    // 测试第一个尺寸：1024*512*1024
+    {
+        int M = 1024, N = 512, K = 1024;
         BenchmarkResult result;
-        if (run_cutlass_benchmark_single<Gemm>(size, size, size, result)) {
+        if (run_cutlass_benchmark_single<Gemm>(M, N, K, result)) {
             results.push_back(result);
             std::cout << "CUTLASS GEMM (" << result.M << "x" << result.N << "x" << result.K << "): "
                       << result.latency_ms << " ms (avg of 10 runs), "
                       << result.tflops << " TFLOPS" << std::endl;
             std::cout << "Result checksum: " << result.checksum << std::endl;
         } else {
-            result.M = size; result.N = size; result.K = size;
+            result.M = M; result.N = N; result.K = K;
             result.success = false;
             results.push_back(result);
-            std::cout << "CUTLASS GEMM (" << size << "x" << size << "x" << size << ") failed" << std::endl;
+            std::cout << "CUTLASS GEMM (" << M << "x" << N << "x" << K << ") failed" << std::endl;
         }
+    }
 
-        // 测试非方形矩阵（如果不是太小）
-        if (size >= 512) {
-            std::vector<std::tuple<int, int, int>> rect_sizes = {
-                {size, size/2, size},
-                {size/2, size, size},
-                {size, size, size/2}
-            };
-
-            for (auto [M, N, K] : rect_sizes) {
-                BenchmarkResult rect_result;
-                if (run_cutlass_benchmark_single<Gemm>(M, N, K, rect_result)) {
-                    results.push_back(rect_result);
-                    std::cout << "CUTLASS GEMM (" << M << "x" << N << "x" << K << "): "
-                              << rect_result.latency_ms << " ms (avg of 10 runs), "
-                              << rect_result.tflops << " TFLOPS" << std::endl;
-                } else {
-                    rect_result.M = M; rect_result.N = N; rect_result.K = K;
-                    rect_result.success = false;
-                    results.push_back(rect_result);
-                    std::cout << "CUTLASS GEMM (" << M << "x" << N << "x" << K << ") failed" << std::endl;
-                }
-            }
+    // 测试第二个尺寸：4096*2048*4096
+    {
+        int M = 4096, N = 2048, K = 4096;
+        BenchmarkResult result;
+        if (run_cutlass_benchmark_single<Gemm>(M, N, K, result)) {
+            results.push_back(result);
+            std::cout << "CUTLASS GEMM (" << result.M << "x" << result.N << "x" << result.K << "): "
+                      << result.latency_ms << " ms (avg of 10 runs), "
+                      << result.tflops << " TFLOPS" << std::endl;
+            std::cout << "Result checksum: " << result.checksum << std::endl;
+        } else {
+            result.M = M; result.N = N; result.K = K;
+            result.success = false;
+            results.push_back(result);
+            std::cout << "CUTLASS GEMM (" << M << "x" << N << "x" << K << ") failed" << std::endl;
         }
     }
 

@@ -47,7 +47,7 @@ def matmul(M, N, K, block_M, block_N, block_K, dtype="float16", accum_dtype="flo
     return main
 
 def run_tilelang_gemm_single(M, N, K, verbose=True):
-    """运行单个TileLang GEMM测试"""
+    """运行单个TileLang GEMM测试并保存编译结果"""
     block_M, block_N, block_K = 128, 128, 32
 
     # 1. Create the TileLang function
@@ -55,6 +55,41 @@ def run_tilelang_gemm_single(M, N, K, verbose=True):
 
     # 2. JIT-compile the kernel for NVIDIA GPU
     jit_kernel = tilelang.compile(func, out_idx=[2], target="cuda")
+
+    # 保存编译后的代码
+    import os
+    compile_output_dir = "/data/hanker/kernels/compile_outputs"
+    os.makedirs(compile_output_dir, exist_ok=True)
+
+    # 获取编译后的代码信息
+    try:
+        # TileLang通常会生成CUDA代码，我们可以尝试获取它
+        cuda_code = str(func)  # 获取TileLang函数的字符串表示
+
+        # 保存TileLang IR代码
+        ir_filename = f"{compile_output_dir}/tilelang_gemm_{M}x{N}x{K}.tl"
+        with open(ir_filename, 'w') as f:
+            f.write(cuda_code)
+        if verbose:
+            print(f"Saved TileLang IR code to: {ir_filename}")
+            print(f"TileLang IR code size: {len(cuda_code)} characters")
+
+        # 尝试获取编译后的CUDA代码（如果可用）
+        try:
+            if hasattr(jit_kernel, 'code'):
+                cuda_compiled = jit_kernel.code
+                cuda_filename = f"{compile_output_dir}/tilelang_gemm_{M}x{N}x{K}.cu"
+                with open(cuda_filename, 'w') as f:
+                    f.write(cuda_compiled)
+                if verbose:
+                    print(f"Saved TileLang CUDA code to: {cuda_filename}")
+                    print(f"CUDA code size: {len(cuda_compiled)} characters")
+        except:
+            pass
+
+    except Exception as e:
+        if verbose:
+            print(f"Warning: Could not save TileLang compiled code: {e}")
 
     # 3. Prepare input tensors in PyTorch
     torch.manual_seed(0)
@@ -82,54 +117,31 @@ def run_tilelang_gemm_single(M, N, K, verbose=True):
     return latency, tflops
 
 def run_tilelang_gemm():
-    """运行TileLang GEMM测试 - 支持多种尺寸"""
-    print("TileLang GEMM Multi-Size Benchmark")
+    """运行TileLang GEMM测试 - 测试指定尺寸"""
+    print("TileLang GEMM Specific Size Benchmark")
     print("=" * 50)
 
-    # 测试尺寸范围：从128到4096
-    sizes = [128, 256, 512, 1024, 2048, 4096]
+    # 测试指定的尺寸：1024*512*1024 和 4096*2048*4096
+    test_configs = [
+        (1024, 512, 1024),   # 用户指定的第一个尺寸
+        (4096, 2048, 4096)   # 用户指定的第二个尺寸
+    ]
 
     results = []
 
-    for size in sizes:
+    for M, N, K in test_configs:
         try:
-            # 测试方形矩阵
-            latency, tflops = run_tilelang_gemm_single(size, size, size, verbose=True)
+            latency, tflops = run_tilelang_gemm_single(M, N, K, verbose=True)
             results.append({
-                'M': size, 'N': size, 'K': size,
+                'M': M, 'N': N, 'K': K,
                 'latency_ms': latency,
                 'tflops': tflops,
                 'success': True
             })
-
-            # 测试非方形矩阵（如果不是太小）
-            if size >= 512:
-                # 测试MxN矩形矩阵
-                rect_sizes = [(size, size//2, size), (size//2, size, size), (size, size, size//2)]
-                for M, N, K in rect_sizes:
-                    try:
-                        latency, tflops = run_tilelang_gemm_single(M, N, K, verbose=False)
-                        results.append({
-                            'M': M, 'N': N, 'K': K,
-                            'latency_ms': latency,
-                            'tflops': tflops,
-                            'success': True
-                        })
-                        print(f"TileLang GEMM ({M}x{N}x{K}): {latency:.2f} ms, {tflops:.2f} TFLOPS")
-                    except Exception as e:
-                        print(f"TileLang GEMM ({M}x{N}x{K}) failed: {e}")
-                        results.append({
-                            'M': M, 'N': N, 'K': K,
-                            'latency_ms': None,
-                            'tflops': None,
-                            'success': False,
-                            'error': str(e)
-                        })
-
         except Exception as e:
-            print(f"TileLang GEMM ({size}x{size}x{size}) failed: {e}")
+            print(f"TileLang GEMM ({M}x{N}x{K}) failed: {e}")
             results.append({
-                'M': size, 'N': size, 'K': size,
+                'M': M, 'N': N, 'K': K,
                 'latency_ms': None,
                 'tflops': None,
                 'success': False,

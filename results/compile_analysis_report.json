@@ -1,0 +1,90 @@
+[
+  {
+    "framework": "cuBLAS",
+    "shape": "1024x512x1024",
+    "compile_success": false,
+    "compile_error": "make: *** No rule to make target 'clean'.  Stop.\n",
+    "compile_time": 0.005980253219604492
+  },
+  {
+    "framework": "CUTLASS",
+    "shape": "1024x512x1024",
+    "compile_success": false,
+    "compile_error": "make: *** No rule to make target 'clean'.  Stop.\n",
+    "compile_time": 0.00487518310546875
+  },
+  {
+    "framework": "TileLang",
+    "shape": "1024x512x1024",
+    "compile_success": false,
+    "run_success": false,
+    "error": "/data/hanker/miniconda3/envs/compiler_kernel_eval/bin/../lib/libstdc++.so.6: version `GLIBCXX_3.4.32' not found (required by /tmp/tmpn6dkgl96.so)",
+    "analysis": {
+      "error": "库依赖问题"
+    }
+  },
+  {
+    "framework": "Triton",
+    "shape": "1024x512x1024",
+    "compile_success": true,
+    "run_success": true,
+    "compile_time": 1.2978589534759521,
+    "latency_ms": 0.102996826171875,
+    "tflops": 10424.999137431703,
+    "correctness": true,
+    "analysis": {
+      "compilation_model": "Python-based JIT编译",
+      "optimization_level": "动态编译优化",
+      "memory_hierarchy": "编程式共享内存通过tl.load/tl.store",
+      "parallel_strategy": "块级并行与线程协作",
+      "tiling_strategy": "固定128x128x32块大小",
+      "pipeline_stages": "K维度的手动循环展开",
+      "code_complexity": "Python装饰器语法，运行时编译",
+      "performance_characteristics": "灵活但有运行时开销"
+    }
+  },
+  {
+    "framework": "cuBLAS",
+    "shape": "4096x2048x4096",
+    "compile_success": false,
+    "compile_error": "make: *** No rule to make target 'clean'.  Stop.\n",
+    "compile_time": 0.007412433624267578
+  },
+  {
+    "framework": "CUTLASS",
+    "shape": "4096x2048x4096",
+    "compile_success": false,
+    "compile_error": "make: *** No rule to make target 'clean'.  Stop.\n",
+    "compile_time": 0.005082845687866211
+  },
+  {
+    "framework": "TileLang",
+    "shape": "4096x2048x4096",
+    "compile_success": false,
+    "run_success": false,
+    "error": "/data/hanker/miniconda3/envs/compiler_kernel_eval/bin/../lib/libstdc++.so.6: version `GLIBCXX_3.4.32' not found (required by /tmp/tmpdlpa90ao.so)",
+    "analysis": {
+      "error": "库依赖问题"
+    }
+  },
+  {
+    "framework": "Triton",
+    "shape": "4096x2048x4096",
+    "compile_success": true,
+    "run_success": true,
+    "compile_time": 0.004303693771362305,
+    "latency_ms": 0.6240367889404297,
+    "tflops": 110120.87420788253,
+    "correctness": true,
+    "analysis": {
+      "compilation_model": "Python-based JIT编译",
+      "optimization_level": "动态编译优化",
+      "memory_hierarchy": "编程式共享内存通过tl.load/tl.store",
+      "parallel_strategy": "块级并行与线程协作",
+      "tiling_strategy": "固定128x128x32块大小",
+      "pipeline_stages": "K维度的手动循环展开",
+      "code_complexity": "Python装饰器语法，运行时编译",
+      "performance_characteristics": "灵活但有运行时开销"
+    }
+  }
+]

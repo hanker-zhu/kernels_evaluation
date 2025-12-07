@@ -24,7 +24,8 @@ echo ""
 run_benchmark() {
     local framework=$1
     local dir="$BASE_DIR/$framework"
-    local log_file="$RESULTS_DIR/${framework}_output.log"
+    local framework_name=$(basename "$framework")
+    local log_file="$RESULTS_DIR/logs/${framework_name}_output.log"
 
     echo "----------------------------------------"
     echo "运行 $framework 测试..."
@@ -85,11 +86,12 @@ main() {
     check_dependencies
 
     # 运行各个框架的测试
-    declare -a frameworks=("cublas" "cutlass" "tilelang" "triton")
+    declare -a frameworks=("frameworks/cublas" "frameworks/cutlass" "frameworks/tilelang" "frameworks/triton")
     declare -A results
 
-    for framework in "${frameworks[@]}"; do
-        if run_benchmark "$framework"; then
+    for framework_path in "${frameworks[@]}"; do
+        framework=$(basename "$framework_path")
+        if run_benchmark "$framework_path"; then
             results[$framework]="success"
         else
             results[$framework]="failed"
@@ -102,11 +104,11 @@ main() {
     echo "======================================================"
 
     cd "$BASE_DIR"
-    if [ -f "compare_frameworks.py" ]; then
+    if [ -f "scripts/compare_frameworks.py" ]; then
         echo "解析测试日志并生成报告..."
-        python compare_frameworks.py --parse-logs
+        python scripts/compare_frameworks.py --parse-logs
     else
-        echo "警告: 未找到 compare_frameworks.py"
+        echo "警告: 未找到 scripts/compare_frameworks.py"
     fi
 
     # 显示总结
@@ -131,11 +133,11 @@ main() {
     echo "- 总测试点: 约30+个尺寸配置"
     echo ""
     echo "生成的文件:"
-    echo "- 详细日志: $RESULTS_DIR/"
-    echo "- 多尺寸对比报告: $BASE_DIR/comparison_report.md"
-    echo "- 技术分析: $BASE_DIR/technical_analysis.md"
-    echo "- 性能趋势可视化: $BASE_DIR/performance_comparison.png (如果matplotlib可用)"
-    echo "- 基准结果: $BASE_DIR/benchmark_results.json"
+    echo "- 详细日志: $RESULTS_DIR/logs/"
+    echo "- 多尺寸对比报告: $BASE_DIR/docs/comparison_report.md"
+    echo "- 技术分析: $BASE_DIR/docs/technical_analysis.md"
+    echo "- 性能趋势可视化: $RESULTS_DIR/performance_comparison.png (如果matplotlib可用)"
+    echo "- 基准结果: $RESULTS_DIR/benchmark_results.json"
 
     echo ""
     echo "测试完成！请查看上述文件获取详细的多尺寸性能分析结果。"
