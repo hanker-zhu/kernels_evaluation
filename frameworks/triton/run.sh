@@ -1,11 +1,13 @@
 #!/bin/bash
+# Triton GEMM Benchmark
 
-# Triton GEMM 测试脚本
+set -e
+cd "$(dirname "$0")"
 
-echo "=== Running Triton GEMM ==="
+echo "=== Triton GEMM Benchmark ==="
+
+# 激活 conda 环境
+source /data/hanker/miniconda3/etc/profile.d/conda.sh
+conda activate compiler_kernel_eval
+
 python triton_gemm.py
-
-echo ""
-echo "=== Analyzing Generated Code ==="
-echo "Triton JIT compiles Python code to optimized CUDA kernels"
-echo "Check the kernel compilation output above for details"

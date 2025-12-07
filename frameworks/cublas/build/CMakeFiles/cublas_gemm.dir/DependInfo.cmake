@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/data/hanker/kernels/cublas/main_cublas_gemm.cu" "CMakeFiles/cublas_gemm.dir/main_cublas_gemm.cu.o" "gcc" "CMakeFiles/cublas_gemm.dir/main_cublas_gemm.cu.o.d"
+  "/data/hanker/kernels/frameworks/cublas/main_cublas_gemm.cu" "CMakeFiles/cublas_gemm.dir/main_cublas_gemm.cu.o" "gcc" "CMakeFiles/cublas_gemm.dir/main_cublas_gemm.cu.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

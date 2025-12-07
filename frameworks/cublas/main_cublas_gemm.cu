@@ -139,12 +139,12 @@ int main() {
     std::cout << "cuBLAS GEMM Multi-Size Benchmark" << std::endl;
     std::cout << std::string(50, '=') << std::endl;
 
-    // 测试指定的尺寸：1024*512*1024 和 4096*2048*4096
+    // 测试方形矩阵尺寸: 256, 512, 1024, 2048, 4096
+    std::vector<int> sizes = {256, 512, 1024, 2048, 4096};
     std::vector<BenchmarkResult> results;
 
-    // 测试第一个尺寸：1024*512*1024
-    {
-        int M = 1024, N = 512, K = 1024;
+    for (int size : sizes) {
+        int M = size, N = size, K = size;
         BenchmarkResult result;
         run_cublas_benchmark_single(M, N, K, result);
         results.push_back(result);
@@ -153,24 +153,6 @@ int main() {
             std::cout << "cuBLAS GEMM (" << result.M << "x" << result.N << "x" << result.K << "): "
                       << result.latency_ms << " ms (avg of 10 runs), "
                       << result.tflops << " TFLOPS" << std::endl;
-            std::cout << "Result checksum: " << result.checksum << std::endl;
-        } else {
-            std::cout << "cuBLAS GEMM (" << M << "x" << N << "x" << K << ") failed" << std::endl;
-        }
-    }
-
-    // 测试第二个尺寸：4096*2048*4096
-    {
-        int M = 4096, N = 2048, K = 4096;
-        BenchmarkResult result;
-        run_cublas_benchmark_single(M, N, K, result);
-        results.push_back(result);
-
-        if (result.success) {
-            std::cout << "cuBLAS GEMM (" << result.M << "x" << result.N << "x" << result.K << "): "
-                      << result.latency_ms << " ms (avg of 10 runs), "
-                      << result.tflops << " TFLOPS" << std::endl;
-            std::cout << "Result checksum: " << result.checksum << std::endl;
         } else {
             std::cout << "cuBLAS GEMM (" << M << "x" << N << "x" << K << ") failed" << std::endl;
         }

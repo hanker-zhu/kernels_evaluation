@@ -1,43 +1,71 @@
-=== Running TileLang GEMM ===
-TileLang GEMM Multi-Size Benchmark
-==================================================
-TileLang kernel (128x128x128) output matches PyTorch reference.
-TileLang GEMM (128x128x128): 0.02 ms, 256.00 TFLOPS
-TileLang kernel (256x256x256) output matches PyTorch reference.
-TileLang GEMM (256x256x256): 0.02 ms, 1724.63 TFLOPS
-TileLang kernel (512x512x512) output matches PyTorch reference.
-TileLang GEMM (512x512x512): 0.03 ms, 9709.04 TFLOPS
-TileLang GEMM (512x256x512): 0.03 ms, 5041.23 TFLOPS
-TileLang GEMM (256x512x512): 0.03 ms, 4854.52 TFLOPS
-TileLang GEMM (512x512x256): 0.02 ms, 6898.53 TFLOPS
-TileLang kernel (1024x1024x1024) output matches PyTorch reference.
-TileLang GEMM (1024x1024x1024): 0.05 ms, 43690.67 TFLOPS
-TileLang GEMM (1024x512x1024): 0.05 ms, 22310.13 TFLOPS
-TileLang GEMM (512x1024x1024): 0.05 ms, 22310.13 TFLOPS
-TileLang GEMM (1024x1024x512): 0.03 ms, 34952.53 TFLOPS
-TileLang kernel (2048x2048x2048) output matches PyTorch reference.
-TileLang GEMM (2048x2048x2048): 0.20 ms, 86037.00 TFLOPS
-TileLang GEMM (2048x1024x2048) failed: Tensor-likes are not close!
+=== TileLang GEMM Benchmark ===
+TileLang GEMM Benchmark
+============================================================
 
-Mismatched elements: 698 / 2097152 (0.0%)
-Greatest absolute difference: 0.031005859375 at index (637, 698) (up to 0.01 allowed)
-Greatest relative difference: 736.5 at index (641, 144) (up to 0.01 allowed)
-TileLang GEMM (1024x2048x2048): 0.13 ms, 64527.75 TFLOPS
-TileLang GEMM (2048x2048x1024): 0.11 ms, 75573.04 TFLOPS
-TileLang kernel (4096x4096x4096) output matches PyTorch reference.
-TileLang GEMM (4096x4096x4096): 1.15 ms, 119623.64 TFLOPS
-TileLang GEMM (4096x2048x4096): 0.59 ms, 115505.79 TFLOPS
-TileLang GEMM (2048x4096x4096): 0.59 ms, 115505.79 TFLOPS
-TileLang GEMM (4096x4096x2048): 0.61 ms, 112410.16 TFLOPS
+[Phase 1] Framework Warmup
+  Framework init time: 478.3 ms
 
-=== TileLang Kernel Analysis ===
-- Programming Model: TensorIR-based functional programming
-- Memory Hierarchy: Explicit shared/fragment memory allocation
-- Parallelism: Kernel-level thread orchestration
-- Tiling Strategy: Fixed block sizes (128x128x32)
-- Pipeline Stages: 3-stage pipelining for K dimension
-- Optimization: Automatic memory coalescing and instruction scheduling
+[Phase 2] Benchmark per Size
+  256x256x256: compile=23.0ms, run=0.022ms, 1560.38 TFLOPS ✓
+  512x512x512: compile=25.8ms, run=0.028ms, 9709.04 TFLOPS ✓
+  1024x1024x1024: compile=24.5ms, run=0.050ms, 42799.02 TFLOPS ✓
+  2048x2048x2048: compile=23.6ms, run=0.199ms, 86480.50 TFLOPS ✓
+  4096x4096x4096: compile=21.6ms, run=1.151ms, 119410.80 TFLOPS ✓
 
-=== Analyzing Generated Code ===
-TileLang generates optimized CUDA code at runtime
-Check the kernel compilation output above for details
+[Summary]
+  Framework warmup:    478.3 ms (one-time)
+  Total JIT compile:   118.4 ms
+  Total runtime:       1.4 ms
+
+=== JSON Results ===
+{
+  "warmup_time_ms": 478.3,
+  "total_compile_time_ms": 118.4,
+  "benchmarks": [
+    {
+      "M": 256,
+      "N": 256,
+      "K": 256,
+      "compile_time_ms": 23.0,
+      "latency_ms": 0.0215,
+      "tflops": 1560.38,
+      "success": true
+    },
+    {
+      "M": 512,
+      "N": 512,
+      "K": 512,
+      "compile_time_ms": 25.8,
+      "latency_ms": 0.0276,
+      "tflops": 9709.04,
+      "success": true
+    },
+    {
+      "M": 1024,
+      "N": 1024,
+      "K": 1024,
+      "compile_time_ms": 24.5,
+      "latency_ms": 0.0502,
+      "tflops": 42799.02,
+      "success": true
+    },
+    {
+      "M": 2048,
+      "N": 2048,
+      "K": 2048,
+      "compile_time_ms": 23.6,
+      "latency_ms": 0.1987,
+      "tflops": 86480.5,
+      "success": true
+    },
+    {
+      "M": 4096,
+      "N": 4096,
+      "K": 4096,
+      "compile_time_ms": 21.6,
+      "latency_ms": 1.151,
+      "tflops": 119410.8,
+      "success": true
+    }
+  ]
+}

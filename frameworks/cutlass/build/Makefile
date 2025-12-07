@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /data/hanker/kernels/cutlass
+CMAKE_SOURCE_DIR = /data/hanker/kernels/frameworks/cutlass
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /data/hanker/kernels/cutlass/build
+CMAKE_BINARY_DIR = /data/hanker/kernels/frameworks/cutlass/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /data/hanker/kernels/cutlass/build/CMakeFiles /data/hanker/kernels/cutlass/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /data/hanker/kernels/frameworks/cutlass/build/CMakeFiles /data/hanker/kernels/frameworks/cutlass/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /data/hanker/kernels/cutlass/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /data/hanker/kernels/frameworks/cutlass/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target

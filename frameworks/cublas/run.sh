@@ -1,36 +1,35 @@
 #!/bin/bash
+# cuBLAS GEMM Benchmark - 带编译时间测量
 
-# cuBLAS GEMM 测试脚本
+set -e
+cd "$(dirname "$0")"
 
-echo "=== Building cuBLAS GEMM ==="
-mkdir -p build
-cd build
-cmake ..
-make -j$(nproc)
+# 使用 CUDA 12.8
+CUDA_PATH="/usr/local/cuda-12.8"
+export PATH="$CUDA_PATH/bin:$PATH"
+export LD_LIBRARY_PATH="$CUDA_PATH/lib64:$LD_LIBRARY_PATH"
 
-if [ $? -eq 0 ]; then
-    echo "=== Analyzing cuBLAS Binary ==="
-    # 保存编译信息
-    COMPILE_OUTPUT_DIR="/data/hanker/kernels/compile_outputs"
-    mkdir -p "$COMPILE_OUTPUT_DIR"
+echo "=== cuBLAS GEMM Benchmark ==="
 
-    # 获取二进制文件大小
-    BINARY_SIZE=$(stat -c%s ./cublas_gemm)
-    echo "cuBLAS binary size: $BINARY_SIZE bytes" > "$COMPILE_OUTPUT_DIR/cublas_binary_info.txt"
-
-    # 尝试反汇编（如果有objdump）
-    if command -v objdump &> /dev/null; then
-        echo "Generating cuBLAS disassembly..." >> "$COMPILE_OUTPUT_DIR/cublas_binary_info.txt"
-        objdump -d ./cublas_gemm > "$COMPILE_OUTPUT_DIR/cublas_gemm.s" 2>/dev/null || echo "Disassembly failed" >> "$COMPILE_OUTPUT_DIR/cublas_binary_info.txt"
-    fi
-
-    # 获取编译器版本信息
-    echo "Compiler version:" >> "$COMPILE_OUTPUT_DIR/cublas_binary_info.txt"
-    nvcc --version >> "$COMPILE_OUTPUT_DIR/cublas_binary_info.txt" 2>&1
-
-    echo "=== Running cuBLAS GEMM ==="
-    ./cublas_gemm
+# 检查是否需要编译
+if [ ! -f "build/cublas_gemm" ]; then
+    echo "编译中..."
+    rm -rf build
+    mkdir -p build && cd build
+    
+    # 测量编译时间
+    COMPILE_START=$(date +%s%3N)
+    cmake .. -DCMAKE_CUDA_COMPILER="$CUDA_PATH/bin/nvcc" > /dev/null 2>&1
+    make -j$(nproc) > /dev/null 2>&1
+    COMPILE_END=$(date +%s%3N)
+    COMPILE_TIME=$((COMPILE_END - COMPILE_START))
+    
+    cd ..
+    echo "编译时间: ${COMPILE_TIME} ms"
+    echo "COMPILE_TIME_MS: ${COMPILE_TIME}"
 else
-    echo "Build failed!"
-    exit 1
+    echo "使用已编译的二进制文件"
+    echo "COMPILE_TIME_MS: 0"
 fi
+
+./build/cublas_gemm

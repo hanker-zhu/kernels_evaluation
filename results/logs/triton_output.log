@@ -1,42 +1,71 @@
-=== Running Triton GEMM ===
-Triton GEMM Multi-Size Benchmark
-==================================================
-Triton kernel (128x128x128) output matches PyTorch reference.
-Triton GEMM (128x128x128): 0.07 ms (avg of 10 runs), 59.82 TFLOPS
-Triton kernel (256x256x256) output matches PyTorch reference.
-Triton GEMM (256x256x256): 0.05 ms (avg of 10 runs), 611.37 TFLOPS
-Triton kernel (512x512x512) output matches PyTorch reference.
-Triton GEMM (512x512x512): 0.06 ms (avg of 10 runs), 4188.62 TFLOPS
-Triton GEMM (512x256x512): 0.06 ms (avg of 10 runs), 2152.77 TFLOPS
-Triton GEMM (256x512x512): 0.06 ms (avg of 10 runs), 2109.22 TFLOPS
-Triton GEMM (512x512x256): 0.05 ms (avg of 10 runs), 2487.63 TFLOPS
-Triton kernel (1024x1024x1024) output matches PyTorch reference.
-Triton GEMM (1024x1024x1024): 0.08 ms (avg of 10 runs), 26260.06 TFLOPS
-Triton GEMM (1024x512x1024): 0.08 ms (avg of 10 runs), 13524.32 TFLOPS
-Triton GEMM (512x1024x1024): 0.08 ms (avg of 10 runs), 13320.32 TFLOPS
-Triton GEMM (1024x1024x512): 0.08 ms (avg of 10 runs), 13427.55 TFLOPS
-Triton kernel (2048x2048x2048) output matches PyTorch reference.
-Triton GEMM (2048x2048x2048): 0.23 ms (avg of 10 runs), 75122.60 TFLOPS
-Triton GEMM (2048x1024x2048) failed: Tensor-likes are not close!
+=== Triton GEMM Benchmark ===
+Triton GEMM Benchmark
+============================================================
 
-Mismatched elements: 698 / 2097152 (0.0%)
-Greatest absolute difference: 0.031005859375 at index (637, 698) (up to 0.01 allowed)
-Greatest relative difference: 736.5 at index (641, 144) (up to 0.01 allowed)
-Triton GEMM (1024x2048x2048): 0.15 ms (avg of 10 runs), 55634.34 TFLOPS
-Triton GEMM (2048x2048x1024): 0.14 ms (avg of 10 runs), 61724.85 TFLOPS
-Triton kernel (4096x4096x4096) output matches PyTorch reference.
-Triton GEMM (4096x4096x4096): 1.12 ms (avg of 10 runs), 122172.93 TFLOPS
-Triton GEMM (4096x2048x4096): 0.62 ms (avg of 10 runs), 110806.70 TFLOPS
-Triton GEMM (2048x4096x4096): 0.62 ms (avg of 10 runs), 110764.11 TFLOPS
-Triton GEMM (4096x4096x2048): 0.60 ms (avg of 10 runs), 114951.89 TFLOPS
+[Phase 1] Framework Warmup
+  Framework init time: 366.6 ms
 
-=== Triton Kernel Analysis ===
-- Programming Model: Python-based JIT compilation
-- Memory Hierarchy: Programmed shared memory via tl.load/tl.store
-- Parallelism: Block-level parallelism with thread cooperation
-- Tiling Strategy: Fixed 128x128x32 block sizes
-- Pipeline Stages: Manual loop unrolling for K dimension
+[Phase 2] Benchmark per Size
+  256x256x256: compile=1.23ms, run=0.082ms, 408.76 TFLOPS ✓
+  512x512x512: compile=0.01ms, run=0.064ms, 4221.60 TFLOPS ✓
+  1024x1024x1024: compile=0.01ms, run=0.080ms, 26775.27 TFLOPS ✓
+  2048x2048x2048: compile=0.01ms, run=0.227ms, 75611.33 TFLOPS ✓
+  4096x4096x4096: compile=0.01ms, run=1.122ms, 122450.61 TFLOPS ✓
 
-=== Analyzing Generated Code ===
-Triton JIT compiles Python code to optimized CUDA kernels
-Check the kernel compilation output above for details
+[Summary]
+  Framework warmup:    366.6 ms (one-time)
+  Total JIT compile:   1.3 ms
+  Total runtime:       1.6 ms
+
+=== JSON Results ===
+{
+  "warmup_time_ms": 366.6,
+  "total_compile_time_ms": 1.3,
+  "benchmarks": [
+    {
+      "M": 256,
+      "N": 256,
+      "K": 256,
+      "compile_time_ms": 1.227,
+      "latency_ms": 0.0821,
+      "tflops": 408.76,
+      "success": true
+    },
+    {
+      "M": 512,
+      "N": 512,
+      "K": 512,
+      "compile_time_ms": 0.009,
+      "latency_ms": 0.0636,
+      "tflops": 4221.6,
+      "success": true
+    },
+    {
+      "M": 1024,
+      "N": 1024,
+      "K": 1024,
+      "compile_time_ms": 0.009,
+      "latency_ms": 0.0802,
+      "tflops": 26775.27,
+      "success": true
+    },
+    {
+      "M": 2048,
+      "N": 2048,
+      "K": 2048,
+      "compile_time_ms": 0.007,
+      "latency_ms": 0.2272,
+      "tflops": 75611.33,
+      "success": true
+    },
+    {
+      "M": 4096,
+      "N": 4096,
+      "K": 4096,
+      "compile_time_ms": 0.012,
+      "latency_ms": 1.1224,
+      "tflops": 122450.61,
+      "success": true
+    }
+  ]
+}

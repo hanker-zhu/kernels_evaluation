@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-GEMM框架对比项目环境验证脚本
-检查所有依赖和代码是否正确设置
+GEMM框架环境验证脚本
 """
 
 import sys
@@ -10,206 +9,91 @@ import subprocess
 import importlib
 from pathlib import Path
 
-def check_command(cmd, description):
+BASE_DIR = Path(__file__).parent.parent
+
+
+def check_cmd(cmd: str, name: str) -> bool:
     """检查命令是否可用"""
     try:
-        result = subprocess.run(cmd, shell=True, capture_output=True, text=True)
+        result = subprocess.run(cmd, shell=True, capture_output=True, timeout=10)
         if result.returncode == 0:
-            print(f"✓ {description}: 可用")
+            print(f"✓ {name}")
             return True
-        else:
-            print(f"✗ {description}: 失败 ({result.stderr.strip()})")
-            return False
-    except Exception as e:
-        print(f"✗ {description}: 错误 ({str(e)})")
+        print(f"✗ {name}")
+        return False
+    except Exception:
+        print(f"✗ {name}")
         return False
 
-def check_python_package(package_name):
-    """检查Python包是否安装"""
+
+def check_pkg(name: str) -> bool:
+    """检查Python包"""
     try:
-        importlib.import_module(package_name)
-        print(f"✓ Python包 {package_name}: 已安装")
+        importlib.import_module(name)
+        print(f"✓ {name}")
         return True
     except ImportError:
-        print(f"✗ Python包 {package_name}: 未安装")
+        print(f"✗ {name}")
         return False
 
-def check_cuda():
-    """检查CUDA环境"""
-    print("检查CUDA环境...")
 
-    # 检查nvcc
-    if not check_command("nvcc --version", "NVIDIA CUDA Compiler"):
-        return False
-
-    # 检查cuBLAS
-    if not check_command("pkg-config --exists cublas", "cuBLAS library"):
-        print("  注意: cuBLAS通常随CUDA安装")
-    else:
-        print("✓ cuBLAS library: 可用")
-
-    return True
-
-def check_files():
+def check_files() -> bool:
     """检查项目文件"""
-    print("检查项目文件...")
-
-    base_dir = Path("/data/hanker/kernels")
-    required_files = [
+    required = [
         "README.md",
-        "technical_analysis.md",
-        "compare_frameworks.py",
-        "run_all_benchmarks.sh",
-        "cublas/main_cublas_gemm.cu",
-        "cublas/CMakeLists.txt",
-        "cublas/run.sh",
-        "cutlass/main_cutlass_gemm.cu",
-        "cutlass/CMakeLists.txt",
-        "cutlass/run.sh",
-        "tilelang/tilelang_gemm.py",
-        "tilelang/run.sh",
-        "triton/triton_gemm.py",
-        "triton/run.sh"
+        "run.sh",
+        "frameworks/cublas/main_cublas_gemm.cu",
+        "frameworks/cublas/run.sh",
+        "frameworks/cutlass/main_cutlass_gemm.cu",
+        "frameworks/cutlass/run.sh",
+        "frameworks/triton/triton_gemm.py",
+        "frameworks/triton/run.sh",
+        "frameworks/tilelang/tilelang_gemm.py",
+        "frameworks/tilelang/run.sh",
     ]
-
-    all_present = True
-    for file_path in required_files:
-        full_path = base_dir / file_path
-        if full_path.exists():
-            print(f"✓ {file_path}: 存在")
+    
+    ok = True
+    for f in required:
+        path = BASE_DIR / f
+        if path.exists():
+            print(f"✓ {f}")
         else:
-            print(f"✗ {file_path}: 缺失")
-            all_present = False
+            print(f"✗ {f}")
+            ok = False
+    return ok
 
-    return all_present
-
-def check_compilation():
-    """检查代码是否能编译"""
-    print("检查代码编译...")
-
-    base_dir = Path("/data/hanker/kernels")
-
-    # 检查cuBLAS编译
-    cublas_dir = base_dir / "cublas"
-    if cublas_dir.exists():
-        print("测试cuBLAS编译...")
-        try:
-            # 创建构建目录
-            build_dir = cublas_dir / "build"
-            build_dir.mkdir(exist_ok=True)
-
-            # 运行cmake
-            result = subprocess.run(
-                "cmake ..",
-                cwd=str(build_dir),
-                shell=True,
-                capture_output=True,
-                text=True,
-                timeout=30
-            )
-
-            if result.returncode == 0:
-                # 运行make
-                result = subprocess.run(
-                    "make -j2",
-                    cwd=str(build_dir),
-                    shell=True,
-                    capture_output=True,
-                    text=True,
-                    timeout=60
-                )
-
-                if result.returncode == 0:
-                    print("✓ cuBLAS: 编译成功")
-                else:
-                    print(f"✗ cuBLAS编译失败: {result.stderr[:200]}...")
-                    return False
-            else:
-                print(f"✗ cuBLAS CMake配置失败: {result.stderr[:200]}...")
-                return False
-        except subprocess.TimeoutExpired:
-            print("✗ cuBLAS编译超时")
-            return False
-        except Exception as e:
-            print(f"✗ cuBLAS编译错误: {str(e)}")
-            return False
-
-    return True
 
 def main():
-    """主验证函数"""
-    print("=" * 50)
-    print("GEMM框架对比项目环境验证")
-    print("=" * 50)
-    print()
-
-    all_checks_pass = True
-
-    # 检查系统工具
-    print("1. 检查系统工具...")
-    checks = [
-        ("gcc --version", "GNU C Compiler"),
-        ("g++ --version", "GNU C++ Compiler"),
-        ("cmake --version", "CMake"),
-        ("make --version", "Make"),
-        ("python --version", "Python"),
-    ]
-
-    for cmd, desc in checks:
-        if not check_command(cmd, desc):
-            all_checks_pass = False
-    print()
-
-    # 检查CUDA
-    print("2. 检查CUDA环境...")
-    if not check_cuda():
-        all_checks_pass = False
-    print()
-
-    # 检查Python包
-    print("3. 检查Python包...")
-    python_packages = [
-        "torch",
-        "torchvision",
-        "triton",
-        "tilelang"
-    ]
-
-    for package in python_packages:
-        if not check_python_package(package):
-            all_checks_pass = False
-    print()
-
-    # 检查项目文件
-    print("4. 检查项目文件...")
-    if not check_files():
-        all_checks_pass = False
-    print()
-
-    # 检查编译
-    print("5. 检查代码编译...")
-    if not check_compilation():
-        all_checks_pass = False
-    print()
-
-    # 总结
-    print("=" * 50)
-    if all_checks_pass:
-        print("✓ 所有检查通过！项目环境配置正确。")
-        print()
-        print("下一步:")
-        print("  ./run_all_benchmarks.sh    # 运行完整对比测试")
-        print("  python compare_frameworks.py  # 生成对比报告")
+    print("=" * 40)
+    print("GEMM 框架环境验证")
+    print("=" * 40)
+    
+    ok = True
+    
+    print("\n[系统工具]")
+    ok &= check_cmd("nvcc --version", "CUDA Compiler")
+    ok &= check_cmd("cmake --version", "CMake")
+    ok &= check_cmd("make --version", "Make")
+    
+    print("\n[Python 包]")
+    ok &= check_pkg("torch")
+    ok &= check_pkg("triton")
+    check_pkg("tilelang")  # 可选
+    check_pkg("matplotlib")  # 可选
+    
+    print("\n[项目文件]")
+    ok &= check_files()
+    
+    print("\n" + "=" * 40)
+    if ok:
+        print("✓ 环境检查通过")
+        print("\n运行测试: ./run.sh")
     else:
-        print("✗ 部分检查失败。请修复上述问题后重试。")
-        print()
-        print("常见解决方案:")
-        print("  CUDA问题: 安装/更新NVIDIA驱动和CUDA工具包")
-        print("  依赖缺失: pip install torch triton tilelang")
-        print("  编译失败: 检查CUDA路径和库链接")
+        print("✗ 部分检查失败，请修复后重试")
+    print("=" * 40)
+    
+    return 0 if ok else 1
 
-    print("=" * 50)
-    return 0 if all_checks_pass else 1
 
 if __name__ == "__main__":
     sys.exit(main())

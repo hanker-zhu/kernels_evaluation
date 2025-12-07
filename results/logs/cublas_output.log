@@ -1,60 +1,22 @@
-=== Building cuBLAS GEMM ===
-CMake Warning (dev) at CMakeLists.txt:5 (find_package):
-  Policy CMP0146 is not set: The FindCUDA module is removed.  Run "cmake
-  --help-policy CMP0146" for policy details.  Use the cmake_policy command to
-  set the policy and suppress this warning.
-
-This warning is for project developers.  Use -Wno-dev to suppress it.
-
--- Configuring done (0.0s)
--- Generating done (0.0s)
--- Build files have been written to: /data/hanker/kernels/cublas/build
-[100%] Built target cublas_gemm
-=== Running cuBLAS GEMM ===
+=== cuBLAS GEMM Benchmark ===
+使用已编译的二进制文件
+COMPILE_TIME_MS: 0
 cuBLAS GEMM Multi-Size Benchmark
 ==================================================
-cuBLAS GEMM (128x128x128): 0.0191488 ms (avg of 10 runs), 219.037 TFLOPS
-Result checksum: 0
-cuBLAS GEMM (256x256x256): 0.0185344 ms (avg of 10 runs), 1810.39 TFLOPS
-Result checksum: 0
-cuBLAS GEMM (512x512x512): 0.019456 ms (avg of 10 runs), 13797.1 TFLOPS
-Result checksum: 0
-cuBLAS GEMM (512x256x512): 0.019456 ms (avg of 10 runs), 6898.53 TFLOPS
-cuBLAS GEMM (256x512x512): 0.0193536 ms (avg of 10 runs), 6935.03 TFLOPS
-cuBLAS GEMM (512x512x256): 0.0176128 ms (avg of 10 runs), 7620.47 TFLOPS
-cuBLAS GEMM (1024x1024x1024): 0.0374784 ms (avg of 10 runs), 57299.2 TFLOPS
-Result checksum: 0
-cuBLAS GEMM (1024x512x1024): 0.0282624 ms (avg of 10 runs), 37991.9 TFLOPS
-cuBLAS GEMM (512x1024x1024): 0.027648 ms (avg of 10 runs), 38836.2 TFLOPS
-cuBLAS GEMM (1024x1024x512): 0.0301056 ms (avg of 10 runs), 35665.9 TFLOPS
-cuBLAS GEMM (2048x2048x2048): 0.136602 ms (avg of 10 runs), 125766 TFLOPS
-Result checksum: 0
-cuBLAS GEMM (2048x1024x2048): 0.100454 ms (avg of 10 runs), 85510.8 TFLOPS
-cuBLAS GEMM (1024x2048x2048): 0.0873472 ms (avg of 10 runs), 98342.4 TFLOPS
-cuBLAS GEMM (2048x2048x1024): 0.0815104 ms (avg of 10 runs), 105385 TFLOPS
-cuBLAS GEMM (4096x4096x4096): 0.929792 ms (avg of 10 runs), 147817 TFLOPS
-Result checksum: 0
-cuBLAS GEMM (4096x2048x4096): 0.466534 ms (avg of 10 runs), 147298 TFLOPS
-cuBLAS GEMM (2048x4096x4096): 0.468992 ms (avg of 10 runs), 146526 TFLOPS
-cuBLAS GEMM (4096x4096x2048): 0.50176 ms (avg of 10 runs), 136957 TFLOPS
+cuBLAS GEMM (256x256x256): 0.0217088 ms (avg of 10 runs), 1545.66 TFLOPS
+cuBLAS GEMM (512x512x512): 0.0195584 ms (avg of 10 runs), 13724.8 TFLOPS
+cuBLAS GEMM (1024x1024x1024): 0.038912 ms (avg of 10 runs), 55188.2 TFLOPS
+cuBLAS GEMM (2048x2048x2048): 0.139878 ms (avg of 10 runs), 122820 TFLOPS
+cuBLAS GEMM (4096x4096x4096): 0.929894 ms (avg of 10 runs), 147801 TFLOPS
 
 === BENCHMARK RESULTS JSON ===
 [
   {
-    "M": 128,
-    "N": 128,
-    "K": 128,
-    "latency_ms": 0.0191488,
-    "tflops": 219.037,
-    "checksum": 0,
-    "success": true
-  },
-  {
     "M": 256,
     "N": 256,
     "K": 256,
-    "latency_ms": 0.0185344,
-    "tflops": 1810.39,
+    "latency_ms": 0.0217088,
+    "tflops": 1545.66,
     "checksum": 0,
     "success": true
   },
@@ -62,35 +24,8 @@ cuBLAS GEMM (4096x4096x2048): 0.50176 ms (avg of 10 runs), 136957 TFLOPS
     "M": 512,
     "N": 512,
     "K": 512,
-    "latency_ms": 0.019456,
-    "tflops": 13797.1,
-    "checksum": 0,
-    "success": true
-  },
-  {
-    "M": 512,
-    "N": 256,
-    "K": 512,
-    "latency_ms": 0.019456,
-    "tflops": 6898.53,
-    "checksum": 0,
-    "success": true
-  },
-  {
-    "M": 256,
-    "N": 512,
-    "K": 512,
-    "latency_ms": 0.0193536,
-    "tflops": 6935.03,
-    "checksum": 0,
-    "success": true
-  },
-  {
-    "M": 512,
-    "N": 512,
-    "K": 256,
-    "latency_ms": 0.0176128,
-    "tflops": 7620.47,
+    "latency_ms": 0.0195584,
+    "tflops": 13724.8,
     "checksum": 0,
     "success": true
   },
@@ -98,35 +33,8 @@ cuBLAS GEMM (4096x4096x2048): 0.50176 ms (avg of 10 runs), 136957 TFLOPS
     "M": 1024,
     "N": 1024,
     "K": 1024,
-    "latency_ms": 0.0374784,
-    "tflops": 57299.2,
-    "checksum": 0,
-    "success": true
-  },
-  {
-    "M": 1024,
-    "N": 512,
-    "K": 1024,
-    "latency_ms": 0.0282624,
-    "tflops": 37991.9,
-    "checksum": 0,
-    "success": true
-  },
-  {
-    "M": 512,
-    "N": 1024,
-    "K": 1024,
-    "latency_ms": 0.027648,
-    "tflops": 38836.2,
-    "checksum": 0,
-    "success": true
-  },
-  {
-    "M": 1024,
-    "N": 1024,
-    "K": 512,
-    "latency_ms": 0.0301056,
-    "tflops": 35665.9,
+    "latency_ms": 0.038912,
+    "tflops": 55188.2,
     "checksum": 0,
     "success": true
   },
@@ -134,35 +42,8 @@ cuBLAS GEMM (4096x4096x2048): 0.50176 ms (avg of 10 runs), 136957 TFLOPS
     "M": 2048,
     "N": 2048,
     "K": 2048,
-    "latency_ms": 0.136602,
-    "tflops": 125766,
-    "checksum": 0,
-    "success": true
-  },
-  {
-    "M": 2048,
-    "N": 1024,
-    "K": 2048,
-    "latency_ms": 0.100454,
-    "tflops": 85510.8,
-    "checksum": 0,
-    "success": true
-  },
-  {
-    "M": 1024,
-    "N": 2048,
-    "K": 2048,
-    "latency_ms": 0.0873472,
-    "tflops": 98342.4,
-    "checksum": 0,
-    "success": true
-  },
-  {
-    "M": 2048,
-    "N": 2048,
-    "K": 1024,
-    "latency_ms": 0.0815104,
-    "tflops": 105385,
+    "latency_ms": 0.139878,
+    "tflops": 122820,
     "checksum": 0,
     "success": true
   },
@@ -170,35 +51,8 @@ cuBLAS GEMM (4096x4096x2048): 0.50176 ms (avg of 10 runs), 136957 TFLOPS
     "M": 4096,
     "N": 4096,
     "K": 4096,
-    "latency_ms": 0.929792,
-    "tflops": 147817,
-    "checksum": 0,
-    "success": true
-  },
-  {
-    "M": 4096,
-    "N": 2048,
-    "K": 4096,
-    "latency_ms": 0.466534,
-    "tflops": 147298,
-    "checksum": 0,
-    "success": true
-  },
-  {
-    "M": 2048,
-    "N": 4096,
-    "K": 4096,
-    "latency_ms": 0.468992,
-    "tflops": 146526,
-    "checksum": 0,
-    "success": true
-  },
-  {
-    "M": 4096,
-    "N": 4096,
-    "K": 2048,
-    "latency_ms": 0.50176,
-    "tflops": 136957,
+    "latency_ms": 0.929894,
+    "tflops": 147801,
     "checksum": 0,
     "success": true
   }

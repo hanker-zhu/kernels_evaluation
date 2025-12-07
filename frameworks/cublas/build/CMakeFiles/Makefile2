@@ -54,10 +54,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /data/hanker/kernels/cublas
+CMAKE_SOURCE_DIR = /data/hanker/kernels/frameworks/cublas
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /data/hanker/kernels/cublas/build
+CMAKE_BINARY_DIR = /data/hanker/kernels/frameworks/cublas/build
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -81,14 +81,14 @@ clean: CMakeFiles/cublas_gemm.dir/clean
 CMakeFiles/cublas_gemm.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cublas_gemm.dir/build.make CMakeFiles/cublas_gemm.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cublas_gemm.dir/build.make CMakeFiles/cublas_gemm.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/data/hanker/kernels/cublas/build/CMakeFiles --progress-num=1,2 "Built target cublas_gemm"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/data/hanker/kernels/frameworks/cublas/build/CMakeFiles --progress-num=1,2 "Built target cublas_gemm"
 .PHONY : CMakeFiles/cublas_gemm.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/cublas_gemm.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /data/hanker/kernels/cublas/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /data/hanker/kernels/frameworks/cublas/build/CMakeFiles 2
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/cublas_gemm.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /data/hanker/kernels/cublas/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /data/hanker/kernels/frameworks/cublas/build/CMakeFiles 0
 .PHONY : CMakeFiles/cublas_gemm.dir/rule
 
 # Convenience name for target.

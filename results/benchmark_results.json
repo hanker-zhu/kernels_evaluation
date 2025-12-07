@@ -1,732 +1,230 @@
 {
-  "cublas": [
-    {
-      "M": 128,
-      "N": 128,
-      "K": 128,
-      "latency_ms": 0.0191488,
-      "tflops": 219.037,
-      "checksum": 0,
-      "success": true,
-      "framework": "cuBLAS"
-    },
-    {
-      "M": 256,
-      "N": 256,
-      "K": 256,
-      "latency_ms": 0.0185344,
-      "tflops": 1810.39,
-      "checksum": 0,
-      "success": true,
-      "framework": "cuBLAS"
-    },
-    {
-      "M": 512,
-      "N": 512,
-      "K": 512,
-      "latency_ms": 0.019456,
-      "tflops": 13797.1,
-      "checksum": 0,
-      "success": true,
-      "framework": "cuBLAS"
-    },
-    {
-      "M": 512,
-      "N": 256,
-      "K": 512,
-      "latency_ms": 0.019456,
-      "tflops": 6898.53,
-      "checksum": 0,
-      "success": true,
-      "framework": "cuBLAS"
-    },
-    {
-      "M": 256,
-      "N": 512,
-      "K": 512,
-      "latency_ms": 0.0193536,
-      "tflops": 6935.03,
-      "checksum": 0,
-      "success": true,
-      "framework": "cuBLAS"
-    },
-    {
-      "M": 512,
-      "N": 512,
-      "K": 256,
-      "latency_ms": 0.0176128,
-      "tflops": 7620.47,
-      "checksum": 0,
-      "success": true,
-      "framework": "cuBLAS"
-    },
-    {
-      "M": 1024,
-      "N": 1024,
-      "K": 1024,
-      "latency_ms": 0.0374784,
-      "tflops": 57299.2,
-      "checksum": 0,
-      "success": true,
-      "framework": "cuBLAS"
-    },
-    {
-      "M": 1024,
-      "N": 512,
-      "K": 1024,
-      "latency_ms": 0.0282624,
-      "tflops": 37991.9,
-      "checksum": 0,
-      "success": true,
-      "framework": "cuBLAS"
-    },
-    {
-      "M": 512,
-      "N": 1024,
-      "K": 1024,
-      "latency_ms": 0.027648,
-      "tflops": 38836.2,
-      "checksum": 0,
-      "success": true,
-      "framework": "cuBLAS"
-    },
-    {
-      "M": 1024,
-      "N": 1024,
-      "K": 512,
-      "latency_ms": 0.0301056,
-      "tflops": 35665.9,
-      "checksum": 0,
-      "success": true,
-      "framework": "cuBLAS"
-    },
-    {
-      "M": 2048,
-      "N": 2048,
-      "K": 2048,
-      "latency_ms": 0.136602,
-      "tflops": 125766,
-      "checksum": 0,
-      "success": true,
-      "framework": "cuBLAS"
-    },
-    {
-      "M": 2048,
-      "N": 1024,
-      "K": 2048,
-      "latency_ms": 0.100454,
-      "tflops": 85510.8,
-      "checksum": 0,
-      "success": true,
-      "framework": "cuBLAS"
-    },
-    {
-      "M": 1024,
-      "N": 2048,
-      "K": 2048,
-      "latency_ms": 0.0873472,
-      "tflops": 98342.4,
-      "checksum": 0,
-      "success": true,
-      "framework": "cuBLAS"
-    },
-    {
-      "M": 2048,
-      "N": 2048,
-      "K": 1024,
-      "latency_ms": 0.0815104,
-      "tflops": 105385,
-      "checksum": 0,
-      "success": true,
-      "framework": "cuBLAS"
-    },
-    {
-      "M": 4096,
-      "N": 4096,
-      "K": 4096,
-      "latency_ms": 0.929792,
-      "tflops": 147817,
-      "checksum": 0,
-      "success": true,
-      "framework": "cuBLAS"
-    },
-    {
-      "M": 4096,
-      "N": 2048,
-      "K": 4096,
-      "latency_ms": 0.466534,
-      "tflops": 147298,
-      "checksum": 0,
-      "success": true,
-      "framework": "cuBLAS"
-    },
-    {
-      "M": 2048,
-      "N": 4096,
-      "K": 4096,
-      "latency_ms": 0.468992,
-      "tflops": 146526,
-      "checksum": 0,
-      "success": true,
-      "framework": "cuBLAS"
-    },
-    {
-      "M": 4096,
-      "N": 4096,
-      "K": 2048,
-      "latency_ms": 0.50176,
-      "tflops": 136957,
-      "checksum": 0,
-      "success": true,
-      "framework": "cuBLAS"
-    }
-  ],
-  "cutlass": [
-    {
-      "M": 128,
-      "N": 128,
-      "K": 128,
-      "latency_ms": 0.016896,
-      "tflops": 248.242,
-      "checksum": -36.3076,
-      "success": true,
-      "framework": "CUTLASS"
-    },
-    {
-      "M": 256,
-      "N": 256,
-      "K": 256,
-      "latency_ms": 0.0206848,
-      "tflops": 1622.18,
-      "checksum": -33.3085,
-      "success": true,
-      "framework": "CUTLASS"
-    },
-    {
-      "M": 512,
-      "N": 512,
-      "K": 512,
-      "latency_ms": 0.026112,
-      "tflops": 10280.2,
-      "checksum": 1039.18,
-      "success": true,
-      "framework": "CUTLASS"
-    },
-    {
-      "M": 512,
-      "N": 256,
-      "K": 512,
-      "latency_ms": 0.0262144,
-      "tflops": 5120,
-      "checksum": -526.486,
-      "success": true,
-      "framework": "CUTLASS"
-    },
-    {
-      "M": 256,
-      "N": 512,
-      "K": 512,
-      "latency_ms": 0.026112,
-      "tflops": 5140.08,
-      "checksum": 421.775,
-      "success": true,
-      "framework": "CUTLASS"
-    },
-    {
-      "M": 512,
-      "N": 512,
-      "K": 256,
-      "latency_ms": 0.020992,
-      "tflops": 6393.76,
-      "checksum": 289.536,
-      "success": true,
-      "framework": "CUTLASS"
-    },
-    {
-      "M": 1024,
-      "N": 1024,
-      "K": 1024,
-      "latency_ms": 0.0380928,
-      "tflops": 56375.1,
-      "checksum": -1587.03,
-      "success": true,
-      "framework": "CUTLASS"
-    },
-    {
-      "M": 1024,
-      "N": 512,
-      "K": 1024,
-      "latency_ms": 0.037376,
-      "tflops": 28728.1,
-      "checksum": -496.19,
-      "success": true,
-      "framework": "CUTLASS"
-    },
-    {
-      "M": 512,
-      "N": 1024,
-      "K": 1024,
-      "latency_ms": 0.0375808,
-      "tflops": 28571.6,
-      "checksum": -1768.38,
-      "success": true,
-      "framework": "CUTLASS"
-    },
-    {
-      "M": 1024,
-      "N": 1024,
-      "K": 512,
-      "latency_ms": 0.026624,
-      "tflops": 40329.8,
-      "checksum": 775.405,
-      "success": true,
-      "framework": "CUTLASS"
-    },
-    {
-      "M": 2048,
-      "N": 2048,
-      "K": 2048,
-      "latency_ms": 0.155341,
-      "tflops": 110595,
-      "checksum": 7891.23,
-      "success": true,
-      "framework": "CUTLASS"
-    },
-    {
-      "M": 2048,
-      "N": 1024,
-      "K": 2048,
-      "latency_ms": 0.119603,
-      "tflops": 71820.3,
-      "checksum": -3998.75,
-      "success": true,
-      "framework": "CUTLASS"
-    },
-    {
-      "M": 1024,
-      "N": 2048,
-      "K": 2048,
-      "latency_ms": 0.107213,
-      "tflops": 80120.4,
-      "checksum": -8669.41,
-      "success": true,
-      "framework": "CUTLASS"
-    },
-    {
-      "M": 2048,
-      "N": 2048,
-      "K": 1024,
-      "latency_ms": 0.0884736,
-      "tflops": 97090.4,
-      "checksum": -7069.95,
-      "success": true,
-      "framework": "CUTLASS"
-    },
-    {
-      "M": 4096,
-      "N": 4096,
-      "K": 4096,
-      "latency_ms": 0.940646,
-      "tflops": 146111,
-      "checksum": 2702.48,
-      "success": true,
-      "framework": "CUTLASS"
-    },
-    {
-      "M": 4096,
-      "N": 2048,
-      "K": 4096,
-      "latency_ms": 0.484352,
-      "tflops": 141879,
-      "checksum": -12481.5,
-      "success": true,
-      "framework": "CUTLASS"
-    },
-    {
-      "M": 2048,
-      "N": 4096,
-      "K": 4096,
-      "latency_ms": 0.477696,
-      "tflops": 143856,
-      "checksum": -5270.98,
-      "success": true,
-      "framework": "CUTLASS"
-    },
-    {
-      "M": 4096,
-      "N": 4096,
-      "K": 2048,
-      "latency_ms": 0.488141,
-      "tflops": 140778,
-      "checksum": -10001.8,
-      "success": true,
-      "framework": "CUTLASS"
-    }
-  ],
-  "tilelang": [
-    {
-      "framework": "TileLang",
-      "success": true,
-      "M": 128,
-      "N": 128,
-      "K": 128,
-      "latency_ms": 0.02,
-      "tflops": 256.0,
-      "checksum": null
-    },
-    {
-      "framework": "TileLang",
-      "success": true,
-      "M": 256,
-      "N": 256,
-      "K": 256,
-      "latency_ms": 0.02,
-      "tflops": 1724.63,
-      "checksum": null
-    },
-    {
-      "framework": "TileLang",
-      "success": true,
-      "M": 512,
-      "N": 512,
-      "K": 512,
-      "latency_ms": 0.03,
-      "tflops": 9709.04,
-      "checksum": null
-    },
-    {
-      "framework": "TileLang",
-      "success": true,
-      "M": 512,
-      "N": 256,
-      "K": 512,
-      "latency_ms": 0.03,
-      "tflops": 5041.23,
-      "checksum": null
-    },
-    {
-      "framework": "TileLang",
-      "success": true,
-      "M": 256,
-      "N": 512,
-      "K": 512,
-      "latency_ms": 0.03,
-      "tflops": 4854.52,
-      "checksum": null
-    },
-    {
-      "framework": "TileLang",
-      "success": true,
-      "M": 512,
-      "N": 512,
-      "K": 256,
-      "latency_ms": 0.02,
-      "tflops": 6898.53,
-      "checksum": null
-    },
-    {
-      "framework": "TileLang",
-      "success": true,
-      "M": 1024,
-      "N": 1024,
-      "K": 1024,
-      "latency_ms": 0.05,
-      "tflops": 43690.67,
-      "checksum": null
-    },
-    {
-      "framework": "TileLang",
-      "success": true,
-      "M": 1024,
-      "N": 512,
-      "K": 1024,
-      "latency_ms": 0.05,
-      "tflops": 22310.13,
-      "checksum": null
-    },
-    {
-      "framework": "TileLang",
-      "success": true,
-      "M": 512,
-      "N": 1024,
-      "K": 1024,
-      "latency_ms": 0.05,
-      "tflops": 22310.13,
-      "checksum": null
-    },
-    {
-      "framework": "TileLang",
-      "success": true,
-      "M": 1024,
-      "N": 1024,
-      "K": 512,
-      "latency_ms": 0.03,
-      "tflops": 34952.53,
-      "checksum": null
-    },
-    {
-      "framework": "TileLang",
-      "success": true,
-      "M": 2048,
-      "N": 2048,
-      "K": 2048,
-      "latency_ms": 0.2,
-      "tflops": 86037.0,
-      "checksum": null
-    },
-    {
-      "framework": "TileLang",
-      "success": false,
-      "M": 2048,
-      "N": 1024,
-      "K": 2048,
-      "latency_ms": null,
-      "tflops": null,
-      "checksum": null,
-      "error": "Test failed - precision issues"
-    },
-    {
-      "framework": "TileLang",
-      "success": true,
-      "M": 1024,
-      "N": 2048,
-      "K": 2048,
-      "latency_ms": 0.13,
-      "tflops": 64527.75,
-      "checksum": null
-    },
-    {
-      "framework": "TileLang",
-      "success": true,
-      "M": 2048,
-      "N": 2048,
-      "K": 1024,
-      "latency_ms": 0.11,
-      "tflops": 75573.04,
-      "checksum": null
-    },
-    {
-      "framework": "TileLang",
-      "success": true,
-      "M": 4096,
-      "N": 4096,
-      "K": 4096,
-      "latency_ms": 1.15,
-      "tflops": 119623.64,
-      "checksum": null
-    },
-    {
-      "framework": "TileLang",
-      "success": true,
-      "M": 4096,
-      "N": 2048,
-      "K": 4096,
-      "latency_ms": 0.59,
-      "tflops": 115505.79,
-      "checksum": null
-    },
-    {
-      "framework": "TileLang",
-      "success": true,
-      "M": 2048,
-      "N": 4096,
-      "K": 4096,
-      "latency_ms": 0.59,
-      "tflops": 115505.79,
-      "checksum": null
-    },
-    {
-      "framework": "TileLang",
-      "success": true,
-      "M": 4096,
-      "N": 4096,
-      "K": 2048,
-      "latency_ms": 0.61,
-      "tflops": 112410.16,
-      "checksum": null
-    }
-  ],
-  "triton": [
-    {
-      "framework": "Triton",
-      "success": true,
-      "M": 128,
-      "N": 128,
-      "K": 128,
-      "latency_ms": 0.07,
-      "tflops": 59.82,
-      "checksum": null
-    },
-    {
-      "framework": "Triton",
-      "success": true,
-      "M": 256,
-      "N": 256,
-      "K": 256,
-      "latency_ms": 0.05,
-      "tflops": 611.37,
-      "checksum": null
-    },
-    {
-      "framework": "Triton",
-      "success": true,
-      "M": 512,
-      "N": 512,
-      "K": 512,
-      "latency_ms": 0.06,
-      "tflops": 4188.62,
-      "checksum": null
-    },
-    {
-      "framework": "Triton",
-      "success": true,
-      "M": 512,
-      "N": 256,
-      "K": 512,
-      "latency_ms": 0.06,
-      "tflops": 2152.77,
-      "checksum": null
-    },
-    {
-      "framework": "Triton",
-      "success": true,
-      "M": 256,
-      "N": 512,
-      "K": 512,
-      "latency_ms": 0.06,
-      "tflops": 2109.22,
-      "checksum": null
-    },
-    {
-      "framework": "Triton",
-      "success": true,
-      "M": 512,
-      "N": 512,
-      "K": 256,
-      "latency_ms": 0.05,
-      "tflops": 2487.63,
-      "checksum": null
-    },
-    {
-      "framework": "Triton",
-      "success": true,
-      "M": 1024,
-      "N": 1024,
-      "K": 1024,
-      "latency_ms": 0.08,
-      "tflops": 26260.06,
-      "checksum": null
-    },
-    {
-      "framework": "Triton",
-      "success": true,
-      "M": 1024,
-      "N": 512,
-      "K": 1024,
-      "latency_ms": 0.08,
-      "tflops": 13524.32,
-      "checksum": null
-    },
-    {
-      "framework": "Triton",
-      "success": true,
-      "M": 512,
-      "N": 1024,
-      "K": 1024,
-      "latency_ms": 0.08,
-      "tflops": 13320.32,
-      "checksum": null
-    },
-    {
-      "framework": "Triton",
-      "success": true,
-      "M": 1024,
-      "N": 1024,
-      "K": 512,
-      "latency_ms": 0.08,
-      "tflops": 13427.55,
-      "checksum": null
-    },
-    {
-      "framework": "Triton",
-      "success": true,
-      "M": 2048,
-      "N": 2048,
-      "K": 2048,
-      "latency_ms": 0.23,
-      "tflops": 75122.6,
-      "checksum": null
-    },
-    {
-      "framework": "Triton",
-      "success": false,
-      "M": 2048,
-      "N": 1024,
-      "K": 2048,
-      "latency_ms": null,
-      "tflops": null,
-      "checksum": null,
-      "error": "Test failed - precision issues"
-    },
-    {
-      "framework": "Triton",
-      "success": true,
-      "M": 1024,
-      "N": 2048,
-      "K": 2048,
-      "latency_ms": 0.15,
-      "tflops": 55634.34,
-      "checksum": null
-    },
-    {
-      "framework": "Triton",
-      "success": true,
-      "M": 2048,
-      "N": 2048,
-      "K": 1024,
-      "latency_ms": 0.14,
-      "tflops": 61724.85,
-      "checksum": null
-    },
-    {
-      "framework": "Triton",
-      "success": true,
-      "M": 4096,
-      "N": 4096,
-      "K": 4096,
-      "latency_ms": 1.12,
-      "tflops": 122172.93,
-      "checksum": null
-    },
-    {
-      "framework": "Triton",
-      "success": true,
-      "M": 4096,
-      "N": 2048,
-      "K": 4096,
-      "latency_ms": 0.62,
-      "tflops": 110806.7,
-      "checksum": null
-    },
-    {
-      "framework": "Triton",
-      "success": true,
-      "M": 2048,
-      "N": 4096,
-      "K": 4096,
-      "latency_ms": 0.62,
-      "tflops": 110764.11,
-      "checksum": null
-    },
-    {
-      "framework": "Triton",
-      "success": true,
-      "M": 4096,
-      "N": 4096,
-      "K": 2048,
-      "latency_ms": 0.6,
-      "tflops": 114951.89,
-      "checksum": null
-    }
-  ]
+  "cublas": {
+    "framework": "cuBLAS",
+    "warmup_time_ms": 0.0,
+    "compile_time_ms": 0,
+    "benchmarks": [
+      {
+        "M": 256,
+        "N": 256,
+        "K": 256,
+        "latency_ms": 0.0217088,
+        "tflops": 1545.66,
+        "checksum": 0,
+        "success": true,
+        "framework": "cuBLAS"
+      },
+      {
+        "M": 512,
+        "N": 512,
+        "K": 512,
+        "latency_ms": 0.0195584,
+        "tflops": 13724.8,
+        "checksum": 0,
+        "success": true,
+        "framework": "cuBLAS"
+      },
+      {
+        "M": 1024,
+        "N": 1024,
+        "K": 1024,
+        "latency_ms": 0.038912,
+        "tflops": 55188.2,
+        "checksum": 0,
+        "success": true,
+        "framework": "cuBLAS"
+      },
+      {
+        "M": 2048,
+        "N": 2048,
+        "K": 2048,
+        "latency_ms": 0.139878,
+        "tflops": 122820,
+        "checksum": 0,
+        "success": true,
+        "framework": "cuBLAS"
+      },
+      {
+        "M": 4096,
+        "N": 4096,
+        "K": 4096,
+        "latency_ms": 0.929894,
+        "tflops": 147801,
+        "checksum": 0,
+        "success": true,
+        "framework": "cuBLAS"
+      }
+    ]
+  },
+  "cutlass": {
+    "framework": "CUTLASS",
+    "warmup_time_ms": 0.0,
+    "compile_time_ms": 0,
+    "benchmarks": [
+      {
+        "M": 256,
+        "N": 256,
+        "K": 256,
+        "latency_ms": 0.0208896,
+        "tflops": 1606.27,
+        "checksum": -33.3085,
+        "success": true,
+        "framework": "CUTLASS"
+      },
+      {
+        "M": 512,
+        "N": 512,
+        "K": 512,
+        "latency_ms": 0.0260096,
+        "tflops": 10320.6,
+        "checksum": 1039.18,
+        "success": true,
+        "framework": "CUTLASS"
+      },
+      {
+        "M": 1024,
+        "N": 1024,
+        "K": 1024,
+        "latency_ms": 0.0495616,
+        "tflops": 43329.6,
+        "checksum": -1587.03,
+        "success": true,
+        "framework": "CUTLASS"
+      },
+      {
+        "M": 2048,
+        "N": 2048,
+        "K": 2048,
+        "latency_ms": 0.155136,
+        "tflops": 110741,
+        "checksum": 7891.23,
+        "success": true,
+        "framework": "CUTLASS"
+      },
+      {
+        "M": 4096,
+        "N": 4096,
+        "K": 4096,
+        "latency_ms": 0.940544,
+        "tflops": 146127,
+        "checksum": 2702.48,
+        "success": true,
+        "framework": "CUTLASS"
+      }
+    ]
+  },
+  "triton": {
+    "framework": "Triton",
+    "warmup_time_ms": 366.6,
+    "compile_time_ms": 1.3,
+    "benchmarks": [
+      {
+        "M": 256,
+        "N": 256,
+        "K": 256,
+        "compile_time_ms": 1.227,
+        "latency_ms": 0.0821,
+        "tflops": 408.76,
+        "success": true,
+        "framework": "Triton"
+      },
+      {
+        "M": 512,
+        "N": 512,
+        "K": 512,
+        "compile_time_ms": 0.009,
+        "latency_ms": 0.0636,
+        "tflops": 4221.6,
+        "success": true,
+        "framework": "Triton"
+      },
+      {
+        "M": 1024,
+        "N": 1024,
+        "K": 1024,
+        "compile_time_ms": 0.009,
+        "latency_ms": 0.0802,
+        "tflops": 26775.27,
+        "success": true,
+        "framework": "Triton"
+      },
+      {
+        "M": 2048,
+        "N": 2048,
+        "K": 2048,
+        "compile_time_ms": 0.007,
+        "latency_ms": 0.2272,
+        "tflops": 75611.33,
+        "success": true,
+        "framework": "Triton"
+      },
+      {
+        "M": 4096,
+        "N": 4096,
+        "K": 4096,
+        "compile_time_ms": 0.012,
+        "latency_ms": 1.1224,
+        "tflops": 122450.61,
+        "success": true,
+        "framework": "Triton"
+      }
+    ]
+  },
+  "tilelang": {
+    "framework": "TileLang",
+    "warmup_time_ms": 478.3,
+    "compile_time_ms": 118.4,
+    "benchmarks": [
+      {
+        "M": 256,
+        "N": 256,
+        "K": 256,
+        "compile_time_ms": 23.0,
+        "latency_ms": 0.0215,
+        "tflops": 1560.38,
+        "success": true,
+        "framework": "TileLang"
+      },
+      {
+        "M": 512,
+        "N": 512,
+        "K": 512,
+        "compile_time_ms": 25.8,
+        "latency_ms": 0.0276,
+        "tflops": 9709.04,
+        "success": true,
+        "framework": "TileLang"
+      },
+      {
+        "M": 1024,
+        "N": 1024,
+        "K": 1024,
+        "compile_time_ms": 24.5,
+        "latency_ms": 0.0502,
+        "tflops": 42799.02,
+        "success": true,
+        "framework": "TileLang"
+      },
+      {
+        "M": 2048,
+        "N": 2048,
+        "K": 2048,
+        "compile_time_ms": 23.6,
+        "latency_ms": 0.1987,
+        "tflops": 86480.5,
+        "success": true,
+        "framework": "TileLang"
+      },
+      {
+        "M": 4096,
+        "N": 4096,
+        "K": 4096,
+        "compile_time_ms": 21.6,
+        "latency_ms": 1.151,
+        "tflops": 119410.8,
+        "success": true,
+        "framework": "TileLang"
+      }
+    ]
+  }
 }

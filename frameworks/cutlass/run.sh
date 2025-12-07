@@ -1,39 +1,35 @@
 #!/bin/bash
+# CUTLASS GEMM Benchmark - 带编译时间测量
 
-# CUTLASS GEMM 测试脚本
+set -e
+cd "$(dirname "$0")"
 
-echo "=== Building CUTLASS GEMM ==="
-mkdir -p build
-cd build
-cmake ..
-make -j$(nproc)
+# 使用 CUDA 12.8
+CUDA_PATH="/usr/local/cuda-12.8"
+export PATH="$CUDA_PATH/bin:$PATH"
+export LD_LIBRARY_PATH="$CUDA_PATH/lib64:$LD_LIBRARY_PATH"
 
-if [ $? -eq 0 ]; then
-    echo "=== Analyzing CUTLASS Binary ==="
-    # 保存编译信息
-    COMPILE_OUTPUT_DIR="/data/hanker/kernels/compile_outputs"
-    mkdir -p "$COMPILE_OUTPUT_DIR"
+echo "=== CUTLASS GEMM Benchmark ==="
 
-    # 获取二进制文件大小
-    BINARY_SIZE=$(stat -c%s ./cutlass_gemm)
-    echo "CUTLASS binary size: $BINARY_SIZE bytes" > "$COMPILE_OUTPUT_DIR/cutlass_binary_info.txt"
-
-    # 尝试提取SASS代码
-    if command -v cuobjdump &> /dev/null; then
-        echo "Generating CUTLASS SASS code..." >> "$COMPILE_OUTPUT_DIR/cutlass_binary_info.txt"
-        cuobjdump -sass ./cutlass_gemm > "$COMPILE_OUTPUT_DIR/cutlass_gemm.sass" 2>/dev/null || echo "SASS extraction failed" >> "$COMPILE_OUTPUT_DIR/cutlass_binary_info.txt"
-        echo "SASS code saved to $COMPILE_OUTPUT_DIR/cutlass_gemm.sass"
-    else
-        echo "cuobjdump not found, skipping SASS extraction" >> "$COMPILE_OUTPUT_DIR/cutlass_binary_info.txt"
-    fi
-
-    # 获取编译器版本信息
-    echo "Compiler version:" >> "$COMPILE_OUTPUT_DIR/cutlass_binary_info.txt"
-    nvcc --version >> "$COMPILE_OUTPUT_DIR/cutlass_binary_info.txt" 2>&1
-
-    echo "=== Running CUTLASS GEMM ==="
-    ./cutlass_gemm
+# 检查是否需要编译
+if [ ! -f "build/cutlass_gemm" ]; then
+    echo "编译中..."
+    rm -rf build
+    mkdir -p build && cd build
+    
+    # 测量编译时间
+    COMPILE_START=$(date +%s%3N)
+    cmake .. -DCMAKE_CUDA_COMPILER="$CUDA_PATH/bin/nvcc" > /dev/null 2>&1
+    make -j$(nproc) > /dev/null 2>&1
+    COMPILE_END=$(date +%s%3N)
+    COMPILE_TIME=$((COMPILE_END - COMPILE_START))
+    
+    cd ..
+    echo "编译时间: ${COMPILE_TIME} ms"
+    echo "COMPILE_TIME_MS: ${COMPILE_TIME}"
 else
-    echo "Build failed!"
-    exit 1
+    echo "使用已编译的二进制文件"
+    echo "COMPILE_TIME_MS: 0"
 fi
+
+./build/cutlass_gemm

@@ -1,7 +1,7 @@
-CMakeFiles/cutlass_gemm.dir/main_cutlass_gemm.cu.o : /data/hanker/kernels/cutlass/main_cutlass_gemm.cu \
+CMakeFiles/cutlass_gemm.dir/main_cutlass_gemm.cu.o : /data/hanker/kernels/frameworks/cutlass/main_cutlass_gemm.cu \
     /usr/include/stdc-predef.h \
-    /usr/include/cuda_runtime.h \
-    /usr/include/crt/host_config.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda_runtime.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/crt/host_config.h \
     /usr/include/features.h \
     /usr/include/features-time64.h \
     /usr/include/x86_64-linux-gnu/bits/wordsize.h \
@@ -10,13 +10,21 @@ CMakeFiles/cutlass_gemm.dir/main_cutlass_gemm.cu.o : /data/hanker/kernels/cutlas
     /usr/include/x86_64-linux-gnu/bits/long-double.h \
     /usr/include/x86_64-linux-gnu/gnu/stubs.h \
     /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
-    /usr/include/builtin_types.h \
-    /usr/include/device_types.h \
-    /usr/include/crt/host_defines.h \
-    /usr/include/driver_types.h \
-    /usr/include/vector_types.h \
-    /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h \
-    /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/builtin_types.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/device_types.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/crt/host_defines.h \
+    /usr/include/ctype.h \
+    /usr/include/x86_64-linux-gnu/bits/types.h \
+    /usr/include/x86_64-linux-gnu/bits/typesizes.h \
+    /usr/include/x86_64-linux-gnu/bits/time64.h \
+    /usr/include/x86_64-linux-gnu/bits/endian.h \
+    /usr/include/x86_64-linux-gnu/bits/endianness.h \
+    /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
+    /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/driver_types.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/vector_types.h \
+    /usr/lib/gcc/x86_64-linux-gnu/13/include/limits.h \
+    /usr/lib/gcc/x86_64-linux-gnu/13/include/syslimits.h \
     /usr/include/limits.h \
     /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
     /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
@@ -26,38 +34,31 @@ CMakeFiles/cutlass_gemm.dir/main_cutlass_gemm.cu.o : /data/hanker/kernels/cutlas
     /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
     /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
     /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
-    /usr/lib/gcc/x86_64-linux-gnu/12/include/stddef.h \
-    /usr/include/surface_types.h \
-    /usr/include/texture_types.h \
-    /usr/include/library_types.h \
-    /usr/include/channel_descriptor.h \
-    /usr/include/cuda_runtime_api.h \
-    /usr/include/cuda_device_runtime_api.h \
-    /usr/include/c++/12/stdlib.h \
-    /usr/include/c++/12/cstdlib \
-    /usr/include/x86_64-linux-gnu/c++/12/bits/c++config.h \
-    /usr/include/x86_64-linux-gnu/c++/12/bits/os_defines.h \
-    /usr/include/x86_64-linux-gnu/c++/12/bits/cpu_defines.h \
-    /usr/include/c++/12/pstl/pstl_config.h \
+    /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/surface_types.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/texture_types.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/library_types.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/channel_descriptor.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda_runtime_api.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda_device_runtime_api.h \
+    /usr/include/c++/13/stdlib.h \
+    /usr/include/c++/13/cstdlib \
+    /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
+    /usr/include/x86_64-linux-gnu/c++/13/bits/os_defines.h \
+    /usr/include/x86_64-linux-gnu/c++/13/bits/cpu_defines.h \
+    /usr/include/c++/13/pstl/pstl_config.h \
     /usr/include/stdlib.h \
     /usr/include/x86_64-linux-gnu/bits/waitflags.h \
     /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
     /usr/include/x86_64-linux-gnu/bits/floatn.h \
     /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
-    /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
-    /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
     /usr/include/x86_64-linux-gnu/sys/types.h \
-    /usr/include/x86_64-linux-gnu/bits/types.h \
-    /usr/include/x86_64-linux-gnu/bits/typesizes.h \
-    /usr/include/x86_64-linux-gnu/bits/time64.h \
     /usr/include/x86_64-linux-gnu/bits/types/clock_t.h \
     /usr/include/x86_64-linux-gnu/bits/types/clockid_t.h \
     /usr/include/x86_64-linux-gnu/bits/types/time_t.h \
     /usr/include/x86_64-linux-gnu/bits/types/timer_t.h \
     /usr/include/x86_64-linux-gnu/bits/stdint-intn.h \
     /usr/include/endian.h \
-    /usr/include/x86_64-linux-gnu/bits/endian.h \
-    /usr/include/x86_64-linux-gnu/bits/endianness.h \
     /usr/include/x86_64-linux-gnu/bits/byteswap.h \
     /usr/include/x86_64-linux-gnu/bits/uintn-identity.h \
     /usr/include/x86_64-linux-gnu/sys/select.h \
@@ -74,11 +75,11 @@ CMakeFiles/cutlass_gemm.dir/main_cutlass_gemm.cu.o : /data/hanker/kernels/cutlas
     /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
     /usr/include/alloca.h \
     /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
-    /usr/include/c++/12/bits/std_abs.h \
-    /usr/include/driver_functions.h \
-    /usr/include/vector_functions.h \
-    /usr/include/vector_functions.hpp \
-    /usr/include/crt/common_functions.h \
+    /usr/include/c++/13/bits/std_abs.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/driver_functions.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/vector_functions.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/vector_functions.hpp \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/crt/common_functions.h \
     /usr/include/string.h \
     /usr/include/strings.h \
     /usr/include/time.h \
@@ -86,10 +87,10 @@ CMakeFiles/cutlass_gemm.dir/main_cutlass_gemm.cu.o : /data/hanker/kernels/cutlas
     /usr/include/x86_64-linux-gnu/bits/timex.h \
     /usr/include/x86_64-linux-gnu/bits/types/struct_tm.h \
     /usr/include/x86_64-linux-gnu/bits/types/struct_itimerspec.h \
-    /usr/include/c++/12/new \
-    /usr/include/c++/12/bits/exception.h \
+    /usr/include/c++/13/new \
+    /usr/include/c++/13/bits/exception.h \
     /usr/include/stdio.h \
-    /usr/lib/gcc/x86_64-linux-gnu/12/include/stdarg.h \
+    /usr/lib/gcc/x86_64-linux-gnu/13/include/stdarg.h \
     /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h \
     /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
     /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h \
@@ -99,11 +100,12 @@ CMakeFiles/cutlass_gemm.dir/main_cutlass_gemm.cu.o : /data/hanker/kernels/cutlas
     /usr/include/x86_64-linux-gnu/bits/types/cookie_io_functions_t.h \
     /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
     /usr/include/assert.h \
-    /usr/include/crt/math_functions.h \
-    /usr/include/c++/12/math.h \
-    /usr/include/c++/12/cmath \
-    /usr/include/c++/12/bits/cpp_type_traits.h \
-    /usr/include/c++/12/ext/type_traits.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/crt/math_functions.h \
+    /usr/include/c++/13/math.h \
+    /usr/include/c++/13/cmath \
+    /usr/include/c++/13/bits/requires_hosted.h \
+    /usr/include/c++/13/bits/cpp_type_traits.h \
+    /usr/include/c++/13/ext/type_traits.h \
     /usr/include/math.h \
     /usr/include/x86_64-linux-gnu/bits/math-vector.h \
     /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
@@ -114,107 +116,104 @@ CMakeFiles/cutlass_gemm.dir/main_cutlass_gemm.cu.o : /data/hanker/kernels/cutlas
     /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
     /usr/include/x86_64-linux-gnu/bits/mathcalls-narrow.h \
     /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
-    /usr/include/c++/12/bits/specfun.h \
-    /usr/include/c++/12/bits/stl_algobase.h \
-    /usr/include/c++/12/bits/functexcept.h \
-    /usr/include/c++/12/bits/exception_defines.h \
-    /usr/include/c++/12/ext/numeric_traits.h \
-    /usr/include/c++/12/bits/stl_pair.h \
-    /usr/include/c++/12/type_traits \
-    /usr/include/c++/12/bits/move.h \
-    /usr/include/c++/12/bits/utility.h \
-    /usr/include/c++/12/bits/stl_iterator_base_types.h \
-    /usr/include/c++/12/bits/stl_iterator_base_funcs.h \
-    /usr/include/c++/12/bits/concept_check.h \
-    /usr/include/c++/12/debug/assertions.h \
-    /usr/include/c++/12/bits/stl_iterator.h \
-    /usr/include/c++/12/bits/ptr_traits.h \
-    /usr/include/c++/12/debug/debug.h \
-    /usr/include/c++/12/bits/predefined_ops.h \
-    /usr/include/c++/12/limits \
-    /usr/include/c++/12/tr1/gamma.tcc \
-    /usr/include/c++/12/tr1/special_function_util.h \
-    /usr/include/c++/12/tr1/bessel_function.tcc \
-    /usr/include/c++/12/tr1/beta_function.tcc \
-    /usr/include/c++/12/tr1/ell_integral.tcc \
-    /usr/include/c++/12/tr1/exp_integral.tcc \
-    /usr/include/c++/12/tr1/hypergeometric.tcc \
-    /usr/include/c++/12/tr1/legendre_function.tcc \
-    /usr/include/c++/12/tr1/modified_bessel_func.tcc \
-    /usr/include/c++/12/tr1/poly_hermite.tcc \
-    /usr/include/c++/12/tr1/poly_laguerre.tcc \
-    /usr/include/c++/12/tr1/riemann_zeta.tcc \
-    /usr/include/crt/math_functions.hpp \
-    /usr/include/crt/device_functions.h \
-    /usr/include/crt/device_functions.hpp \
-    /usr/include/device_atomic_functions.h \
-    /usr/include/device_atomic_functions.hpp \
-    /usr/include/crt/device_double_functions.h \
-    /usr/include/crt/device_double_functions.hpp \
-    /usr/include/sm_20_atomic_functions.h \
-    /usr/include/sm_20_atomic_functions.hpp \
-    /usr/include/sm_32_atomic_functions.h \
-    /usr/include/sm_32_atomic_functions.hpp \
-    /usr/include/sm_35_atomic_functions.h \
-    /usr/include/sm_60_atomic_functions.h \
-    /usr/include/sm_60_atomic_functions.hpp \
-    /usr/include/sm_20_intrinsics.h \
-    /usr/include/sm_20_intrinsics.hpp \
-    /usr/include/sm_30_intrinsics.h \
-    /usr/include/sm_30_intrinsics.hpp \
-    /usr/include/sm_32_intrinsics.h \
-    /usr/include/sm_32_intrinsics.hpp \
-    /usr/include/sm_35_intrinsics.h \
-    /usr/include/sm_61_intrinsics.h \
-    /usr/include/sm_61_intrinsics.hpp \
-    /usr/include/crt/sm_70_rt.h \
-    /usr/include/crt/sm_70_rt.hpp \
-    /usr/include/crt/sm_80_rt.h \
-    /usr/include/crt/sm_80_rt.hpp \
-    /usr/include/crt/sm_90_rt.h \
-    /usr/include/crt/sm_90_rt.hpp \
-    /usr/include/texture_indirect_functions.h \
-    /usr/include/surface_indirect_functions.h \
-    /usr/include/crt/cudacc_ext.h \
-    /usr/include/device_launch_parameters.h \
-    /usr/include/c++/12/utility \
-    /usr/include/c++/12/bits/stl_relops.h \
-    /usr/include/c++/12/initializer_list \
-    /usr/include/c++/12/iostream \
-    /usr/include/c++/12/ostream \
-    /usr/include/c++/12/ios \
-    /usr/include/c++/12/iosfwd \
-    /usr/include/c++/12/bits/stringfwd.h \
-    /usr/include/c++/12/bits/memoryfwd.h \
-    /usr/include/c++/12/bits/postypes.h \
-    /usr/include/c++/12/cwchar \
+    /usr/include/c++/13/bits/specfun.h \
+    /usr/include/c++/13/bits/stl_algobase.h \
+    /usr/include/c++/13/bits/functexcept.h \
+    /usr/include/c++/13/bits/exception_defines.h \
+    /usr/include/c++/13/ext/numeric_traits.h \
+    /usr/include/c++/13/bits/stl_pair.h \
+    /usr/include/c++/13/type_traits \
+    /usr/include/c++/13/bits/move.h \
+    /usr/include/c++/13/bits/utility.h \
+    /usr/include/c++/13/bits/stl_iterator_base_types.h \
+    /usr/include/c++/13/bits/stl_iterator_base_funcs.h \
+    /usr/include/c++/13/bits/concept_check.h \
+    /usr/include/c++/13/debug/assertions.h \
+    /usr/include/c++/13/bits/stl_iterator.h \
+    /usr/include/c++/13/bits/ptr_traits.h \
+    /usr/include/c++/13/debug/debug.h \
+    /usr/include/c++/13/bits/predefined_ops.h \
+    /usr/include/c++/13/bit \
+    /usr/include/c++/13/limits \
+    /usr/include/c++/13/tr1/gamma.tcc \
+    /usr/include/c++/13/tr1/special_function_util.h \
+    /usr/include/c++/13/tr1/bessel_function.tcc \
+    /usr/include/c++/13/tr1/beta_function.tcc \
+    /usr/include/c++/13/tr1/ell_integral.tcc \
+    /usr/include/c++/13/tr1/exp_integral.tcc \
+    /usr/include/c++/13/tr1/hypergeometric.tcc \
+    /usr/include/c++/13/tr1/legendre_function.tcc \
+    /usr/include/c++/13/tr1/modified_bessel_func.tcc \
+    /usr/include/c++/13/tr1/poly_hermite.tcc \
+    /usr/include/c++/13/tr1/poly_laguerre.tcc \
+    /usr/include/c++/13/tr1/riemann_zeta.tcc \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/crt/math_functions.hpp \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/crt/device_functions.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/crt/device_functions.hpp \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/device_atomic_functions.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/device_atomic_functions.hpp \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/crt/device_double_functions.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/crt/device_double_functions.hpp \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/sm_20_atomic_functions.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/sm_20_atomic_functions.hpp \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/sm_32_atomic_functions.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/sm_32_atomic_functions.hpp \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/sm_35_atomic_functions.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/sm_60_atomic_functions.hpp \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/sm_20_intrinsics.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/sm_20_intrinsics.hpp \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/sm_30_intrinsics.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/sm_30_intrinsics.hpp \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/sm_32_intrinsics.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/sm_32_intrinsics.hpp \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/sm_35_intrinsics.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/sm_61_intrinsics.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/sm_61_intrinsics.hpp \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/crt/sm_70_rt.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/crt/sm_70_rt.hpp \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/crt/sm_80_rt.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/crt/sm_80_rt.hpp \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/crt/sm_90_rt.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/crt/sm_90_rt.hpp \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/crt/sm_100_rt.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/crt/sm_100_rt.hpp \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/texture_indirect_functions.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/surface_indirect_functions.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/crt/cudacc_ext.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/device_launch_parameters.h \
+    /usr/include/c++/13/utility \
+    /usr/include/c++/13/bits/stl_relops.h \
+    /usr/include/c++/13/initializer_list \
+    /usr/include/c++/13/iostream \
+    /usr/include/c++/13/ostream \
+    /usr/include/c++/13/ios \
+    /usr/include/c++/13/iosfwd \
+    /usr/include/c++/13/bits/stringfwd.h \
+    /usr/include/c++/13/bits/memoryfwd.h \
+    /usr/include/c++/13/bits/postypes.h \
+    /usr/include/c++/13/cwchar \
     /usr/include/wchar.h \
     /usr/include/x86_64-linux-gnu/bits/wchar.h \
     /usr/include/x86_64-linux-gnu/bits/types/wint_t.h \
     /usr/include/x86_64-linux-gnu/bits/types/mbstate_t.h \
-    /usr/include/c++/12/exception \
-    /usr/include/c++/12/bits/exception_ptr.h \
-    /usr/include/c++/12/bits/cxxabi_init_exception.h \
-    /usr/include/c++/12/typeinfo \
-    /usr/include/c++/12/bits/hash_bytes.h \
-    /usr/include/c++/12/bits/nested_exception.h \
-    /usr/include/c++/12/bits/char_traits.h \
-    /usr/include/c++/12/cstdint \
-    /usr/lib/gcc/x86_64-linux-gnu/12/include/stdint.h \
-    /usr/include/stdint.h \
-    /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
-    /usr/include/x86_64-linux-gnu/bits/stdint-least.h \
-    /usr/include/c++/12/bits/localefwd.h \
-    /usr/include/x86_64-linux-gnu/c++/12/bits/c++locale.h \
-    /usr/include/c++/12/clocale \
+    /usr/include/c++/13/exception \
+    /usr/include/c++/13/bits/exception_ptr.h \
+    /usr/include/c++/13/bits/cxxabi_init_exception.h \
+    /usr/include/c++/13/typeinfo \
+    /usr/include/c++/13/bits/hash_bytes.h \
+    /usr/include/c++/13/bits/nested_exception.h \
+    /usr/include/c++/13/bits/char_traits.h \
+    /usr/include/c++/13/bits/localefwd.h \
+    /usr/include/x86_64-linux-gnu/c++/13/bits/c++locale.h \
+    /usr/include/c++/13/clocale \
     /usr/include/locale.h \
     /usr/include/x86_64-linux-gnu/bits/locale.h \
-    /usr/include/c++/12/cctype \
-    /usr/include/ctype.h \
-    /usr/include/c++/12/bits/ios_base.h \
-    /usr/include/c++/12/ext/atomicity.h \
-    /usr/include/x86_64-linux-gnu/c++/12/bits/gthr.h \
-    /usr/include/x86_64-linux-gnu/c++/12/bits/gthr-default.h \
+    /usr/include/c++/13/cctype \
+    /usr/include/c++/13/bits/ios_base.h \
+    /usr/include/c++/13/ext/atomicity.h \
+    /usr/include/x86_64-linux-gnu/c++/13/bits/gthr.h \
+    /usr/include/x86_64-linux-gnu/c++/13/bits/gthr-default.h \
     /usr/include/pthread.h \
     /usr/include/sched.h \
     /usr/include/x86_64-linux-gnu/bits/sched.h \
@@ -222,30 +221,30 @@ CMakeFiles/cutlass_gemm.dir/main_cutlass_gemm.cu.o : /data/hanker/kernels/cutlas
     /usr/include/x86_64-linux-gnu/bits/cpu-set.h \
     /usr/include/x86_64-linux-gnu/bits/setjmp.h \
     /usr/include/x86_64-linux-gnu/bits/types/struct___jmp_buf_tag.h \
-    /usr/include/x86_64-linux-gnu/c++/12/bits/atomic_word.h \
+    /usr/include/x86_64-linux-gnu/c++/13/bits/atomic_word.h \
     /usr/include/x86_64-linux-gnu/sys/single_threaded.h \
-    /usr/include/c++/12/bits/locale_classes.h \
-    /usr/include/c++/12/string \
-    /usr/include/c++/12/bits/allocator.h \
-    /usr/include/x86_64-linux-gnu/c++/12/bits/c++allocator.h \
-    /usr/include/c++/12/bits/new_allocator.h \
-    /usr/include/c++/12/bits/ostream_insert.h \
-    /usr/include/c++/12/bits/cxxabi_forced.h \
-    /usr/include/c++/12/bits/stl_function.h \
-    /usr/include/c++/12/backward/binders.h \
-    /usr/include/c++/12/bits/refwrap.h \
-    /usr/include/c++/12/bits/invoke.h \
-    /usr/include/c++/12/bits/range_access.h \
-    /usr/include/c++/12/bits/basic_string.h \
-    /usr/include/c++/12/ext/alloc_traits.h \
-    /usr/include/c++/12/bits/alloc_traits.h \
-    /usr/include/c++/12/bits/stl_construct.h \
-    /usr/include/c++/12/string_view \
-    /usr/include/c++/12/bits/functional_hash.h \
-    /usr/include/c++/12/bits/string_view.tcc \
-    /usr/include/c++/12/ext/string_conversions.h \
-    /usr/include/c++/12/cstdio \
-    /usr/include/c++/12/cerrno \
+    /usr/include/c++/13/bits/locale_classes.h \
+    /usr/include/c++/13/string \
+    /usr/include/c++/13/bits/allocator.h \
+    /usr/include/x86_64-linux-gnu/c++/13/bits/c++allocator.h \
+    /usr/include/c++/13/bits/new_allocator.h \
+    /usr/include/c++/13/bits/ostream_insert.h \
+    /usr/include/c++/13/bits/cxxabi_forced.h \
+    /usr/include/c++/13/bits/stl_function.h \
+    /usr/include/c++/13/backward/binders.h \
+    /usr/include/c++/13/bits/refwrap.h \
+    /usr/include/c++/13/bits/invoke.h \
+    /usr/include/c++/13/bits/range_access.h \
+    /usr/include/c++/13/bits/basic_string.h \
+    /usr/include/c++/13/ext/alloc_traits.h \
+    /usr/include/c++/13/bits/alloc_traits.h \
+    /usr/include/c++/13/bits/stl_construct.h \
+    /usr/include/c++/13/string_view \
+    /usr/include/c++/13/bits/functional_hash.h \
+    /usr/include/c++/13/bits/string_view.tcc \
+    /usr/include/c++/13/ext/string_conversions.h \
+    /usr/include/c++/13/cstdio \
+    /usr/include/c++/13/cerrno \
     /usr/include/errno.h \
     /usr/include/x86_64-linux-gnu/bits/errno.h \
     /usr/include/linux/errno.h \
@@ -253,92 +252,99 @@ CMakeFiles/cutlass_gemm.dir/main_cutlass_gemm.cu.o : /data/hanker/kernels/cutlas
     /usr/include/asm-generic/errno.h \
     /usr/include/asm-generic/errno-base.h \
     /usr/include/x86_64-linux-gnu/bits/types/error_t.h \
-    /usr/include/c++/12/bits/charconv.h \
-    /usr/include/c++/12/bits/basic_string.tcc \
-    /usr/include/c++/12/bits/locale_classes.tcc \
-    /usr/include/c++/12/system_error \
-    /usr/include/x86_64-linux-gnu/c++/12/bits/error_constants.h \
-    /usr/include/c++/12/stdexcept \
-    /usr/include/c++/12/streambuf \
-    /usr/include/c++/12/bits/streambuf.tcc \
-    /usr/include/c++/12/bits/basic_ios.h \
-    /usr/include/c++/12/bits/locale_facets.h \
-    /usr/include/c++/12/cwctype \
+    /usr/include/c++/13/bits/charconv.h \
+    /usr/include/c++/13/bits/basic_string.tcc \
+    /usr/include/c++/13/bits/memory_resource.h \
+    /usr/include/c++/13/cstddef \
+    /usr/include/c++/13/bits/uses_allocator.h \
+    /usr/include/c++/13/bits/uses_allocator_args.h \
+    /usr/include/c++/13/tuple \
+    /usr/include/c++/13/bits/locale_classes.tcc \
+    /usr/include/c++/13/system_error \
+    /usr/include/x86_64-linux-gnu/c++/13/bits/error_constants.h \
+    /usr/include/c++/13/stdexcept \
+    /usr/include/c++/13/streambuf \
+    /usr/include/c++/13/bits/streambuf.tcc \
+    /usr/include/c++/13/bits/basic_ios.h \
+    /usr/include/c++/13/bits/locale_facets.h \
+    /usr/include/c++/13/cwctype \
     /usr/include/wctype.h \
     /usr/include/x86_64-linux-gnu/bits/wctype-wchar.h \
-    /usr/include/x86_64-linux-gnu/c++/12/bits/ctype_base.h \
-    /usr/include/c++/12/bits/streambuf_iterator.h \
-    /usr/include/x86_64-linux-gnu/c++/12/bits/ctype_inline.h \
-    /usr/include/c++/12/bits/locale_facets.tcc \
-    /usr/include/c++/12/bits/basic_ios.tcc \
-    /usr/include/c++/12/bits/ostream.tcc \
-    /usr/include/c++/12/istream \
-    /usr/include/c++/12/bits/istream.tcc \
-    /usr/include/c++/12/vector \
-    /usr/include/c++/12/bits/stl_uninitialized.h \
-    /usr/include/c++/12/bits/stl_vector.h \
-    /usr/include/c++/12/bits/stl_bvector.h \
-    /usr/include/c++/12/bits/vector.tcc \
+    /usr/include/x86_64-linux-gnu/c++/13/bits/ctype_base.h \
+    /usr/include/c++/13/bits/streambuf_iterator.h \
+    /usr/include/x86_64-linux-gnu/c++/13/bits/ctype_inline.h \
+    /usr/include/c++/13/bits/locale_facets.tcc \
+    /usr/include/c++/13/bits/basic_ios.tcc \
+    /usr/include/c++/13/bits/ostream.tcc \
+    /usr/include/c++/13/istream \
+    /usr/include/c++/13/bits/istream.tcc \
+    /usr/include/c++/13/vector \
+    /usr/include/c++/13/bits/stl_uninitialized.h \
+    /usr/include/c++/13/bits/stl_vector.h \
+    /usr/include/c++/13/bits/stl_bvector.h \
+    /usr/include/c++/13/bits/vector.tcc \
     /data/hanker/cutlass/include/cutlass/gemm/device/gemm.h \
     /data/hanker/cutlass/include/cutlass/cutlass.h \
     /data/hanker/cutlass/include/cutlass/detail/helper_macros.hpp \
-    /usr/include/c++/12/cassert \
+    /usr/include/c++/13/cassert \
     /data/hanker/cutlass/include/cutlass/numeric_types.h \
     /data/hanker/cutlass/include/cute/util/type_traits.hpp \
-    /usr/include/c++/12/cstddef \
+    /usr/include/c++/13/cstdint \
+    /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h \
+    /usr/include/stdint.h \
+    /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
+    /usr/include/x86_64-linux-gnu/bits/stdint-least.h \
     /data/hanker/cutlass/include/cute/config.hpp \
-    /usr/include/c++/12/iomanip \
-    /usr/include/c++/12/locale \
-    /usr/include/c++/12/bits/locale_facets_nonio.h \
-    /usr/include/c++/12/ctime \
-    /usr/include/x86_64-linux-gnu/c++/12/bits/time_members.h \
-    /usr/include/x86_64-linux-gnu/c++/12/bits/messages_members.h \
+    /usr/include/c++/13/iomanip \
+    /usr/include/c++/13/locale \
+    /usr/include/c++/13/bits/locale_facets_nonio.h \
+    /usr/include/c++/13/ctime \
+    /usr/include/x86_64-linux-gnu/c++/13/bits/time_members.h \
+    /usr/include/x86_64-linux-gnu/c++/13/bits/messages_members.h \
     /usr/include/libintl.h \
-    /usr/include/c++/12/bits/codecvt.h \
-    /usr/include/c++/12/bits/locale_facets_nonio.tcc \
-    /usr/include/c++/12/bits/locale_conv.h \
-    /usr/include/c++/12/bits/quoted_string.h \
-    /usr/include/c++/12/sstream \
-    /usr/include/c++/12/bits/sstream.tcc \
+    /usr/include/c++/13/bits/codecvt.h \
+    /usr/include/c++/13/bits/locale_facets_nonio.tcc \
+    /usr/include/c++/13/bits/locale_conv.h \
+    /usr/include/c++/13/bits/quoted_string.h \
+    /usr/include/c++/13/sstream \
+    /usr/include/c++/13/bits/sstream.tcc \
     /data/hanker/cutlass/include/cute/util/debug.hpp \
     /data/hanker/cutlass/include/cutlass/numeric_size.h \
     /data/hanker/cutlass/include/cutlass/integer_subbyte.h \
     /data/hanker/cutlass/include/cutlass/platform/platform.h \
-    /usr/include/c++/12/algorithm \
-    /usr/include/c++/12/bits/stl_algo.h \
-    /usr/include/c++/12/bits/algorithmfwd.h \
-    /usr/include/c++/12/bits/stl_heap.h \
-    /usr/include/c++/12/bits/stl_tempbuf.h \
-    /usr/include/c++/12/bits/uniform_int_dist.h \
-    /usr/include/c++/12/pstl/glue_algorithm_defs.h \
-    /usr/include/c++/12/pstl/execution_defs.h \
-    /usr/include/c++/12/functional \
-    /usr/include/c++/12/tuple \
-    /usr/include/c++/12/bits/uses_allocator.h \
-    /usr/include/c++/12/bits/std_function.h \
-    /usr/include/c++/12/unordered_map \
-    /usr/include/c++/12/ext/aligned_buffer.h \
-    /usr/include/c++/12/bits/hashtable.h \
-    /usr/include/c++/12/bits/hashtable_policy.h \
-    /usr/include/c++/12/bits/enable_special_members.h \
-    /usr/include/c++/12/bits/node_handle.h \
-    /usr/include/c++/12/bits/unordered_map.h \
-    /usr/include/c++/12/bits/erase_if.h \
-    /usr/include/c++/12/array \
-    /usr/include/c++/12/compare \
+    /usr/include/c++/13/algorithm \
+    /usr/include/c++/13/bits/stl_algo.h \
+    /usr/include/c++/13/bits/algorithmfwd.h \
+    /usr/include/c++/13/bits/stl_heap.h \
+    /usr/include/c++/13/bits/uniform_int_dist.h \
+    /usr/include/c++/13/bits/stl_tempbuf.h \
+    /usr/include/c++/13/pstl/glue_algorithm_defs.h \
+    /usr/include/c++/13/pstl/execution_defs.h \
+    /usr/include/c++/13/functional \
+    /usr/include/c++/13/bits/std_function.h \
+    /usr/include/c++/13/unordered_map \
+    /usr/include/c++/13/bits/unordered_map.h \
+    /usr/include/c++/13/bits/hashtable.h \
+    /usr/include/c++/13/bits/hashtable_policy.h \
+    /usr/include/c++/13/ext/aligned_buffer.h \
+    /usr/include/c++/13/bits/enable_special_members.h \
+    /usr/include/c++/13/bits/node_handle.h \
+    /usr/include/c++/13/bits/erase_if.h \
+    /usr/include/c++/13/array \
+    /usr/include/c++/13/compare \
     /data/hanker/cutlass/include/cutlass/half.h \
-    /usr/include/c++/12/cstring \
-    /usr/include/cuda_fp16.h \
-    /usr/include/cuda_fp16.hpp \
-    /usr/include/nv/target \
-    /usr/include/nv/detail/__target_macros \
-    /usr/include/nv/detail/__preprocessor \
+    /usr/include/c++/13/cstring \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda_fp16.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/nv/target \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/nv/detail/__target_macros \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/nv/detail/__preprocessor \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda_fp16.hpp \
     /data/hanker/cutlass/include/cutlass/float8.h \
     /data/hanker/cutlass/include/cutlass/arch/config.h \
-    /usr/include/cuda_fp8.h \
-    /usr/include/cuda_bf16.h \
-    /usr/include/cuda_bf16.hpp \
-    /usr/include/cuda_fp8.hpp \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda_fp8.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda_bf16.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda_bf16.hpp \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda_fp8.hpp \
     /data/hanker/cutlass/include/cutlass/exmy_base.h \
     /data/hanker/cutlass/include/cutlass/bfloat16.h \
     /data/hanker/cutlass/include/cutlass/tfloat32.h \
@@ -348,31 +354,265 @@ CMakeFiles/cutlass_gemm.dir/main_cutlass_gemm.cu.o : /data/hanker/kernels/cutlas
     /data/hanker/cutlass/include/cutlass/arch/arch.h \
     /data/hanker/cutlass/include/cutlass/device_kernel.h \
     /data/hanker/cutlass/include/cutlass/arch/synclog.hpp \
-    /usr/include/c++/12/mutex \
-    /usr/include/c++/12/bits/chrono.h \
-    /usr/include/c++/12/ratio \
-    /usr/include/c++/12/bits/parse_numbers.h \
-    /usr/include/c++/12/bits/std_mutex.h \
-    /usr/include/c++/12/bits/unique_lock.h \
+    /usr/include/c++/13/mutex \
+    /usr/include/c++/13/bits/chrono.h \
+    /usr/include/c++/13/ratio \
+    /usr/include/c++/13/bits/parse_numbers.h \
+    /usr/include/c++/13/bits/std_mutex.h \
+    /usr/include/c++/13/bits/unique_lock.h \
     /data/hanker/cutlass/include/cutlass/gemm/threadblock/threadblock_swizzle.h \
     /data/hanker/cutlass/include/cutlass/layout/matrix.h \
     /data/hanker/cutlass/include/cutlass/fast_math.h \
-    /usr/include/cuda/std/utility \
-    /usr/include/cuda/std/type_traits \
-    /usr/include/cuda/std/cstddef \
-    /usr/include/cuda/std/version \
-    /usr/include/cuda/std/detail/__config \
-    /usr/include/cuda/std/detail/libcxx/include/__config \
-    /usr/include/cuda/std/detail/__pragma_push \
-    /usr/include/cuda/std/detail/libcxx/include/__pragma_push \
-    /usr/include/cuda/std/detail/libcxx/include/__undef_macros \
-    /usr/include/cuda/std/detail/libcxx/include/version \
-    /usr/include/cuda/std/detail/__pragma_pop \
-    /usr/include/cuda/std/detail/libcxx/include/__pragma_pop \
-    /usr/include/cuda/std/detail/libcxx/include/cstddef \
-    /usr/include/cuda/std/detail/libcxx/include/type_traits \
-    /usr/include/cuda/std/detail/libcxx/include/__tuple \
-    /usr/include/cuda/std/detail/libcxx/include/utility \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/utility \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/detail/__config \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__cccl/version.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/detail/libcxx/include/__config \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/__cccl_config \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__cccl/attributes.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__cccl/compiler.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__cccl/dialect.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__cccl/system_header.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__cccl/is_non_narrowing_convertible.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__cccl/diagnostic.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__cccl/exceptions.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__cccl/execution_space.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__cccl/extended_floating_point.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__cccl/ptx_isa.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__cccl/sequence_access.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__cccl/visibility.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__functional/binary_function.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__functional/hash.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__functional/invoke.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/add_lvalue_reference.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/is_referenceable.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/integral_constant.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/is_same.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/apply_cv.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/is_const.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/is_volatile.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/remove_reference.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/cstddef \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/detail/libcxx/include/cstddef \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__cuda/cstddef_prelude.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/enable_if.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/is_integral.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/remove_cv.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/remove_const.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/remove_volatile.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/detail/libcxx/include/__assert \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/detail/libcxx/include/__verbose_abort \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/detail/libcxx/include/__availability \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/version \
+    /usr/include/c++/13/version \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/conditional.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/decay.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/add_pointer.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/is_void.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/remove_cvref.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/is_array.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/is_function.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/is_reference.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/remove_extent.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/is_base_of.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/is_class.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/is_union.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__utility/declval.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/is_core_convertible.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/is_member_function_pointer.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/is_member_object_pointer.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/is_reference_wrapper.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/nat.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__utility/forward.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__functional/unary_function.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__fwd/hash.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/is_copy_constructible.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/add_const.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/is_constructible.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/conjunction.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/disjunction.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/is_destructible.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/remove_all_extents.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/negation.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/is_default_constructible.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/is_enum.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/is_floating_point.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/is_member_pointer.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/is_pointer.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/is_move_constructible.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/add_rvalue_reference.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/underlying_type.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__utility/move.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/is_nothrow_move_constructible.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/is_nothrow_constructible.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/is_scalar.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/is_arithmetic.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/is_null_pointer.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__utility/pair.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__functional/unwrap_ref.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__fwd/get.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__concepts/copyable.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__concepts/__concept_macros.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__concepts/assignable.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__concepts/common_reference_with.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__concepts/convertible_to.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/is_convertible.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__concepts/same_as.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/common_reference.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/common_type.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/copy_cvref.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/copy_cv.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/add_cv.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/add_volatile.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/is_extended_floating_point.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/void_t.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/make_const_lvalue_ref.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__concepts/constructible.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__concepts/destructible.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/is_nothrow_destructible.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/is_object.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__concepts/movable.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__concepts/swappable.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__concepts/class_or_enum.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/extent.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/is_nothrow_move_assignable.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/is_nothrow_assignable.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/is_assignable.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/type_identity.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__utility/exchange.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__fwd/array.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__fwd/pair.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__fwd/subrange.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__iterator/concepts.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__concepts/arithmetic.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/is_signed.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/is_signed_integer.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/is_unsigned_integer.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__concepts/derived_from.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__concepts/equality_comparable.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__concepts/boolean_testable.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__concepts/invocable.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__concepts/predicate.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__concepts/regular.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__concepts/semiregular.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__concepts/relation.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__concepts/totally_ordered.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__iterator/incrementable_traits.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/is_primary_template.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/is_valid_expansion.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/make_signed.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/type_list.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__iterator/iter_move.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__iterator/iterator_traits.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__iterator/readable_traits.h \
+    /usr/include/c++/13/iterator \
+    /usr/include/c++/13/bits/stream_iterator.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__memory/pointer_traits.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__memory/addressof.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__fwd/tuple.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__tuple_dir/tuple_element.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__tuple_dir/tuple_indices.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__utility/integer_sequence.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__tuple_dir/tuple_types.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__tuple_dir/sfinae_helpers.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__tuple_dir/make_tuple_types.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__tuple_dir/apply_cv.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__tuple_dir/tuple_size.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__tuple_dir/tuple_like_ext.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/is_copy_assignable.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/is_move_assignable.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__tuple_dir/structured_bindings.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/is_implicitly_default_constructible.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/is_nothrow_copy_assignable.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/is_nothrow_copy_constructible.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/is_nothrow_default_constructible.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/is_swappable.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__utility/piecewise_construct.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__utility/swap.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/cstdint \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/detail/libcxx/include/cstdint \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__cuda/cstdint_prelude.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/climits \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/detail/libcxx/include/climits \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__cuda/climits_prelude.h \
+    /usr/include/c++/13/climits \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/detail/libcxx/include/cstring \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/detail/libcxx/include/string.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__functional/reference_wrapper.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__functional/weak_result_type.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__memory/construct_at.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__iterator/access.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__memory/voidify.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/is_constant_evaluated.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/is_trivially_constructible.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/is_trivially_destructible.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/is_trivially_move_assignable.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/is_trivially_assignable.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__utility/as_const.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__utility/auto_cast.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__utility/cmp.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/make_unsigned.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/is_unsigned.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/limits \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/detail/libcxx/include/limits \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/type_traits \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__algorithm/iter_swap.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__functional/identity.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/aligned_storage.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/aligned_union.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/alignment_of.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/can_extract_key.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/remove_const_ref.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/dependent_type.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/has_unique_object_representation.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/has_virtual_destructor.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/is_abstract.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/is_aggregate.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/is_allocator.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/is_bounded_array.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/is_callable.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/is_char_like_type.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/is_standard_layout.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/is_trivial.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/is_trivially_copyable.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/is_trivially_default_constructible.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/is_compound.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/is_fundamental.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/is_empty.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/is_final.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/is_literal_type.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/is_nothrow_convertible.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/lazy.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/is_pod.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/is_trivially_copy_assignable.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/is_trivially_copy_constructible.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/is_polymorphic.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/is_scoped_enum.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/is_trivially_move_constructible.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/is_unbounded_array.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/make_32_64_or_128_bit.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/maybe_const.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/promote.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/rank.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/remove_pointer.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__type_traits/result_of.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__utility/convert_to_integral.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__utility/forward_like.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__utility/in_place.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__utility/priority_tag.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__utility/rel_ops.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__utility/to_underlying.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__utility/unreachable.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/cstdlib \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/detail/libcxx/include/cstdlib \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/detail/libcxx/include/__debug \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/concepts \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__concepts/_One_of.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__concepts/all_of.h \
+    /usr/local/cuda-12.8/targets/x86_64-linux/include/cuda/std/__concepts/__concept_macros.h \
+    /usr/local/cuda-12.8/targets/x86_64-linux/include/cuda/std/__type_traits/is_same.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__concepts/common_with.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/__concepts/different_from.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/initializer_list \
     /data/hanker/cutlass/include/cutlass/array.h \
     /data/hanker/cutlass/include/cutlass/functional.h \
     /data/hanker/cutlass/include/cutlass/array_subbyte.h \
@@ -398,7 +638,7 @@ CMakeFiles/cutlass_gemm.dir/main_cutlass_gemm.cu.o : /data/hanker/kernels/cutlas
     /data/hanker/cutlass/include/cute/algorithm/functional.hpp \
     /data/hanker/cutlass/include/cute/numeric/complex.hpp \
     /data/hanker/cutlass/include/cutlass/complex.h \
-    /usr/include/cuComplex.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuComplex.h \
     /data/hanker/cutlass/include/cutlass/real.h \
     /data/hanker/cutlass/include/cute/stride.hpp \
     /data/hanker/cutlass/include/cute/numeric/arithmetic_tuple.hpp \
@@ -416,15 +656,14 @@ CMakeFiles/cutlass_gemm.dir/main_cutlass_gemm.cu.o : /data/hanker/kernels/cutlas
     /data/hanker/cutlass/include/cute/arch/util.hpp \
     /data/hanker/cutlass/include/cute/arch/copy_sm90.hpp \
     /data/hanker/cutlass/include/cute/arch/copy_sm90_desc.hpp \
-    /usr/include/cuda.h \
-    /usr/include/c++/12/cinttypes \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda.h \
+    /usr/include/c++/13/cinttypes \
     /usr/include/inttypes.h \
     /data/hanker/cutlass/include/cute/container/alignment.hpp \
     /data/hanker/cutlass/include/cute/container/bit_field.hpp \
     /data/hanker/cutlass/include/cute/arch/copy_sm100_tma.hpp \
     /data/hanker/cutlass/include/cutlass/layout/tensor.h \
-    /usr/include/cuda/std/cassert \
-    /usr/include/cuda/std/detail/libcxx/include/cassert \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/cuda/std/cassert \
     /data/hanker/cutlass/include/cutlass/layout/pitch_linear.h \
     /data/hanker/cutlass/include/cutlass/tensor_coord.h \
     /data/hanker/cutlass/include/cutlass/detail/collective.hpp \
@@ -449,9 +688,9 @@ CMakeFiles/cutlass_gemm.dir/main_cutlass_gemm.cu.o : /data/hanker/kernels/cutlas
     /data/hanker/cutlass/include/cutlass/semaphore.h \
     /data/hanker/cutlass/include/cutlass/gemm/kernel/default_gemm.h \
     /data/hanker/cutlass/include/cutlass/arch/wmma.h \
-    /usr/include/mma.h \
-    /usr/include/crt/mma.h \
-    /usr/include/crt/mma.hpp \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/mma.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/crt/mma.h \
+    /usr/local/cuda-12.8/bin/../targets/x86_64-linux/include/crt/mma.hpp \
     /data/hanker/cutlass/include/cutlass/arch/mma.h \
     /data/hanker/cutlass/include/cutlass/arch/mma_sm50.h \
     /data/hanker/cutlass/include/cutlass/arch/mma_sm60.h \
@@ -486,8 +725,8 @@ CMakeFiles/cutlass_gemm.dir/main_cutlass_gemm.cu.o : /data/hanker/kernels/cutlas
     /data/hanker/cutlass/include/cutlass/epilogue/threadblock/predicated_tile_iterator_params.h \
     /data/hanker/cutlass/include/cutlass/epilogue/thread/linear_combination.h \
     /data/hanker/cutlass/include/cutlass/numeric_conversion.h \
-    /usr/include/c++/12/cfenv \
-    /usr/include/c++/12/fenv.h \
+    /usr/include/c++/13/cfenv \
+    /usr/include/c++/13/fenv.h \
     /usr/include/fenv.h \
     /usr/include/x86_64-linux-gnu/bits/fenv.h \
     /data/hanker/cutlass/include/cutlass/transform/thread/unary_op.h \
@@ -598,20 +837,19 @@ CMakeFiles/cutlass_gemm.dir/main_cutlass_gemm.cu.o : /data/hanker/kernels/cutlas
     /data/hanker/cutlass/include/cutlass/gemm/device/default_gemm_configuration.h \
     /data/hanker/cutlass/tools/util/include/cutlass/util/host_tensor.h \
     /data/hanker/cutlass/tools/util/include/cutlass/util/device_memory.h \
-    /usr/include/c++/12/memory \
-    /usr/include/c++/12/bits/stl_raw_storage_iter.h \
-    /usr/include/c++/12/bits/align.h \
-    /usr/include/c++/12/bit \
-    /usr/include/c++/12/bits/unique_ptr.h \
-    /usr/include/c++/12/bits/shared_ptr.h \
-    /usr/include/c++/12/bits/shared_ptr_base.h \
-    /usr/include/c++/12/bits/allocated_ptr.h \
-    /usr/include/c++/12/ext/concurrence.h \
-    /usr/include/c++/12/bits/shared_ptr_atomic.h \
-    /usr/include/c++/12/bits/atomic_base.h \
-    /usr/include/c++/12/bits/atomic_lockfree_defines.h \
-    /usr/include/c++/12/backward/auto_ptr.h \
-    /usr/include/c++/12/pstl/glue_memory_defs.h \
+    /usr/include/c++/13/memory \
+    /usr/include/c++/13/bits/stl_raw_storage_iter.h \
+    /usr/include/c++/13/bits/align.h \
+    /usr/include/c++/13/bits/unique_ptr.h \
+    /usr/include/c++/13/bits/shared_ptr.h \
+    /usr/include/c++/13/bits/shared_ptr_base.h \
+    /usr/include/c++/13/bits/allocated_ptr.h \
+    /usr/include/c++/13/ext/concurrence.h \
+    /usr/include/c++/13/bits/shared_ptr_atomic.h \
+    /usr/include/c++/13/bits/atomic_base.h \
+    /usr/include/c++/13/bits/atomic_lockfree_defines.h \
+    /usr/include/c++/13/backward/auto_ptr.h \
+    /usr/include/c++/13/pstl/glue_memory_defs.h \
     /data/hanker/cutlass/tools/util/include/cutlass/util/exceptions.h \
     /data/hanker/cutlass/tools/util/include/cutlass/util/tensor_view_io.h \
     /data/hanker/cutlass/include/cutlass/tensor_view_planar_complex.h \

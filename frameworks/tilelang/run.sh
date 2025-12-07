@@ -1,11 +1,13 @@
 #!/bin/bash
+# TileLang GEMM Benchmark
 
-# TileLang GEMM 测试脚本
+set -e
+cd "$(dirname "$0")"
 
-echo "=== Running TileLang GEMM ==="
+echo "=== TileLang GEMM Benchmark ==="
+
+# 激活 conda 环境
+source /data/hanker/miniconda3/etc/profile.d/conda.sh
+conda activate compiler_kernel_eval
+
 python tilelang_gemm.py
-
-echo ""
-echo "=== Analyzing Generated Code ==="
-echo "TileLang generates optimized CUDA code at runtime"
-echo "Check the kernel compilation output above for details"
