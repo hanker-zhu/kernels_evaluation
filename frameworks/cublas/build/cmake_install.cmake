@@ -1,4 +1,4 @@
-# Install script for directory: /data/hanker/kernels/frameworks/cublas
+# Install script for directory: /mnt/ssd4t/share/yys/kernels_evaluation/frameworks/cublas
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/data/hanker/kernels/frameworks/cublas/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/mnt/ssd4t/share/yys/kernels_evaluation/frameworks/cublas/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

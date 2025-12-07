@@ -52,6 +52,9 @@ run_all() {
 run_compare() {
     echo "► 生成对比报告..."
     cd "$BASE_DIR"
+    # 激活 conda 环境以使用 matplotlib
+    source /home/yinyishu/miniconda3/etc/profile.d/conda.sh
+    conda activate kernels
     python scripts/compare_frameworks.py
 }
 

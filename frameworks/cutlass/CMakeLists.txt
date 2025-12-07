@@ -5,7 +5,7 @@ set(CMAKE_CXX_STANDARD 17)
 find_package(CUDA REQUIRED)
 
 # CUTLASS 源码路径
-set(CUTLASS_DIR "/data/hanker/cutlass")
+set(CUTLASS_DIR "/home/yinyishu/miniconda3/envs/kernels/lib/python3.11/site-packages/tilelang/3rdparty/cutlass")
 
 include_directories(${CUTLASS_DIR})
 include_directories(${CUTLASS_DIR}/include)

@@ -322,7 +322,9 @@ def main():
     all_results = parse_all_logs()
     
     report = generate_report(all_results)
-    report_path = BASE_DIR / 'docs' / 'comparison_report.md'
+    report_dir = BASE_DIR / 'docs'
+    report_dir.mkdir(exist_ok=True)
+    report_path = report_dir / 'comparison_report.md'
     report_path.write_text(report, encoding='utf-8')
     print(f"\n报告已保存: {report_path}")
     

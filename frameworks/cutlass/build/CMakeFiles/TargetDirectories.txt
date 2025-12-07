@@ -1,3 +1,3 @@
-/data/hanker/kernels/frameworks/cutlass/build/CMakeFiles/cutlass_gemm.dir
-/data/hanker/kernels/frameworks/cutlass/build/CMakeFiles/edit_cache.dir
-/data/hanker/kernels/frameworks/cutlass/build/CMakeFiles/rebuild_cache.dir
+/mnt/ssd4t/share/yys/kernels_evaluation/frameworks/cutlass/build/CMakeFiles/cutlass_gemm.dir
+/mnt/ssd4t/share/yys/kernels_evaluation/frameworks/cutlass/build/CMakeFiles/edit_cache.dir
+/mnt/ssd4t/share/yys/kernels_evaluation/frameworks/cutlass/build/CMakeFiles/rebuild_cache.dir
