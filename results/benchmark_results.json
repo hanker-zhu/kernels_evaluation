@@ -1,0 +1,230 @@
+{
+  "cublas": {
+    "framework": "cuBLAS",
+    "warmup_time_ms": 0.0,
+    "compile_time_ms": 0,
+    "benchmarks": [
+      {
+        "M": 256,
+        "N": 256,
+        "K": 256,
+        "latency_ms": 0.0105472,
+        "tflops": 3181.36,
+        "checksum": 0,
+        "success": true,
+        "framework": "cuBLAS"
+      },
+      {
+        "M": 512,
+        "N": 512,
+        "K": 512,
+        "latency_ms": 0.0131968,
+        "tflops": 20341,
+        "checksum": 0,
+        "success": true,
+        "framework": "cuBLAS"
+      },
+      {
+        "M": 1024,
+        "N": 1024,
+        "K": 1024,
+        "latency_ms": 0.0309888,
+        "tflops": 69298.7,
+        "checksum": 0,
+        "success": true,
+        "framework": "cuBLAS"
+      },
+      {
+        "M": 2048,
+        "N": 2048,
+        "K": 2048,
+        "latency_ms": 0.13473,
+        "tflops": 127514,
+        "checksum": 0,
+        "success": true,
+        "framework": "cuBLAS"
+      },
+      {
+        "M": 4096,
+        "N": 4096,
+        "K": 4096,
+        "latency_ms": 0.968179,
+        "tflops": 141956,
+        "checksum": 0,
+        "success": true,
+        "framework": "cuBLAS"
+      }
+    ]
+  },
+  "cutlass": {
+    "framework": "CUTLASS",
+    "warmup_time_ms": 0.0,
+    "compile_time_ms": 0,
+    "benchmarks": [
+      {
+        "M": 256,
+        "N": 256,
+        "K": 256,
+        "latency_ms": 0.013632,
+        "tflops": 2461.45,
+        "checksum": -33.3085,
+        "success": true,
+        "framework": "CUTLASS"
+      },
+      {
+        "M": 512,
+        "N": 512,
+        "K": 512,
+        "latency_ms": 0.0198432,
+        "tflops": 13527.8,
+        "checksum": 1039.18,
+        "success": true,
+        "framework": "CUTLASS"
+      },
+      {
+        "M": 1024,
+        "N": 1024,
+        "K": 1024,
+        "latency_ms": 0.0334944,
+        "tflops": 64114.7,
+        "checksum": -1587.03,
+        "success": true,
+        "framework": "CUTLASS"
+      },
+      {
+        "M": 2048,
+        "N": 2048,
+        "K": 2048,
+        "latency_ms": 0.165245,
+        "tflops": 103966,
+        "checksum": 7891.23,
+        "success": true,
+        "framework": "CUTLASS"
+      },
+      {
+        "M": 4096,
+        "N": 4096,
+        "K": 4096,
+        "latency_ms": 0.954656,
+        "tflops": 143967,
+        "checksum": 2702.48,
+        "success": true,
+        "framework": "CUTLASS"
+      }
+    ]
+  },
+  "triton": {
+    "framework": "Triton",
+    "warmup_time_ms": 518.2,
+    "compile_time_ms": 1.7,
+    "benchmarks": [
+      {
+        "M": 256,
+        "N": 256,
+        "K": 256,
+        "compile_time_ms": 1.691,
+        "latency_ms": 0.066,
+        "tflops": 508.08,
+        "success": true,
+        "framework": "Triton"
+      },
+      {
+        "M": 512,
+        "N": 512,
+        "K": 512,
+        "compile_time_ms": 0.01,
+        "latency_ms": 0.0561,
+        "tflops": 4786.99,
+        "success": true,
+        "framework": "Triton"
+      },
+      {
+        "M": 1024,
+        "N": 1024,
+        "K": 1024,
+        "compile_time_ms": 0.006,
+        "latency_ms": 0.071,
+        "tflops": 30245.8,
+        "success": true,
+        "framework": "Triton"
+      },
+      {
+        "M": 2048,
+        "N": 2048,
+        "K": 2048,
+        "compile_time_ms": 0.013,
+        "latency_ms": 0.2077,
+        "tflops": 82729.73,
+        "success": true,
+        "framework": "Triton"
+      },
+      {
+        "M": 4096,
+        "N": 4096,
+        "K": 4096,
+        "compile_time_ms": 0.014,
+        "latency_ms": 1.0288,
+        "tflops": 133594.61,
+        "success": true,
+        "framework": "Triton"
+      }
+    ]
+  },
+  "tilelang": {
+    "framework": "TileLang",
+    "warmup_time_ms": 1672.2,
+    "compile_time_ms": 109.7,
+    "benchmarks": [
+      {
+        "M": 256,
+        "N": 256,
+        "K": 256,
+        "compile_time_ms": 61.4,
+        "latency_ms": 0.0113,
+        "tflops": 2978.91,
+        "success": true,
+        "framework": "TileLang"
+      },
+      {
+        "M": 512,
+        "N": 512,
+        "K": 512,
+        "compile_time_ms": 14.6,
+        "latency_ms": 0.0195,
+        "tflops": 13797.05,
+        "success": true,
+        "framework": "TileLang"
+      },
+      {
+        "M": 1024,
+        "N": 1024,
+        "K": 1024,
+        "compile_time_ms": 11.5,
+        "latency_ms": 0.0399,
+        "tflops": 53773.13,
+        "success": true,
+        "framework": "TileLang"
+      },
+      {
+        "M": 2048,
+        "N": 2048,
+        "K": 2048,
+        "compile_time_ms": 11.1,
+        "latency_ms": 0.1864,
+        "tflops": 92182.5,
+        "success": true,
+        "framework": "TileLang"
+      },
+      {
+        "M": 4096,
+        "N": 4096,
+        "K": 4096,
+        "compile_time_ms": 11.1,
+        "latency_ms": 1.0537,
+        "tflops": 130435.11,
+        "success": true,
+        "framework": "TileLang"
+      }
+    ]
+  }
+}

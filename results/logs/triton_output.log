@@ -1,0 +1,71 @@
+=== Triton GEMM Benchmark ===
+Triton GEMM Benchmark
+============================================================
+
+[Phase 1] Framework Warmup
+  Framework init time: 310.7 ms
+
+[Phase 2] Benchmark per Size
+  256x256x256: compile=0.99ms, run=0.042ms, 794.23 TFLOPS ✓
+  512x512x512: compile=0.01ms, run=0.041ms, 6626.84 TFLOPS ✓
+  1024x1024x1024: compile=0.00ms, run=0.056ms, 38674.11 TFLOPS ✓
+  2048x2048x2048: compile=0.00ms, run=0.195ms, 88230.19 TFLOPS ✓
+  4096x4096x4096: compile=0.01ms, run=1.015ms, 135430.69 TFLOPS ✓
+
+[Summary]
+  Framework warmup:    310.7 ms (one-time)
+  Total JIT compile:   1.0 ms
+  Total runtime:       1.3 ms
+
+=== JSON Results ===
+{
+  "warmup_time_ms": 310.7,
+  "total_compile_time_ms": 1.0,
+  "benchmarks": [
+    {
+      "M": 256,
+      "N": 256,
+      "K": 256,
+      "compile_time_ms": 0.987,
+      "latency_ms": 0.0422,
+      "tflops": 794.23,
+      "success": true
+    },
+    {
+      "M": 512,
+      "N": 512,
+      "K": 512,
+      "compile_time_ms": 0.005,
+      "latency_ms": 0.0405,
+      "tflops": 6626.84,
+      "success": true
+    },
+    {
+      "M": 1024,
+      "N": 1024,
+      "K": 1024,
+      "compile_time_ms": 0.004,
+      "latency_ms": 0.0555,
+      "tflops": 38674.11,
+      "success": true
+    },
+    {
+      "M": 2048,
+      "N": 2048,
+      "K": 2048,
+      "compile_time_ms": 0.002,
+      "latency_ms": 0.1947,
+      "tflops": 88230.19,
+      "success": true
+    },
+    {
+      "M": 4096,
+      "N": 4096,
+      "K": 4096,
+      "compile_time_ms": 0.011,
+      "latency_ms": 1.0148,
+      "tflops": 135430.69,
+      "success": true
+    }
+  ]
+}

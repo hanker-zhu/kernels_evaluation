@@ -1,0 +1,67 @@
+=== cuBLAS GEMM Benchmark ===
+使用已编译的二进制文件
+COMPILE_TIME_MS: 0
+cuBLAS GEMM Multi-Size Benchmark
+==================================================
+cuBLAS GEMM (256x256x256): 0.0107456 ms (avg of 10 runs), 3122.62 TFLOPS
+cuBLAS GEMM (512x512x512): 0.0134912 ms (avg of 10 runs), 19897.1 TFLOPS
+cuBLAS GEMM (1024x1024x1024): 0.0307904 ms (avg of 10 runs), 69745.2 TFLOPS
+cuBLAS GEMM (2048x2048x2048): 0.135334 ms (avg of 10 runs), 126944 TFLOPS
+cuBLAS GEMM (4096x4096x4096): 0.968461 ms (avg of 10 runs), 141915 TFLOPS
+
+=== BENCHMARK RESULTS JSON ===
+[
+  {
+    "M": 256,
+    "N": 256,
+    "K": 256,
+    "latency_ms": 0.0107456,
+    "tflops": 3122.62,
+    "checksum": 0,
+    "success": true
+  },
+  {
+    "M": 512,
+    "N": 512,
+    "K": 512,
+    "latency_ms": 0.0134912,
+    "tflops": 19897.1,
+    "checksum": 0,
+    "success": true
+  },
+  {
+    "M": 1024,
+    "N": 1024,
+    "K": 1024,
+    "latency_ms": 0.0307904,
+    "tflops": 69745.2,
+    "checksum": 0,
+    "success": true
+  },
+  {
+    "M": 2048,
+    "N": 2048,
+    "K": 2048,
+    "latency_ms": 0.135334,
+    "tflops": 126944,
+    "checksum": 0,
+    "success": true
+  },
+  {
+    "M": 4096,
+    "N": 4096,
+    "K": 4096,
+    "latency_ms": 0.968461,
+    "tflops": 141915,
+    "checksum": 0,
+    "success": true
+  }
+]
+
+=== cuBLAS Analysis ===
+- Programming Model: Library-based BLAS interface
+- Implementation: Highly optimized vendor library
+- Memory Management: Automatic memory hierarchy optimization
+- Parallelism: Hardware-accelerated tensor operations
+- Algorithm: Proprietary optimized GEMM implementation
+- Precision: Mixed precision (FP16 input, FP32 accumulation)
