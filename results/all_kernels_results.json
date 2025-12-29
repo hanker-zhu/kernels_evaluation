@@ -1,0 +1,406 @@
+{
+  "gemm": {
+    "cublas": {
+      "framework": "cuBLAS",
+      "kernel": "gemm",
+      "warmup_time_ms": 0.0,
+      "compile_time_ms": 0,
+      "benchmarks": [
+        {
+          "M": 256,
+          "N": 256,
+          "K": 256,
+          "latency_ms": 0.0107456,
+          "tflops": 3122.62,
+          "checksum": 0,
+          "success": true,
+          "framework": "cuBLAS",
+          "kernel": "gemm"
+        },
+        {
+          "M": 512,
+          "N": 512,
+          "K": 512,
+          "latency_ms": 0.0134912,
+          "tflops": 19897.1,
+          "checksum": 0,
+          "success": true,
+          "framework": "cuBLAS",
+          "kernel": "gemm"
+        },
+        {
+          "M": 1024,
+          "N": 1024,
+          "K": 1024,
+          "latency_ms": 0.0307904,
+          "tflops": 69745.2,
+          "checksum": 0,
+          "success": true,
+          "framework": "cuBLAS",
+          "kernel": "gemm"
+        },
+        {
+          "M": 2048,
+          "N": 2048,
+          "K": 2048,
+          "latency_ms": 0.135334,
+          "tflops": 126944,
+          "checksum": 0,
+          "success": true,
+          "framework": "cuBLAS",
+          "kernel": "gemm"
+        },
+        {
+          "M": 4096,
+          "N": 4096,
+          "K": 4096,
+          "latency_ms": 0.968461,
+          "tflops": 141915,
+          "checksum": 0,
+          "success": true,
+          "framework": "cuBLAS",
+          "kernel": "gemm"
+        }
+      ]
+    },
+    "cutlass": {
+      "framework": "CUTLASS",
+      "kernel": "gemm",
+      "warmup_time_ms": 0.0,
+      "compile_time_ms": 0,
+      "benchmarks": [
+        {
+          "M": 256,
+          "N": 256,
+          "K": 256,
+          "latency_ms": 0.0134688,
+          "tflops": 2491.27,
+          "checksum": -33.3085,
+          "success": true,
+          "framework": "CUTLASS",
+          "kernel": "gemm"
+        },
+        {
+          "M": 512,
+          "N": 512,
+          "K": 512,
+          "latency_ms": 0.0206272,
+          "tflops": 13013.7,
+          "checksum": 1039.18,
+          "success": true,
+          "framework": "CUTLASS",
+          "kernel": "gemm"
+        },
+        {
+          "M": 1024,
+          "N": 1024,
+          "K": 1024,
+          "latency_ms": 0.0334368,
+          "tflops": 64225.2,
+          "checksum": -1587.03,
+          "success": true,
+          "framework": "CUTLASS",
+          "kernel": "gemm"
+        },
+        {
+          "M": 2048,
+          "N": 2048,
+          "K": 2048,
+          "latency_ms": 0.166685,
+          "tflops": 103068,
+          "checksum": 7891.23,
+          "success": true,
+          "framework": "CUTLASS",
+          "kernel": "gemm"
+        },
+        {
+          "M": 4096,
+          "N": 4096,
+          "K": 4096,
+          "latency_ms": 0.955798,
+          "tflops": 143795,
+          "checksum": 2702.48,
+          "success": true,
+          "framework": "CUTLASS",
+          "kernel": "gemm"
+        }
+      ]
+    },
+    "triton": {
+      "framework": "Triton",
+      "kernel": "gemm",
+      "warmup_time_ms": 310.7,
+      "compile_time_ms": 1.0,
+      "benchmarks": [
+        {
+          "M": 256,
+          "N": 256,
+          "K": 256,
+          "compile_time_ms": 0.987,
+          "latency_ms": 0.0422,
+          "tflops": 794.23,
+          "success": true,
+          "framework": "Triton",
+          "kernel": "gemm"
+        },
+        {
+          "M": 512,
+          "N": 512,
+          "K": 512,
+          "compile_time_ms": 0.005,
+          "latency_ms": 0.0405,
+          "tflops": 6626.84,
+          "success": true,
+          "framework": "Triton",
+          "kernel": "gemm"
+        },
+        {
+          "M": 1024,
+          "N": 1024,
+          "K": 1024,
+          "compile_time_ms": 0.004,
+          "latency_ms": 0.0555,
+          "tflops": 38674.11,
+          "success": true,
+          "framework": "Triton",
+          "kernel": "gemm"
+        },
+        {
+          "M": 2048,
+          "N": 2048,
+          "K": 2048,
+          "compile_time_ms": 0.002,
+          "latency_ms": 0.1947,
+          "tflops": 88230.19,
+          "success": true,
+          "framework": "Triton",
+          "kernel": "gemm"
+        },
+        {
+          "M": 4096,
+          "N": 4096,
+          "K": 4096,
+          "compile_time_ms": 0.011,
+          "latency_ms": 1.0148,
+          "tflops": 135430.69,
+          "success": true,
+          "framework": "Triton",
+          "kernel": "gemm"
+        }
+      ]
+    },
+    "tilelang": {
+      "framework": "TileLang",
+      "kernel": "gemm",
+      "warmup_time_ms": 1164.8,
+      "compile_time_ms": 86.9,
+      "benchmarks": [
+        {
+          "M": 256,
+          "N": 256,
+          "K": 256,
+          "compile_time_ms": 61.4,
+          "latency_ms": 0.0123,
+          "tflops": 2730.67,
+          "success": true,
+          "framework": "TileLang",
+          "kernel": "gemm"
+        },
+        {
+          "M": 512,
+          "N": 512,
+          "K": 512,
+          "compile_time_ms": 7.0,
+          "latency_ms": 0.0195,
+          "tflops": 13797.05,
+          "success": true,
+          "framework": "TileLang",
+          "kernel": "gemm"
+        },
+        {
+          "M": 1024,
+          "N": 1024,
+          "K": 1024,
+          "compile_time_ms": 6.3,
+          "latency_ms": 0.0399,
+          "tflops": 53773.13,
+          "success": true,
+          "framework": "TileLang",
+          "kernel": "gemm"
+        },
+        {
+          "M": 2048,
+          "N": 2048,
+          "K": 2048,
+          "compile_time_ms": 6.2,
+          "latency_ms": 0.1864,
+          "tflops": 92182.5,
+          "success": true,
+          "framework": "TileLang",
+          "kernel": "gemm"
+        },
+        {
+          "M": 4096,
+          "N": 4096,
+          "K": 4096,
+          "compile_time_ms": 6.1,
+          "latency_ms": 1.0537,
+          "tflops": 130435.11,
+          "success": true,
+          "framework": "TileLang",
+          "kernel": "gemm"
+        }
+      ]
+    }
+  },
+  "softmax": {
+    "cublas": {
+      "framework": "cuBLAS",
+      "kernel": "softmax",
+      "warmup_time_ms": 0.0,
+      "compile_time_ms": 0.0,
+      "benchmarks": []
+    },
+    "cutlass": {
+      "framework": "CUTLASS",
+      "kernel": "softmax",
+      "warmup_time_ms": 0.0,
+      "compile_time_ms": 0.0,
+      "benchmarks": []
+    },
+    "triton": {
+      "framework": "Triton",
+      "kernel": "softmax",
+      "warmup_time_ms": 309.3,
+      "compile_time_ms": 3.8,
+      "benchmarks": [
+        {
+          "shape": "256x256",
+          "compile_time_ms": 0.868,
+          "latency_ms": 0.0328,
+          "success": true,
+          "framework": "Triton",
+          "kernel": "softmax"
+        },
+        {
+          "shape": "512x512",
+          "success": false,
+          "error": "Tensor-likes are not close!\n\nMismatched elements: 198909 / 262144 (75.9%)\nGreatest absolute difference: nan at index (448, 100) (up to 0.1 allowed)\nGreatest relative difference: nan at index (448, 100) (up to 0.05 allowed)",
+          "framework": "Triton",
+          "kernel": "softmax"
+        },
+        {
+          "shape": "1024x1024",
+          "compile_time_ms": 1.002,
+          "latency_ms": 0.023,
+          "success": true,
+          "framework": "Triton",
+          "kernel": "softmax"
+        },
+        {
+          "shape": "2048x2048",
+          "success": false,
+          "error": "Tensor-likes are not close!\n\nMismatched elements: 3570268 / 4194304 (85.1%)\nGreatest absolute difference: nan at index (1024, 228) (up to 0.3 allowed)\nGreatest relative difference: nan at index (1024, 228) (up to 0.2 allowed)",
+          "framework": "Triton",
+          "kernel": "softmax"
+        },
+        {
+          "shape": "4096x4096",
+          "compile_time_ms": 0.95,
+          "latency_ms": 0.03,
+          "success": true,
+          "framework": "Triton",
+          "kernel": "softmax"
+        },
+        {
+          "shape": "8192x8192",
+          "compile_time_ms": 0.976,
+          "latency_ms": 0.058,
+          "success": true,
+          "framework": "Triton",
+          "kernel": "softmax"
+        }
+      ]
+    },
+    "tilelang": {
+      "framework": "TileLang",
+      "kernel": "softmax",
+      "warmup_time_ms": 0.0,
+      "compile_time_ms": 0.0,
+      "benchmarks": []
+    }
+  },
+  "layernorm": {
+    "cublas": {
+      "framework": "cuBLAS",
+      "kernel": "layernorm",
+      "warmup_time_ms": 0.0,
+      "compile_time_ms": 0.0,
+      "benchmarks": []
+    },
+    "cutlass": {
+      "framework": "CUTLASS",
+      "kernel": "layernorm",
+      "warmup_time_ms": 0.0,
+      "compile_time_ms": 0.0,
+      "benchmarks": []
+    },
+    "triton": {
+      "framework": "Triton",
+      "kernel": "layernorm",
+      "warmup_time_ms": 306.8,
+      "compile_time_ms": 0.0,
+      "benchmarks": [
+        {
+          "shape": "256x256",
+          "success": false,
+          "error": "Tensor-likes are not close!\n\nMismatched elements: 53862 / 65536 (82.2%)\nGreatest absolute difference: 4.98828125 at index (255, 180) (up to 0.2 allowed)\nGreatest relative difference: 1.0 at index (1, 0) (up to 0.1 allowed)",
+          "framework": "Triton",
+          "kernel": "layernorm"
+        },
+        {
+          "shape": "512x512",
+          "success": false,
+          "error": "Tensor-likes are not close!\n\nMismatched elements: 234439 / 262144 (89.4%)\nGreatest absolute difference: 515.861328125 at index (221, 116) (up to 0.2 allowed)\nGreatest relative difference: 2224220.25 at index (232, 488) (up to 0.1 allowed)",
+          "framework": "Triton",
+          "kernel": "layernorm"
+        },
+        {
+          "shape": "1024x1024",
+          "success": false,
+          "error": "Tensor-likes are not close!\n\nMismatched elements: 863535 / 1048576 (82.4%)\nGreatest absolute difference: 5.01171875 at index (63, 948) (up to 0.2 allowed)\nGreatest relative difference: 1.0 at index (1, 0) (up to 0.1 allowed)",
+          "framework": "Triton",
+          "kernel": "layernorm"
+        },
+        {
+          "shape": "2048x2048",
+          "success": false,
+          "error": "Tensor-likes are not close!\n\nMismatched elements: 3455085 / 4194304 (82.4%)\nGreatest absolute difference: 5.09765625 at index (970, 117) (up to 0.2 allowed)\nGreatest relative difference: 1.0 at index (1, 0) (up to 0.1 allowed)",
+          "framework": "Triton",
+          "kernel": "layernorm"
+        },
+        {
+          "shape": "4096x4096",
+          "success": false,
+          "error": "Tensor-likes are not close!\n\nMismatched elements: 13823706 / 16777216 (82.4%)\nGreatest absolute difference: 5.27734375 at index (3642, 3119) (up to 0.2 allowed)\nGreatest relative difference: 1.0 at index (1, 0) (up to 0.1 allowed)",
+          "framework": "Triton",
+          "kernel": "layernorm"
+        },
+        {
+          "shape": "8192x8192",
+          "success": false,
+          "error": "Tensor-likes are not close!\n\nMismatched elements: 55299861 / 67108864 (82.4%)\nGreatest absolute difference: 5.45703125 at index (8152, 910) (up to 0.2 allowed)\nGreatest relative difference: 1.0 at index (1, 0) (up to 0.1 allowed)",
+          "framework": "Triton",
+          "kernel": "layernorm"
+        }
+      ]
+    },
+    "tilelang": {
+      "framework": "TileLang",
+      "kernel": "layernorm",
+      "warmup_time_ms": 0.0,
+      "compile_time_ms": 0.0,
+      "benchmarks": []
+    }
+  }
+}

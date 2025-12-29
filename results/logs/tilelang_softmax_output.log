@@ -1,0 +1,72 @@
+Traceback (most recent call last):
+  File "/home/yinyishu/miniconda3/envs/kernels/lib/python3.11/site-packages/tvm_ffi/utils/_build_optional_torch_c_dlpack.py", line 812, in <module>
+    main()
+  File "/home/yinyishu/miniconda3/envs/kernels/lib/python3.11/site-packages/tvm_ffi/utils/_build_optional_torch_c_dlpack.py", line 805, in main
+    build_ninja(build_dir=str(build_dir))
+  File "/home/yinyishu/miniconda3/envs/kernels/lib/python3.11/site-packages/tvm_ffi/cpp/load_inline.py", line 330, in build_ninja
+    status = subprocess.run(check=False, args=command, cwd=build_dir, capture_output=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yinyishu/miniconda3/envs/kernels/lib/python3.11/subprocess.py", line 548, in run
+    with Popen(*popenargs, **kwargs) as process:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yinyishu/miniconda3/envs/kernels/lib/python3.11/subprocess.py", line 1026, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "/home/yinyishu/miniconda3/envs/kernels/lib/python3.11/subprocess.py", line 1955, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+FileNotFoundError: [Errno 2] No such file or directory: 'ninja'
+/home/yinyishu/miniconda3/envs/kernels/lib/python3.11/site-packages/tvm_ffi/_optional_torch_c_dlpack.py:108: UserWarning: Failed to load torch c dlpack extension, EnvTensorAllocator will not be enabled:
+  Command '['/home/yinyishu/miniconda3/envs/kernels/bin/python', '/home/yinyishu/miniconda3/envs/kernels/lib/python3.11/site-packages/tvm_ffi/utils/_build_optional_torch_c_dlpack.py', '--output-dir', '/home/yinyishu/.cache/tvm-ffi', '--libname', 'libtorch_c_dlpack_addon_torch29-cuda.so', '--build-with-cuda']' returned non-zero exit status 1.
+  warnings.warn(
+Traceback (most recent call last):
+  File "/home/yinyishu/miniconda3/envs/kernels/lib/python3.11/site-packages/tvm_ffi/utils/_build_optional_torch_c_dlpack.py", line 812, in <module>
+    main()
+  File "/home/yinyishu/miniconda3/envs/kernels/lib/python3.11/site-packages/tvm_ffi/utils/_build_optional_torch_c_dlpack.py", line 805, in main
+    build_ninja(build_dir=str(build_dir))
+  File "/home/yinyishu/miniconda3/envs/kernels/lib/python3.11/site-packages/tvm_ffi/cpp/load_inline.py", line 330, in build_ninja
+    status = subprocess.run(check=False, args=command, cwd=build_dir, capture_output=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yinyishu/miniconda3/envs/kernels/lib/python3.11/subprocess.py", line 548, in run
+    with Popen(*popenargs, **kwargs) as process:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yinyishu/miniconda3/envs/kernels/lib/python3.11/subprocess.py", line 1026, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "/home/yinyishu/miniconda3/envs/kernels/lib/python3.11/subprocess.py", line 1955, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+FileNotFoundError: [Errno 2] No such file or directory: 'ninja'
+/home/yinyishu/miniconda3/envs/kernels/lib/python3.11/site-packages/tvm_ffi/_optional_torch_c_dlpack.py:108: UserWarning: Failed to load torch c dlpack extension, EnvTensorAllocator will not be enabled:
+  Command '['/home/yinyishu/miniconda3/envs/kernels/bin/python', '/home/yinyishu/miniconda3/envs/kernels/lib/python3.11/site-packages/tvm_ffi/utils/_build_optional_torch_c_dlpack.py', '--output-dir', '/home/yinyishu/.cache/tvm-ffi', '--libname', 'libtorch_c_dlpack_addon_torch29-cuda.so', '--build-with-cuda']' returned non-zero exit status 1.
+  warnings.warn(
+TileLang Softmax Benchmark
+============================================================
+
+[Phase 1] Framework Warmup
+Traceback (most recent call last):
+  File "/mnt/ssd4t/share/yys/kernels_evaluation/frameworks/tilelang/tilelang_softmax.py", line 133, in <module>
+    main()
+  File "/mnt/ssd4t/share/yys/kernels_evaluation/frameworks/tilelang/tilelang_softmax.py", line 88, in main
+    warmup_time = warmup_framework()
+                  ^^^^^^^^^^^^^^^^^^
+  File "/mnt/ssd4t/share/yys/kernels_evaluation/frameworks/tilelang/tilelang_softmax.py", line 46, in warmup_framework
+    func = softmax_func(64, 64)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/ssd4t/share/yys/kernels_evaluation/frameworks/tilelang/tilelang_softmax.py", line 12, in softmax_func
+    @T.prim_func
+     ^^^^^^^^^^^
+  File "/home/yinyishu/miniconda3/envs/kernels/lib/python3.11/site-packages/tilelang/language/v2/builder.py", line 909, in prim_func
+    return impl(func) if func is not None else impl
+           ^^^^^^^^^^
+  File "/home/yinyishu/miniconda3/envs/kernels/lib/python3.11/site-packages/tilelang/language/v2/builder.py", line 899, in impl
+    return prim_func_generator(**args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yinyishu/miniconda3/envs/kernels/lib/python3.11/site-packages/tilelang/language/v2/builder.py", line 677, in __call__
+    self.ir_gen.gen(builder)(*args, **kwargs)
+  File "/mnt/ssd4t/share/yys/kernels_evaluation/frameworks/tilelang/tilelang_softmax.py", line 23, in main
+    max_val[()] = x_local[0]
+^^^^^^^^^^^
+  File "/home/yinyishu/miniconda3/envs/kernels/lib/python3.11/site-packages/tilelang/language/v2/builder.py", line 498, in assign_slice
+    return super().assign_slice(lval, sl, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yinyishu/miniconda3/envs/kernels/lib/python3.11/site-packages/tilelang/language/v2/ast.py", line 212, in assign_slice
+    lval[sl] = value
+    ~~~~^^^^
+TypeError: 'BufferLoad' object does not support item assignment

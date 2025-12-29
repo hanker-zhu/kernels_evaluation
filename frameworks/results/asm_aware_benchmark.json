@@ -1,0 +1,302 @@
+[
+  {
+    "M": 128,
+    "N": 128,
+    "K": 128,
+    "baseline_opt": {
+      "first_ms": 0.1362,
+      "steady_ms": 0.0445,
+      "steady_std_ms": 0.0005,
+      "first_over_steady_ms": 0.0916,
+      "first_steady_ratio": 3.058,
+      "tflops": 94.16,
+      "compile_time_ms": 5877.58,
+      "compile_quality": {
+        "first_steady_ratio": 3.058,
+        "stability_cv": 0.0107,
+        "quality_score": 0.62
+      },
+      "autotune_stats": {},
+      "success": true
+    },
+    "baseline_smart": {
+      "first_ms": 0.0625,
+      "steady_ms": 0.0205,
+      "steady_std_ms": 0.0004,
+      "first_over_steady_ms": 0.0419,
+      "first_steady_ratio": 3.04,
+      "tflops": 204.12,
+      "compile_time_ms": 0.32,
+      "compile_quality": {
+        "first_steady_ratio": 3.04,
+        "stability_cv": 0.0214,
+        "quality_score": 0.62
+      },
+      "autotune_stats": {},
+      "success": true
+    },
+    "asm_aware": {
+      "first_ms": 0.1352,
+      "steady_ms": 0.0406,
+      "steady_std_ms": 0.0003,
+      "first_over_steady_ms": 0.0946,
+      "first_steady_ratio": 3.333,
+      "tflops": 103.43,
+      "compile_time_ms": 386.36,
+      "compile_quality": {
+        "first_steady_ratio": 3.333,
+        "stability_cv": 0.0084,
+        "quality_score": 0.7
+      },
+      "autotune_stats": {
+        "total_configs": 0,
+        "pruned_configs": 0,
+        "benchmarked_configs": 0,
+        "prune_time_ms": 0.0
+      },
+      "success": true
+    },
+    "speedup": 1.096,
+    "improvement_pct": 8.76
+  },
+  {
+    "M": 256,
+    "N": 256,
+    "K": 256,
+    "baseline_opt": {
+      "first_ms": 0.0983,
+      "steady_ms": 0.0457,
+      "steady_std_ms": 0.0008,
+      "first_over_steady_ms": 0.0526,
+      "first_steady_ratio": 2.152,
+      "tflops": 734.6,
+      "compile_time_ms": 1066.85,
+      "compile_quality": {
+        "first_steady_ratio": 2.152,
+        "stability_cv": 0.0182,
+        "quality_score": 0.62
+      },
+      "autotune_stats": {},
+      "success": true
+    },
+    "baseline_smart": {
+      "first_ms": 0.1004,
+      "steady_ms": 0.0483,
+      "steady_std_ms": 0.0007,
+      "first_over_steady_ms": 0.0521,
+      "first_steady_ratio": 2.078,
+      "tflops": 694.83,
+      "compile_time_ms": 534.39,
+      "compile_quality": {
+        "first_steady_ratio": 2.078,
+        "stability_cv": 0.014,
+        "quality_score": 0.62
+      },
+      "autotune_stats": {},
+      "success": true
+    },
+    "asm_aware": {
+      "first_ms": 0.1206,
+      "steady_ms": 0.0409,
+      "steady_std_ms": 0.0004,
+      "first_over_steady_ms": 0.0797,
+      "first_steady_ratio": 2.947,
+      "tflops": 819.98,
+      "compile_time_ms": 825.44,
+      "compile_quality": {
+        "first_steady_ratio": 2.947,
+        "stability_cv": 0.0094,
+        "quality_score": 0.7
+      },
+      "autotune_stats": {
+        "total_configs": 0,
+        "pruned_configs": 0,
+        "benchmarked_configs": 0,
+        "prune_time_ms": 0.0
+      },
+      "success": true
+    },
+    "speedup": 1.117,
+    "improvement_pct": 10.5
+  },
+  {
+    "M": 512,
+    "N": 512,
+    "K": 512,
+    "baseline_opt": {
+      "first_ms": 0.0993,
+      "steady_ms": 0.0441,
+      "steady_std_ms": 0.0002,
+      "first_over_steady_ms": 0.0553,
+      "first_steady_ratio": 2.254,
+      "tflops": 6092.45,
+      "compile_time_ms": 1069.55,
+      "compile_quality": {
+        "first_steady_ratio": 2.254,
+        "stability_cv": 0.0035,
+        "quality_score": 0.7
+      },
+      "autotune_stats": {},
+      "success": true
+    },
+    "baseline_smart": {
+      "first_ms": 0.0942,
+      "steady_ms": 0.0454,
+      "steady_std_ms": 0.0003,
+      "first_over_steady_ms": 0.0488,
+      "first_steady_ratio": 2.075,
+      "tflops": 5911.27,
+      "compile_time_ms": 532.35,
+      "compile_quality": {
+        "first_steady_ratio": 2.075,
+        "stability_cv": 0.0075,
+        "quality_score": 0.7
+      },
+      "autotune_stats": {},
+      "success": true
+    },
+    "asm_aware": {
+      "first_ms": 0.134,
+      "steady_ms": 0.0409,
+      "steady_std_ms": 0.0003,
+      "first_over_steady_ms": 0.0931,
+      "first_steady_ratio": 3.274,
+      "tflops": 6555.48,
+      "compile_time_ms": 1318.96,
+      "compile_quality": {
+        "first_steady_ratio": 3.274,
+        "stability_cv": 0.008,
+        "quality_score": 0.7
+      },
+      "autotune_stats": {
+        "total_configs": 0,
+        "pruned_configs": 0,
+        "benchmarked_configs": 0,
+        "prune_time_ms": 0.0
+      },
+      "success": true
+    },
+    "speedup": 1.078,
+    "improvement_pct": 7.26
+  },
+  {
+    "M": 1024,
+    "N": 1024,
+    "K": 1024,
+    "baseline_opt": {
+      "first_ms": 0.1034,
+      "steady_ms": 0.0448,
+      "steady_std_ms": 0.0003,
+      "first_over_steady_ms": 0.0587,
+      "first_steady_ratio": 2.311,
+      "tflops": 47981.74,
+      "compile_time_ms": 1075.46,
+      "compile_quality": {
+        "first_steady_ratio": 2.311,
+        "stability_cv": 0.0076,
+        "quality_score": 0.7
+      },
+      "autotune_stats": {},
+      "success": true
+    },
+    "baseline_smart": {
+      "first_ms": 0.0963,
+      "steady_ms": 0.0453,
+      "steady_std_ms": 0.0002,
+      "first_over_steady_ms": 0.0509,
+      "first_steady_ratio": 2.123,
+      "tflops": 47354.25,
+      "compile_time_ms": 0.13,
+      "compile_quality": {
+        "first_steady_ratio": 2.123,
+        "stability_cv": 0.0048,
+        "quality_score": 0.7
+      },
+      "autotune_stats": {},
+      "success": true
+    },
+    "asm_aware": {
+      "first_ms": 0.1188,
+      "steady_ms": 0.0453,
+      "steady_std_ms": 0.0003,
+      "first_over_steady_ms": 0.0734,
+      "first_steady_ratio": 2.619,
+      "tflops": 47361.16,
+      "compile_time_ms": 8484.32,
+      "compile_quality": {
+        "first_steady_ratio": 2.619,
+        "stability_cv": 0.0075,
+        "quality_score": 0.7
+      },
+      "autotune_stats": {
+        "total_configs": 8,
+        "pruned_configs": 6,
+        "benchmarked_configs": 2,
+        "prune_time_ms": 0.04482269287109375
+      },
+      "success": true
+    },
+    "speedup": 0.989,
+    "improvement_pct": -1.12
+  },
+  {
+    "M": 2048,
+    "N": 2048,
+    "K": 2048,
+    "baseline_opt": {
+      "first_ms": 0.2181,
+      "steady_ms": 0.1296,
+      "steady_std_ms": 0.0001,
+      "first_over_steady_ms": 0.0885,
+      "first_steady_ratio": 1.683,
+      "tflops": 132585.38,
+      "compile_time_ms": 1156.31,
+      "compile_quality": {
+        "first_steady_ratio": 1.683,
+        "stability_cv": 0.0006,
+        "quality_score": 0.7
+      },
+      "autotune_stats": {},
+      "success": true
+    },
+    "baseline_smart": {
+      "first_ms": 0.2017,
+      "steady_ms": 0.1331,
+      "steady_std_ms": 0.0011,
+      "first_over_steady_ms": 0.0687,
+      "first_steady_ratio": 1.516,
+      "tflops": 129102.27,
+      "compile_time_ms": 0.24,
+      "compile_quality": {
+        "first_steady_ratio": 1.516,
+        "stability_cv": 0.0084,
+        "quality_score": 0.7
+      },
+      "autotune_stats": {},
+      "success": true
+    },
+    "asm_aware": {
+      "first_ms": 0.2611,
+      "steady_ms": 0.182,
+      "steady_std_ms": 0.0001,
+      "first_over_steady_ms": 0.0792,
+      "first_steady_ratio": 1.435,
+      "tflops": 94413.14,
+      "compile_time_ms": 22107.76,
+      "compile_quality": {
+        "first_steady_ratio": 1.435,
+        "stability_cv": 0.0003,
+        "quality_score": 0.88
+      },
+      "autotune_stats": {
+        "total_configs": 8,
+        "pruned_configs": 6,
+        "benchmarked_configs": 2,
+        "prune_time_ms": 0.027179718017578125
+      },
+      "success": true
+    },
+    "speedup": 0.712,
+    "improvement_pct": -40.43
+  }
+]

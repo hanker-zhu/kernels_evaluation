@@ -1,0 +1,108 @@
+Traceback (most recent call last):
+  File "/home/yinyishu/miniconda3/envs/kernels/lib/python3.11/site-packages/tvm_ffi/utils/_build_optional_torch_c_dlpack.py", line 812, in <module>
+    main()
+  File "/home/yinyishu/miniconda3/envs/kernels/lib/python3.11/site-packages/tvm_ffi/utils/_build_optional_torch_c_dlpack.py", line 805, in main
+    build_ninja(build_dir=str(build_dir))
+  File "/home/yinyishu/miniconda3/envs/kernels/lib/python3.11/site-packages/tvm_ffi/cpp/load_inline.py", line 330, in build_ninja
+    status = subprocess.run(check=False, args=command, cwd=build_dir, capture_output=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yinyishu/miniconda3/envs/kernels/lib/python3.11/subprocess.py", line 548, in run
+    with Popen(*popenargs, **kwargs) as process:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yinyishu/miniconda3/envs/kernels/lib/python3.11/subprocess.py", line 1026, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "/home/yinyishu/miniconda3/envs/kernels/lib/python3.11/subprocess.py", line 1955, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+FileNotFoundError: [Errno 2] No such file or directory: 'ninja'
+/home/yinyishu/miniconda3/envs/kernels/lib/python3.11/site-packages/tvm_ffi/_optional_torch_c_dlpack.py:108: UserWarning: Failed to load torch c dlpack extension, EnvTensorAllocator will not be enabled:
+  Command '['/home/yinyishu/miniconda3/envs/kernels/bin/python', '/home/yinyishu/miniconda3/envs/kernels/lib/python3.11/site-packages/tvm_ffi/utils/_build_optional_torch_c_dlpack.py', '--output-dir', '/home/yinyishu/.cache/tvm-ffi', '--libname', 'libtorch_c_dlpack_addon_torch29-cuda.so', '--build-with-cuda']' returned non-zero exit status 1.
+  warnings.warn(
+Traceback (most recent call last):
+  File "/home/yinyishu/miniconda3/envs/kernels/lib/python3.11/site-packages/tvm_ffi/utils/_build_optional_torch_c_dlpack.py", line 812, in <module>
+    main()
+  File "/home/yinyishu/miniconda3/envs/kernels/lib/python3.11/site-packages/tvm_ffi/utils/_build_optional_torch_c_dlpack.py", line 805, in main
+    build_ninja(build_dir=str(build_dir))
+  File "/home/yinyishu/miniconda3/envs/kernels/lib/python3.11/site-packages/tvm_ffi/cpp/load_inline.py", line 330, in build_ninja
+    status = subprocess.run(check=False, args=command, cwd=build_dir, capture_output=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yinyishu/miniconda3/envs/kernels/lib/python3.11/subprocess.py", line 548, in run
+    with Popen(*popenargs, **kwargs) as process:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yinyishu/miniconda3/envs/kernels/lib/python3.11/subprocess.py", line 1026, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "/home/yinyishu/miniconda3/envs/kernels/lib/python3.11/subprocess.py", line 1955, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+FileNotFoundError: [Errno 2] No such file or directory: 'ninja'
+/home/yinyishu/miniconda3/envs/kernels/lib/python3.11/site-packages/tvm_ffi/_optional_torch_c_dlpack.py:108: UserWarning: Failed to load torch c dlpack extension, EnvTensorAllocator will not be enabled:
+  Command '['/home/yinyishu/miniconda3/envs/kernels/bin/python', '/home/yinyishu/miniconda3/envs/kernels/lib/python3.11/site-packages/tvm_ffi/utils/_build_optional_torch_c_dlpack.py', '--output-dir', '/home/yinyishu/.cache/tvm-ffi', '--libname', 'libtorch_c_dlpack_addon_torch29-cuda.so', '--build-with-cuda']' returned non-zero exit status 1.
+  warnings.warn(
+TileLang GEMM Benchmark
+============================================================
+
+[Phase 1] Framework Warmup
+  Framework init time: 1180.2 ms
+
+[Phase 2] Benchmark per Size
+  256x256x256: compile=53.1ms, run=0.011ms, 2962.08 TFLOPS ✓
+  512x512x512: compile=7.1ms, run=0.019ms, 13797.05 TFLOPS ✓
+  1024x1024x1024: compile=6.2ms, run=0.039ms, 55188.21 TFLOPS ✓
+  2048x2048x2048: compile=6.2ms, run=0.186ms, 92182.50 TFLOPS ✓
+  4096x4096x4096: compile=6.1ms, run=1.053ms, 130561.99 TFLOPS ✓
+
+[Summary]
+  Framework warmup:    1180.2 ms (one-time)
+  Total JIT compile:   78.7 ms
+  Total runtime:       1.3 ms
+
+=== JSON Results ===
+{
+  "warmup_time_ms": 1180.2,
+  "total_compile_time_ms": 78.7,
+  "benchmarks": [
+    {
+      "M": 256,
+      "N": 256,
+      "K": 256,
+      "compile_time_ms": 53.1,
+      "latency_ms": 0.0113,
+      "tflops": 2962.08,
+      "success": true
+    },
+    {
+      "M": 512,
+      "N": 512,
+      "K": 512,
+      "compile_time_ms": 7.1,
+      "latency_ms": 0.0195,
+      "tflops": 13797.05,
+      "success": true
+    },
+    {
+      "M": 1024,
+      "N": 1024,
+      "K": 1024,
+      "compile_time_ms": 6.2,
+      "latency_ms": 0.0389,
+      "tflops": 55188.21,
+      "success": true
+    },
+    {
+      "M": 2048,
+      "N": 2048,
+      "K": 2048,
+      "compile_time_ms": 6.2,
+      "latency_ms": 0.1864,
+      "tflops": 92182.5,
+      "success": true
+    },
+    {
+      "M": 4096,
+      "N": 4096,
+      "K": 4096,
+      "compile_time_ms": 6.1,
+      "latency_ms": 1.0527,
+      "tflops": 130561.99,
+      "success": true
+    }
+  ]
+}

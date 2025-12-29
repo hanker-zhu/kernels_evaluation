@@ -1,0 +1,81 @@
+Triton LayerNorm Benchmark
+============================================================
+
+[Phase 1] Framework Warmup
+  Framework init time: 306.8 ms
+
+[Phase 2] Benchmark per Size
+  256x256: FAILED - Tensor-likes are not close!
+
+Mismatched elements: 53862 / 65536 (82.2%)
+Greatest absolute difference: 4.98828125 at index (255, 180) (up to 0.2 allowed)
+Greatest relative difference: 1.0 at index (1, 0) (up to 0.1 allowed)
+  512x512: FAILED - Tensor-likes are not close!
+
+Mismatched elements: 234439 / 262144 (89.4%)
+Greatest absolute difference: 515.861328125 at index (221, 116) (up to 0.2 allowed)
+Greatest relative difference: 2224220.25 at index (232, 488) (up to 0.1 allowed)
+  1024x1024: FAILED - Tensor-likes are not close!
+
+Mismatched elements: 863535 / 1048576 (82.4%)
+Greatest absolute difference: 5.01171875 at index (63, 948) (up to 0.2 allowed)
+Greatest relative difference: 1.0 at index (1, 0) (up to 0.1 allowed)
+  2048x2048: FAILED - Tensor-likes are not close!
+
+Mismatched elements: 3455085 / 4194304 (82.4%)
+Greatest absolute difference: 5.09765625 at index (970, 117) (up to 0.2 allowed)
+Greatest relative difference: 1.0 at index (1, 0) (up to 0.1 allowed)
+  4096x4096: FAILED - Tensor-likes are not close!
+
+Mismatched elements: 13823706 / 16777216 (82.4%)
+Greatest absolute difference: 5.27734375 at index (3642, 3119) (up to 0.2 allowed)
+Greatest relative difference: 1.0 at index (1, 0) (up to 0.1 allowed)
+  8192x8192: FAILED - Tensor-likes are not close!
+
+Mismatched elements: 55299861 / 67108864 (82.4%)
+Greatest absolute difference: 5.45703125 at index (8152, 910) (up to 0.2 allowed)
+Greatest relative difference: 1.0 at index (1, 0) (up to 0.1 allowed)
+
+[Summary]
+  Framework warmup:    306.8 ms (one-time)
+  Total JIT compile:   0.0 ms
+  Total runtime:       0.0 ms
+
+=== JSON Results ===
+{
+  "kernel": "layernorm",
+  "warmup_time_ms": 306.8,
+  "total_compile_time_ms": 0.0,
+  "benchmarks": [
+    {
+      "shape": "256x256",
+      "success": false,
+      "error": "Tensor-likes are not close!\n\nMismatched elements: 53862 / 65536 (82.2%)\nGreatest absolute difference: 4.98828125 at index (255, 180) (up to 0.2 allowed)\nGreatest relative difference: 1.0 at index (1, 0) (up to 0.1 allowed)"
+    },
+    {
+      "shape": "512x512",
+      "success": false,
+      "error": "Tensor-likes are not close!\n\nMismatched elements: 234439 / 262144 (89.4%)\nGreatest absolute difference: 515.861328125 at index (221, 116) (up to 0.2 allowed)\nGreatest relative difference: 2224220.25 at index (232, 488) (up to 0.1 allowed)"
+    },
+    {
+      "shape": "1024x1024",
+      "success": false,
+      "error": "Tensor-likes are not close!\n\nMismatched elements: 863535 / 1048576 (82.4%)\nGreatest absolute difference: 5.01171875 at index (63, 948) (up to 0.2 allowed)\nGreatest relative difference: 1.0 at index (1, 0) (up to 0.1 allowed)"
+    },
+    {
+      "shape": "2048x2048",
+      "success": false,
+      "error": "Tensor-likes are not close!\n\nMismatched elements: 3455085 / 4194304 (82.4%)\nGreatest absolute difference: 5.09765625 at index (970, 117) (up to 0.2 allowed)\nGreatest relative difference: 1.0 at index (1, 0) (up to 0.1 allowed)"
+    },
+    {
+      "shape": "4096x4096",
+      "success": false,
+      "error": "Tensor-likes are not close!\n\nMismatched elements: 13823706 / 16777216 (82.4%)\nGreatest absolute difference: 5.27734375 at index (3642, 3119) (up to 0.2 allowed)\nGreatest relative difference: 1.0 at index (1, 0) (up to 0.1 allowed)"
+    },
+    {
+      "shape": "8192x8192",
+      "success": false,
+      "error": "Tensor-likes are not close!\n\nMismatched elements: 55299861 / 67108864 (82.4%)\nGreatest absolute difference: 5.45703125 at index (8152, 910) (up to 0.2 allowed)\nGreatest relative difference: 1.0 at index (1, 0) (up to 0.1 allowed)"
+    }
+  ]
+}

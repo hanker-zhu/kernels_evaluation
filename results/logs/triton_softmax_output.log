@@ -1,0 +1,69 @@
+Triton Softmax Benchmark
+============================================================
+
+[Phase 1] Framework Warmup
+  Framework init time: 309.3 ms
+
+[Phase 2] Benchmark per Size
+  256x256: compile=0.87ms, run=0.033ms ✓
+  512x512: FAILED - Tensor-likes are not close!
+
+Mismatched elements: 198909 / 262144 (75.9%)
+Greatest absolute difference: nan at index (448, 100) (up to 0.1 allowed)
+Greatest relative difference: nan at index (448, 100) (up to 0.05 allowed)
+  1024x1024: compile=1.00ms, run=0.023ms ✓
+  2048x2048: FAILED - Tensor-likes are not close!
+
+Mismatched elements: 3570268 / 4194304 (85.1%)
+Greatest absolute difference: nan at index (1024, 228) (up to 0.3 allowed)
+Greatest relative difference: nan at index (1024, 228) (up to 0.2 allowed)
+  4096x4096: compile=0.95ms, run=0.030ms ✓
+  8192x8192: compile=0.98ms, run=0.058ms ✓
+
+[Summary]
+  Framework warmup:    309.3 ms (one-time)
+  Total JIT compile:   3.8 ms
+  Total runtime:       0.1 ms
+
+=== JSON Results ===
+{
+  "kernel": "softmax",
+  "warmup_time_ms": 309.3,
+  "total_compile_time_ms": 3.8,
+  "benchmarks": [
+    {
+      "shape": "256x256",
+      "compile_time_ms": 0.868,
+      "latency_ms": 0.0328,
+      "success": true
+    },
+    {
+      "shape": "512x512",
+      "success": false,
+      "error": "Tensor-likes are not close!\n\nMismatched elements: 198909 / 262144 (75.9%)\nGreatest absolute difference: nan at index (448, 100) (up to 0.1 allowed)\nGreatest relative difference: nan at index (448, 100) (up to 0.05 allowed)"
+    },
+    {
+      "shape": "1024x1024",
+      "compile_time_ms": 1.002,
+      "latency_ms": 0.023,
+      "success": true
+    },
+    {
+      "shape": "2048x2048",
+      "success": false,
+      "error": "Tensor-likes are not close!\n\nMismatched elements: 3570268 / 4194304 (85.1%)\nGreatest absolute difference: nan at index (1024, 228) (up to 0.3 allowed)\nGreatest relative difference: nan at index (1024, 228) (up to 0.2 allowed)"
+    },
+    {
+      "shape": "4096x4096",
+      "compile_time_ms": 0.95,
+      "latency_ms": 0.03,
+      "success": true
+    },
+    {
+      "shape": "8192x8192",
+      "compile_time_ms": 0.976,
+      "latency_ms": 0.058,
+      "success": true
+    }
+  ]
+}

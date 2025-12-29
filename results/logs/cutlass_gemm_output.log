@@ -1,0 +1,68 @@
+=== CUTLASS GEMM Benchmark ===
+使用已编译的二进制文件
+COMPILE_TIME_MS: 0
+CUTLASS GEMM Multi-Size Benchmark
+==================================================
+CUTLASS GEMM (256x256x256): 0.013536 ms (avg of 10 runs), 2478.9 TFLOPS
+CUTLASS GEMM (512x512x512): 0.0199392 ms (avg of 10 runs), 13462.7 TFLOPS
+CUTLASS GEMM (1024x1024x1024): 0.0330976 ms (avg of 10 runs), 64883.4 TFLOPS
+CUTLASS GEMM (2048x2048x2048): 0.166915 ms (avg of 10 runs), 102926 TFLOPS
+CUTLASS GEMM (4096x4096x4096): 0.956099 ms (avg of 10 runs), 143750 TFLOPS
+
+=== BENCHMARK RESULTS JSON ===
+[
+  {
+    "M": 256,
+    "N": 256,
+    "K": 256,
+    "latency_ms": 0.013536,
+    "tflops": 2478.9,
+    "checksum": -33.3085,
+    "success": true
+  },
+  {
+    "M": 512,
+    "N": 512,
+    "K": 512,
+    "latency_ms": 0.0199392,
+    "tflops": 13462.7,
+    "checksum": 1039.18,
+    "success": true
+  },
+  {
+    "M": 1024,
+    "N": 1024,
+    "K": 1024,
+    "latency_ms": 0.0330976,
+    "tflops": 64883.4,
+    "checksum": -1587.03,
+    "success": true
+  },
+  {
+    "M": 2048,
+    "N": 2048,
+    "K": 2048,
+    "latency_ms": 0.166915,
+    "tflops": 102926,
+    "checksum": 7891.23,
+    "success": true
+  },
+  {
+    "M": 4096,
+    "N": 4096,
+    "K": 4096,
+    "latency_ms": 0.956099,
+    "tflops": 143750,
+    "checksum": 2702.48,
+    "success": true
+  }
+]
+
+=== CUTLASS Analysis ===
+- Programming Model: Template metaprogramming with C++ templates
+- Implementation: Highly configurable GEMM template library
+- Memory Hierarchy: Explicit layout and tiling specification
+- Parallelism: Architecture-specific warp/thread orchestration
+- Tiling Strategy: 128x128x32 threadblock, 64x64x32 warp, 16x8x16 instruction
+- Algorithm: Optimized for Ampere architecture (SM80)
+- Precision: Mixed precision (FP16 input, FP32 accumulation)
